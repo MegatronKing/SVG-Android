@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+dependencies {
+    compile 'dom4j:dom4j:1.6.1'
+    compile 'jaxen:jaxen:1.1.6'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+task run(type: JavaExec, dependsOn: 'classes') {
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["${projectDir}\\src\\main\\resources", "${rootDir}\\SVG-Sample"]
+    main = "com.android.svg.support.Generator"
+}

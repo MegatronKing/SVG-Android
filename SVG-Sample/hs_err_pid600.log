@@ -1,0 +1,130 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 368656 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:390), pid=600, tid=9004
+#
+# JRE version:  (8.0_45-b14) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.45-b02 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000000023ed800):  JavaThread "Unknown thread" [_thread_in_vm, id=9004, stack(0x00000000022c0000,0x00000000023c0000)]
+
+Stack: [0x00000000022c0000,0x00000000023c0000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x32b57a]
+V  [jvm.dll+0x279873]
+V  [jvm.dll+0x27a509]
+V  [jvm.dll+0x271825]
+V  [jvm.dll+0xcb9e2]
+V  [jvm.dll+0xcbf63]
+V  [jvm.dll+0x75253]
+V  [jvm.dll+0xf1c98]
+V  [jvm.dll+0x20f057]
+V  [jvm.dll+0x240e0a]
+V  [jvm.dll+0x15ba41]
+C  [java.exe+0x216e]
+C  [java.exe+0xcce7]
+C  [java.exe+0xcd7b]
+C  [KERNEL32.DLL+0x18102]
+C  [ntdll.dll+0x5c5b4]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00000000023ed800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=9004, stack(0x00000000022c0000,0x00000000023c0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff677540000 - 0x00007ff677577000 	D:\Program Files\Java\jdk1.8.0_45\bin\java.exe
+0x00007ffec1860000 - 0x00007ffec1a21000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffebedb0000 - 0x00007ffebee5d000 	C:\WINDOWS\system32\KERNEL32.DLL
+0x00007ffebe0e0000 - 0x00007ffebe2c8000 	C:\WINDOWS\system32\KERNELBASE.dll
+0x00007ffebf680000 - 0x00007ffebf727000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x00007ffebf050000 - 0x00007ffebf0ed000 	C:\WINDOWS\system32\msvcrt.dll
+0x00007ffec14d0000 - 0x00007ffec152b000 	C:\WINDOWS\system32\sechost.dll
+0x00007ffebf280000 - 0x00007ffebf39c000 	C:\WINDOWS\system32\RPCRT4.dll
+0x00007ffebf520000 - 0x00007ffebf676000 	C:\WINDOWS\system32\USER32.dll
+0x00007ffebf0f0000 - 0x00007ffebf276000 	C:\WINDOWS\system32\GDI32.dll
+0x00007ffeb60a0000 - 0x00007ffeb6314000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.10586.0_none_8c15ae12515e1c22\COMCTL32.dll
+0x00007ffec15e0000 - 0x00007ffec185d000 	C:\WINDOWS\system32\combase.dll
+0x00007ffebe2d0000 - 0x00007ffebe33a000 	C:\WINDOWS\system32\bcryptPrimitives.dll
+0x00007ffebf010000 - 0x00007ffebf04b000 	C:\WINDOWS\system32\IMM32.DLL
+0x0000000066e20000 - 0x0000000066ef2000 	D:\Program Files\Java\jdk1.8.0_45\jre\bin\msvcr100.dll
+0x0000000066f00000 - 0x0000000067783000 	D:\Program Files\Java\jdk1.8.0_45\jre\bin\server\jvm.dll
+0x00007ffec12e0000 - 0x00007ffec12e8000 	C:\WINDOWS\system32\PSAPI.DLL
+0x00007ffeb5410000 - 0x00007ffeb5419000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffebf730000 - 0x00007ffebf79b000 	C:\WINDOWS\system32\WS2_32.dll
+0x00007ffebc0d0000 - 0x00007ffebc0f3000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffeb97d0000 - 0x00007ffeb97da000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffebc0a0000 - 0x00007ffebc0cc000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ffebe340000 - 0x00007ffebe383000 	C:\WINDOWS\system32\cfgmgr32.dll
+0x0000000066e10000 - 0x0000000066e1f000 	D:\Program Files\Java\jdk1.8.0_45\jre\bin\verify.dll
+0x0000000066de0000 - 0x0000000066e09000 	D:\Program Files\Java\jdk1.8.0_45\jre\bin\java.dll
+0x0000000066dc0000 - 0x0000000066dd6000 	D:\Program Files\Java\jdk1.8.0_45\jre\bin\zip.dll
+0x00007ffea65b0000 - 0x00007ffea673c000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Djava.awt.headless=true -Xmx1024M -Dfile.encoding=GBK -Duser.country=CN -Duser.language=zh -Duser.variant 
+java_command: com.android.dx.command.Main --dex --force-jumbo --num-threads=4 --output C:\Users\Megatron King\Desktop\SVG-Android\SVG-Sample\build\intermediates\pre-dexed\debug\support-annotations-24.1.1_b915b8e57ea6bbb8929fc0e1b796daeddfc1dbf8.jar C:\Users\Megatron King\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.1.1\3af19f153122737b372622fa6c81dd11a1c6b999\support-annotations-24.1.1.jar
+java_class_path (initial): E:\Android\android-sdk\build-tools\24.0.0\lib\dx.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=D:\Program Files\Java\jdk1.8.0_45
+PATH=C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Program Files\Java\bin;D:\Program Files\Java\jdk1.8.0_45\bin;D:\Program Files\nodejs\;E:\Android\android-sdk\platform-tools;D:\Program Files\android-studio\gradle\gradle-2.10\bin;D:\Program Files\Git\cmd;C:\Users\Megatron King\AppData\Roaming\npm
+USERNAME=Megatron King
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 37 Stepping 2, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 10586 (10.0.10586.0)
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 37 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht, tsc, tscinvbit
+
+Memory: 4k page, physical 4051456k(259616k free), swap 8141520k(232k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.45-b02) for windows-amd64 JRE (1.8.0_45-b14), built on Apr 10 2015 10:34:15 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Mon Sep 05 00:14:41 2016
+elapsed time: 1 seconds (0d 0h 0m 1s)
+
