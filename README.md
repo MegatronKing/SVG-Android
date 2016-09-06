@@ -3,10 +3,10 @@ support svg images for android 4.0+
 ___
 
 ##1、SVG-Android为何而生
-android从5.0开始支持SVG图片，但是相比于PNG位图存在解码耗时长和渲染性能差等问题。虽然提供了
-support-vector-drawable兼容库，但是对于开发者而言API并不友好。所以SVG-Android应运而生，完美支持4.0+
-，使用方式和PNG完全一样，同时在性能方面做了优化，虽然性能方面依然稍逊PNG位图一点点，但是考虑到SVG的图片的
-效果呈现和扩展，这点是可以接受的。
+android从5.0开始支持SVG图片，但是相比于常用的PNG位图存在着解码耗时长和渲染性能差等问题。而且在兼容性方面，虽然提供了
+support-vector-drawable兼容库，但是对于开发者而言API并不友好。<br>
+所以SVG-Android应运而生，完美支持4.0+，使用方式和PNG完全一样!<br>
+同时在性能方面做了优化，虽然性能方面依然稍逊PNG位图一筹，但是考虑到SVG的图片的呈现效果和扩展，这点是可以接受的。
 
 ##2、SVG-Android性能比较
 相比于PNG位图，SVG-Android在decode阶段性能远远优于PNG位图，但是draw渲染阶段相对逊色了不少，后期会着力于优化这一块。
