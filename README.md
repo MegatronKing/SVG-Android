@@ -26,7 +26,7 @@ SVG-Android在draw阶段也稍稍领先,大概节约了250us<br>
 
 总体来说，SVG-Android性能方面比PNG位图略低0.2-0.5倍，比Vector提高了2-3倍。但是对于对图片效果的呈现，SVG-Android比PNG好很多，完全不会因为尺寸拉伸而失真。<br>
 
-下图是100次加载的测试数据，单位us，很明显SVG-Android总体效果还是有优势的。<br>
+下图是100次加载的测试数据，单位us，很明显SVG-Android总体效果还是有优势的。<br><br>
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/performance-test.png)
 
 ___
@@ -38,13 +38,50 @@ ___
 所以，SVG-Generator库会将Vector文件提前解析生成用于直接渲染的SVGRenderer类，另外fillData的每个指令数也会预先计算好，直接生成Java Path代码，SVGDrawable只要通过SVGRenderer就能画出svg图形了。<br><br>
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/generate-codes.png)
 
+###2、无感知
+为了提高开发效率，我们希望开发者在使用SVG图片的时候能够和使用常规的PNG一样，可以在layout文件中直接使用@drawable/xxx，或者java代码中使用R.drawable.xxx。为了解决这个问题，我们采用偷天换日的方式，使用SVG-Generator生成一张空的shape文件，放入到drawable-anydpi中，同时会将对应的SVGDrawableConstantState预先注入到Resources的sPreloadedDrawables缓存中，拦截掉所有对shape的获取请求。<br><br>
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/generate-codes.png)
+
+___
 
 ##四、SVG-Android如何接入
 
-首先，将svg格式文件生成vector文件(通过svg2android或者Android Studio皆可)
-然后，运行SVG-Generator的task run (指定上一步的vector文件目录和Java Code生成目录)
-接着，在应用的Application的onCreate中加入SVGLoader.load(this);
+###1、SVG图片转换成Vector文件
+由于Android只支持部分规范的SVG文件，所以我们还是按照官方的思路，先生成合法的Vector文件，这样还有个好处就是可以引用dimen和color，方面以后统一修改尺寸和颜色。<br><br>
 
-##5、Enjoy SVG-Android！
+SVG图片转换成Vector文件有很多种方式。<br><br>
+
+方式一：使用svg2android网站转换 http://inloop.github.io/svg2android/ <br><br>
+方式二：使用Android Studio 右键 -> New -> Vector Asset -> Local SVG File
+
+###2、SVG-Generator解析Vector自动生成代码
+首先，在SVG-Generator模块的Config类中配置好参数：包括应用包名、生成SVGRenderer代码包名、以及Vector中引用的dimen和color。<br><br>
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/step1.png)
+其次，在SVG-Generator模块的build.gradle文件中配置两个参数：存放Vector文件的目录，主项目模块目录。<br><br>
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/step2.png)
+接着，运行SVG-Generator的task run。可以在gradle的task列表中点击，也可以运行命令：gradle task run <br><br>
+最后，我们可以看到在指定的目录下生成了SVGRenderer类,类名就是图片名。同时，在drawable-anydpi生成了对应的空shape文件。
+
+###3、应用程序中引入SVG-Support包并装载SVGLoader
+在应用程序的Application自定义类中，装载SVGLoader（上一步自动生成），只要一行代码！<br><br>
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/step3.png)
+
+___
+
+##五、Enjoy SVG-Android！
+
+Copyright (C) 2016, Megatron King
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 
