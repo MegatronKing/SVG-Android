@@ -58,8 +58,12 @@ SVG图片转换成Vector文件有很多种方式。<br>
 ###2、SVG-Generator解析Vector自动生成代码
 首先，在SVG-Generator模块的Config类中配置好参数：包括应用包名、生成SVGRenderer代码包名、以及Vector中引用的dimen和color。<br><br>
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/step1.png)
+
+
 其次，在SVG-Generator模块的build.gradle文件中配置两个参数：存放Vector文件的目录，主项目模块目录。<br><br>
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/step2.png)
+
+
 接着，运行SVG-Generator的task run。可以在gradle的task列表中点击，也可以运行命令：gradle task run <br><br>
 最后，我们可以看到在指定的目录下生成了SVGRenderer类,类名就是图片名。同时，在drawable-anydpi生成了对应的空shape文件。
 
