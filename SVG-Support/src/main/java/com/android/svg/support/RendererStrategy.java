@@ -5,6 +5,11 @@ import android.graphics.ColorFilter;
 import android.graphics.Rect;
 
 /**
+ * Define three strategy about svg rendering.
+ * @see NormalRendererStrategy
+ * @see BitmapRendererStrategy
+ * @see PictureRendererStrategy
+ *
  * @author Megatron King
  * @since 2016/9/4 14:46
  */

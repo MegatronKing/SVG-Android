@@ -1,13 +1,11 @@
 package com.android.svg.sample;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import com.android.svg.sample.drawables.ic_pets_black;
+import com.android.svg.support.SVGDrawable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,18 +14,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView imageView = (ImageView) findViewById(R.id.image);
-        imageView.setImageResource(R.drawable.ic_android_red);
-
-        SharedPreferences sp = getSharedPreferences("image", Context.MODE_APPEND);
-        String allTime = sp.getString("time", "");
-        if (!allTime.isEmpty()) {
-            String[] times = allTime.split(";");
-            long allCost = 0;
-            for (String time : times) {
-                allCost += Long.parseLong(time);
-            }
-            ((TextView)findViewById(R.id.text)).setText(times.length + " 次，平均耗时 " + (allCost / times.length));
-        }
+        // create a svg drawable in java code
+        SVGDrawable drawable = new SVGDrawable(new ic_pets_black(this));
+        ImageView image = (ImageView) findViewById(R.id.image);
+        image.setImageDrawable(drawable);
     }
 }

@@ -5,6 +5,10 @@ import android.graphics.ColorFilter;
 import android.graphics.Rect;
 
 /**
+ * Draw the svg image on the canvas of ImageView. The disadvantage of this approach is that
+ * the alpha always be 1.0f and no cache used. The worst is that it did not work to the scaleType
+ * of ImageView.
+ *
  * @author Megatron King
  * @since 2016/9/4 14:52
  */

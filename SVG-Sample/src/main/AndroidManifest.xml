@@ -3,11 +3,9 @@
     package="com.android.svg.sample">
 
     <application
-        android:hardwareAccelerated="false"
-        android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
         android:name=".SampleApplication"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">

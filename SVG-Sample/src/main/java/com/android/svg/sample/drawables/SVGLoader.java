@@ -38,8 +38,7 @@ public class SVGLoader  {
             return;
         }
         add(context, R.drawable.ic_android_red, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red(context)));
-        add(context, R.drawable.ic_pages_black, SVGDrawable.SVGDrawableConstantState.create(new ic_pages_black(context)));
-        add(context, R.drawable.ic_wc_green_alpha, SVGDrawable.SVGDrawableConstantState.create(new ic_wc_green_alpha(context)));
+        add(context, R.drawable.ic_pets_black, SVGDrawable.SVGDrawableConstantState.create(new ic_pets_black(context)));
     }
 
     private static void add(Context context, int resId, SVGDrawable.SVGDrawableConstantState state) {

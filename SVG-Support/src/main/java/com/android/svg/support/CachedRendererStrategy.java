@@ -1,6 +1,8 @@
 package com.android.svg.support;
 
 /**
+ * Cache the render result.
+ *
  * @author Megatron King
  * @since 2016/9/4 15:16
  */

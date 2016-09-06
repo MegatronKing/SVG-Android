@@ -18,12 +18,12 @@ public class ic_android_red extends SVGRenderer {
     public ic_android_red(Context context) {
         super(context);
         mAlpha = 1.0f;
-        mWidth = dip2px(24.0f);
-        mHeight = dip2px(24.0f);
+        mWidth = dip2px(48.0f);
+        mHeight = dip2px(48.0f);
     }
 
     public void render(Canvas canvas, int w, int h, ColorFilter filter) {
-
+        
         final float scaleX = w / 24.0f;
         final float scaleY = h / 24.0f;
         final float minScale = Math.min(scaleX, scaleY);

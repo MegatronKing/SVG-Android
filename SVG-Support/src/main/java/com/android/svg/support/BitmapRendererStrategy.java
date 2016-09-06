@@ -8,6 +8,10 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 
 /**
+ * Before draw svg to canvas, we must draw to bitmap firstly.
+ * This will cost some memories and time, but only by this way, we could
+ * handle the alpha filter. And the drawn bitmap would be cached for the next render.
+ *
  * @author Megatron King
  * @since 2016/9/4 14:54
  */

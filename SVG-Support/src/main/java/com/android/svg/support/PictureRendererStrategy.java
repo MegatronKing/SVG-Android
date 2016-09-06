@@ -7,6 +7,10 @@ import android.graphics.Picture;
 import android.graphics.Rect;
 
 /**
+ * Like the {@link BitmapRendererStrategy}. The svg render result is cached in a {@link Picture},
+ * But as same as the {@link NormalRendererStrategy}, there is no alpha effect. And if
+ * hardwareAccelerated = true, the picture would not be displayed in ImageView.
+ *
  * @author Megatron King
  * @since 2016/9/4 15:16
  */
