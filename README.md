@@ -21,7 +21,7 @@ SVG-Android框架会提前将svg图片转化成的vector xml文件生成SVG的�
 这样可以拦截所有的通过@drawable/xxx获取Drawable的请求，返回SVGDrawable对象，而在SVGDrawable对象内部包含了SVG的渲染器，
 从而实现了开发者友好，可以在layout或者selector等中使用svg图片。
 
-##4、如何接入SVG-Android
+##4、SVG-Android如何接入
 
 首先，将svg格式文件生成vector文件(通过svg2android或者Android Studio皆可)
 然后，运行SVG-Generator的task run (指定上一步的vector文件目录和Java Code生成目录)
