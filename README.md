@@ -3,14 +3,14 @@ support svg images for android 4.0+
 ___
 
 ##一、SVG-Android为何而生
-android从5.0开始支持SVG图片，也就是VectorDarwable，但是相比于常用的PNG位图却存在着诸多问题。<br>
-1、性能方面<br>
-正常情况下，Vector的性能损耗是PNG的3倍左右，主要表现在解析xml和计算path两个阶段，所以几乎很少有应用会采用。<br>
-2、兼容性<br>
+android从5.0开始支持SVG图片，也就是VectorDarwable，但是相比于常用的PNG位图却存在着诸多问题。
+###1、性能方面
+正常情况下，Vector的性能损耗是PNG的3倍左右，主要表现在解析xml和计算path两个阶段，所以几乎很少有应用会采用。
+###2、兼容性
 由于5.0才出现VectorDarwable，为了兼容低版本，google推出了support-vector-drawable兼容库。但是实际效果并不好。首先，support-vector-drawable兼容库的最低版本是23.2.0，同时依赖于support-v4，如果support-v4版本过低，无法引入兼容库。
-3、程序包体积<br>
-尽管vector文件相比于PNG图片，体积占用比较小，但是为了兼容低版本，打包时编译工具会将vector文件生成对应的PNG图片一并打包到apk中，这非常容易导致包体积膨胀。<br>
-4、实用性<br>
+###3、程序包体积
+尽管vector文件相比于PNG图片，体积占用比较小，但是为了兼容低版本，打包时编译工具会将vector文件生成对应的PNG图片一并打包到apk中，这非常容易导致包体积膨胀。
+###4、实用性
 虽然兼容库能兼容到低版本，但是在API使用方面就不那么容易了，我们很难直接在xml中直接使用，比如src="@drawable/svg"，这大大制约了开发效率。<br><br>
 针对以上几种缺点，SVG-Android应运而生，完美支持4.0+!
 
