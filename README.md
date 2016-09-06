@@ -7,7 +7,7 @@ android从5.0开始支持SVG图片，也就是VectorDarwable，但是相比于�
 ####1、性能方面
 正常情况下，Vector的性能损耗是PNG的3倍左右，主要表现在解析xml和计算path两个阶段，如此大的性能差距，导致很少有公司会采用。
 ####2、兼容性
-由于5.0才出现VectorDarwable，为了兼容低版本，google推出了support-vector-drawable兼容库，但是实际效果并不好。首先，support-vector-drawable兼容库的最低版本是23.2.0，同时依赖于support-v4，如果support-v4版本过低，无法引入兼容库。其次，如果要在layout中直接使用svg，必须引入support-v7包，对于不使用v7包的应用来说，只能舍弃vector了。
+由于android 5.0以上才出现VectorDarwable，为了兼容低版本，google推出了support-vector-drawable兼容库，但是实际效果并不好。首先，support-vector-drawable兼容库的最低版本是23.2.0，同时依赖于support-v4，如果support-v4版本过低，无法引入兼容库。其次，如果要在layout中直接使用vector，必须引入support-v7包，对于不使用v7包的应用来说，只能舍弃vector了。
 ####3、程序包体积
 尽管vector文件相比于PNG图片，体积占用比较小，但是为了兼容低版本，打包时编译工具会将vector文件生成对应的PNG图片一并打包到apk中，这非常容易导致包体积膨胀。
 ####4、实用性
@@ -15,10 +15,16 @@ android从5.0开始支持SVG图片，也就是VectorDarwable，但是相比于�
 针对以上几种缺点，SVG-Android应运而生，完美支持2.3+!
 
 ##2、SVG-Android性能比较
-相比于PNG位图，SVG-Android在decode阶段性能远远优于PNG位图，但是draw渲染阶段相对逊色了不少，后期会着力于优化这一块。<br>
-相比于Vector，android官方的SVG解决方案，SVG-Android在decode阶段的性能遥遥领先，draw阶段也稍稍领先。<br>
-总体来说，SVG-Android性能比PNG位图略低0.2-0.5倍，比Vector提高了2-3倍。<br>
-另外，对图片效果的呈现，SVG-Android比PNG好很多，完全不会因为尺寸拉伸而失真。<br>
+
+#### SVG-Android VS PNG 
+SVG-Android在decode阶段性能远远优于PNG位图，但是draw渲染阶段相对逊色了不少，后期会着力于优化这一块。
+#### SVG-Android VS Vector
+SVG-Android在decode阶段的性能遥遥领先，耗时大约在100-200us，比Vector高出至少10倍<br>
+SVG-Android在draw阶段也稍稍领先,大概节约了250us<br><br>
+
+总体来说，SVG-Android性能方面比PNG位图略低0.2-0.5倍，比Vector提高了2-3倍。但是对于对图片效果的呈现，SVG-Android比PNG好很多，完全不会因为尺寸拉伸而失真。<br>
+
+下图是100次启动的测试数据，单位us，很明显SVG-Android总体效果还是有优势的。
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/performance-test.png)
 
 ##3、SVG-Android原理
