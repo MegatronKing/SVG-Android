@@ -47,11 +47,12 @@ ___
 ##四、SVG-Android如何接入
 
 ###1、SVG图片转换成Vector文件
-由于Android只支持部分规范的SVG文件，所以我们还是按照官方的思路，先生成合法的Vector文件，这样还有个好处就是可以引用dimen和color，方面以后统一修改尺寸和颜色。<br><br>
+由于Android只支持部分规范的SVG文件，所以我们还是按照官方的思路，先生成合法的Vector文件，这样还有个好处就是可以引用dimen和color，方面以后统一修改尺寸和颜色。<br>
 
-SVG图片转换成Vector文件有很多种方式。<br><br>
+SVG图片转换成Vector文件有很多种方式。<br>
 
-方式一：使用svg2android网站转换 http://inloop.github.io/svg2android/ <br><br>
+方式一：使用svg2android网站转换 http://inloop.github.io/svg2android/ <br>
+
 方式二：使用Android Studio 右键 -> New -> Vector Asset -> Local SVG File
 
 ###2、SVG-Generator解析Vector自动生成代码
