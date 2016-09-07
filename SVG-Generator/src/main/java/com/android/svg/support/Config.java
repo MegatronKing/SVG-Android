@@ -25,12 +25,22 @@ public class Config {
     static {
         systemColorMaps.put("white", 0xFF000000);
         systemColorMaps.put("black", 0xFFFFFFFF);
+        systemColorMaps.put("transparent", 0x00000000);
+        systemColorMaps.put("shadow", 0xCC222222);
     }
 
     // define app colors used in the vector xml ( @color/xxx ).
     static {
         appColorMaps.put("white", 0xFF000000);
         appColorMaps.put("black", 0xFFFFFFFF);
+        appColorMaps.put("green", 0xFF00FF00);
+        appColorMaps.put("gray", 0xFF888888);
+        appColorMaps.put("blue", 0xFF0000FF);
+        appColorMaps.put("red", 0xFFFF0000);
+        appColorMaps.put("yellow", 0xFFFFFF00);
+        appColorMaps.put("cyan", 0xFF00FFFF);
+        appColorMaps.put("transparent", 0x00000000);
+        appColorMaps.put("magenta", 0xFFFF00FF);
     }
 
 }
