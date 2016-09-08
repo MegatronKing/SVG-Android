@@ -43,7 +43,7 @@ public class Generator {
         }
         deleteFilesInFolder(projectCodeFolder);
 
-        String xmlFolder = "\\src\\main\\res\\drawable-anydpi";
+        String xmlFolder = "\\src\\main\\res\\drawable";
         File projectXmlFolder = new File(projectFolder.getPath() + xmlFolder);
         if (!projectXmlFolder.exists()) {
             projectXmlFolder.mkdirs();
