@@ -106,10 +106,10 @@ public class VectorPathRenderer extends NotifyVectorRenderer<Path> {
                     }
                     notifyResult("mStrokePaint.setStrokeCap(" + strokeLineCap + ");");
                 }
-                notifyResult("mStrokePaint.setStrokeMiter(" + path.strokeMiterLimit + ");");
-                notifyResult("mStrokePaint.setColor(applyAlpha(" + path.strokeColor +", " + path.strokeAlpha + "f);");
+                notifyResult("mStrokePaint.setStrokeMiter(" + path.strokeMiterLimit + "f);");
+                notifyResult("mStrokePaint.setColor(applyAlpha(" + path.strokeColor +", " + path.strokeAlpha + "f));");
                 notifyResult("mStrokePaint.setColorFilter(filter);");
-                notifyResult("mStrokePaint.setStrokeWidth(minScale * matrixScale * " + path.strokeWidth + ");");
+                notifyResult("mStrokePaint.setStrokeWidth(minScale * matrixScale" + mCount + " * " + path.strokeWidth + "f);");
                 notifyResult("canvas.drawPath(mRenderPath, mStrokePaint);");
             }
         }
@@ -362,14 +362,14 @@ public class VectorPathRenderer extends NotifyVectorRenderer<Path> {
     }
 
     private void drawArc(float x0,
-                                float y0,
-                                float x1,
-                                float y1,
-                                float a,
-                                float b,
-                                float theta,
-                                boolean isMoreThanHalf,
-                                boolean isPositiveArc) {
+                         float y0,
+                         float x1,
+                         float y1,
+                         float a,
+                         float b,
+                         float theta,
+                         boolean isMoreThanHalf,
+                         boolean isPositiveArc) {
 
             /* Convert rotation angle from degrees to radians */
         double thetaD = Math.toRadians(theta);
@@ -449,14 +449,14 @@ public class VectorPathRenderer extends NotifyVectorRenderer<Path> {
      * @param sweep The angle (positive or negative) of the sweep of the arc on the ellipse
      */
     private void arcToBezier(double cx,
-                                    double cy,
-                                    double a,
-                                    double b,
-                                    double e1x,
-                                    double e1y,
-                                    double theta,
-                                    double start,
-                                    double sweep) {
+                             double cy,
+                             double a,
+                             double b,
+                             double e1x,
+                             double e1y,
+                             double theta,
+                             double start,
+                             double sweep) {
         // Taken from equations at: http://spaceroots.org/documents/ellipse/node8.html
         // and http://www.spaceroots.org/documents/ellipse/node22.html
 
