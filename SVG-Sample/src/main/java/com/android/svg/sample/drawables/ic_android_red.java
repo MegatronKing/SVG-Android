@@ -26,18 +26,13 @@ public class ic_android_red extends SVGRenderer {
         
         final float scaleX = w / 24.0f;
         final float scaleY = h / 24.0f;
-        final float minScale = Math.min(scaleX, scaleY);
-        
-        mGroupStackedMatrix.setValues(new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
-        mFinalPathMatrix.set(mGroupStackedMatrix);
-        mFinalPathMatrix.postScale(scaleX, scaleY);
-        
-        final float matrixScale1 = getMatrixScale(mGroupStackedMatrix);
-        if (matrixScale1 == 0) {
-            return;
-        }
         
         mPath.reset();
+        mRenderPath.reset();
+        
+        mFinalPathMatrix.setValues(new float[]{0.70710677f, -0.70710677f, 0.0f, 0.70710677f, 0.70710677f, 0.0f, 0.0f, 0.0f, 1.0f});
+        mFinalPathMatrix.postScale(scaleX, scaleY);
+        
         mPath.moveTo(6.0f, 18.0f);
         mPath.rCubicTo(0.0f, 0.55f, 0.45f, 1.0f, 1.0f, 1.0f);
         mPath.rLineTo(1.0f, 0f);
@@ -106,7 +101,6 @@ public class ic_android_red extends SVGRenderer {
         mPath.close();
         mPath.moveTo(15.0f, 5.0f);
         
-        mRenderPath.reset();
         mRenderPath.addPath(mPath, mFinalPathMatrix);
         if (mFillPaint == null) {
             mFillPaint = new Paint();

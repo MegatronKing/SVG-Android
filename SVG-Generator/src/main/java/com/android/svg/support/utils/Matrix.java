@@ -121,6 +121,36 @@ public class Matrix {
         return true;
     }
 
+    /**
+     * Apply this matrix to the array of 2D vectors, and write the transformed
+     * vectors back into the array.
+     *
+     * Note: this method does not apply the translation associated with the matrix.
+     */
+    public void mapVectors(float[] vecs) {
+        if (vecs == null || vecs.length % 2 != 0) {
+            return;
+        }
+        for (int i = 0; i < vecs.length / 2; i++) {
+            float[] result = mapVector(vecs[i * 2], vecs[i * 2 + 1]);
+            vecs[i * 2] = result[0];
+            vecs[i * 2 + 1] = result[1];
+        }
+    }
+
+    /**
+     * Apply this matrix to the array of 2D vectors, and write the transformed
+     * vectors back into the array.
+     *
+     * Note: this method does not apply the translation associated with the matrix.
+     */
+    public float[] mapVector(float x, float y) {
+        float[] result = new float[] {x, y};
+        result[0] = MATRIX[MSCALE_X] * x + MATRIX[MSKEW_X] * y;
+        result[1] = MATRIX[MSKEW_Y] * x + MATRIX[MSCALE_Y] * y;
+        return result;
+    }
+
     /** Copy 9 values from the matrix into the array.
      */
     public void getValues(float[] values) {

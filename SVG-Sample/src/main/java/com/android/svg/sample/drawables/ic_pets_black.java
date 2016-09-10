@@ -26,18 +26,13 @@ public class ic_pets_black extends SVGRenderer {
         
         final float scaleX = w / 24.0f;
         final float scaleY = h / 24.0f;
-        final float minScale = Math.min(scaleX, scaleY);
-        
-        mGroupStackedMatrix.setValues(new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
-        mFinalPathMatrix.set(mGroupStackedMatrix);
-        mFinalPathMatrix.postScale(scaleX, scaleY);
-        
-        final float matrixScale1 = getMatrixScale(mGroupStackedMatrix);
-        if (matrixScale1 == 0) {
-            return;
-        }
         
         mPath.reset();
+        mRenderPath.reset();
+        
+        mFinalPathMatrix.setValues(new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
+        mFinalPathMatrix.postScale(scaleX, scaleY);
+        
         mPath.moveTo(4.5f, 9.5f);
         mPath.rMoveTo(-2.5f, 0.0f);
         mPath.cubicTo(2.0f, 8.972134f, 2.1671855f, 8.457589f, 2.4774575f, 8.030537f);
@@ -51,7 +46,6 @@ public class ic_pets_black extends SVGRenderer {
         mPath.cubicTo(3.225427f, 11.714521f, 2.7877295f, 11.396516f, 2.4774575f, 10.969463f);
         mPath.cubicTo(2.1671855f, 10.542411f, 2.0f, 10.027866f, 2.0f, 9.5f);
         
-        mRenderPath.reset();
         mRenderPath.addPath(mPath, mFinalPathMatrix);
         if (mFillPaint == null) {
             mFillPaint = new Paint();
@@ -61,16 +55,12 @@ public class ic_pets_black extends SVGRenderer {
         mFillPaint.setColor(applyAlpha(-16777216, 1.0f));
         mFillPaint.setColorFilter(filter);
         canvas.drawPath(mRenderPath, mFillPaint);
-        mGroupStackedMatrix.setValues(new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
-        mFinalPathMatrix.set(mGroupStackedMatrix);
+        mPath.reset();
+        mRenderPath.reset();
+        
+        mFinalPathMatrix.setValues(new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
         mFinalPathMatrix.postScale(scaleX, scaleY);
         
-        final float matrixScale2 = getMatrixScale(mGroupStackedMatrix);
-        if (matrixScale2 == 0) {
-            return;
-        }
-        
-        mPath.reset();
         mPath.moveTo(9.0f, 5.5f);
         mPath.rMoveTo(-2.5f, 0.0f);
         mPath.cubicTo(6.5f, 4.9721336f, 6.667186f, 4.4575896f, 6.9774575f, 4.0305367f);
@@ -84,21 +74,16 @@ public class ic_pets_black extends SVGRenderer {
         mPath.cubicTo(7.725427f, 7.714522f, 7.2877293f, 7.396516f, 6.9774575f, 6.9694633f);
         mPath.cubicTo(6.667186f, 6.5424104f, 6.5f, 6.0278664f, 6.5f, 5.5f);
         
-        mRenderPath.reset();
         mRenderPath.addPath(mPath, mFinalPathMatrix);
         mFillPaint.setColor(applyAlpha(-16777216, 1.0f));
         mFillPaint.setColorFilter(filter);
         canvas.drawPath(mRenderPath, mFillPaint);
-        mGroupStackedMatrix.setValues(new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
-        mFinalPathMatrix.set(mGroupStackedMatrix);
+        mPath.reset();
+        mRenderPath.reset();
+        
+        mFinalPathMatrix.setValues(new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
         mFinalPathMatrix.postScale(scaleX, scaleY);
         
-        final float matrixScale3 = getMatrixScale(mGroupStackedMatrix);
-        if (matrixScale3 == 0) {
-            return;
-        }
-        
-        mPath.reset();
         mPath.moveTo(15.0f, 5.5f);
         mPath.rMoveTo(-2.5f, 0.0f);
         mPath.cubicTo(12.5f, 4.837213f, 12.763572f, 4.2008944f, 13.232233f, 3.732233f);
@@ -110,21 +95,16 @@ public class ic_pets_black extends SVGRenderer {
         mPath.cubicTo(14.3372135f, 8.0f, 13.700894f, 7.7364283f, 13.232233f, 7.267767f);
         mPath.cubicTo(12.763572f, 6.7991056f, 12.5f, 6.162787f, 12.5f, 5.5f);
         
-        mRenderPath.reset();
         mRenderPath.addPath(mPath, mFinalPathMatrix);
         mFillPaint.setColor(applyAlpha(-16777216, 1.0f));
         mFillPaint.setColorFilter(filter);
         canvas.drawPath(mRenderPath, mFillPaint);
-        mGroupStackedMatrix.setValues(new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
-        mFinalPathMatrix.set(mGroupStackedMatrix);
+        mPath.reset();
+        mRenderPath.reset();
+        
+        mFinalPathMatrix.setValues(new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
         mFinalPathMatrix.postScale(scaleX, scaleY);
         
-        final float matrixScale4 = getMatrixScale(mGroupStackedMatrix);
-        if (matrixScale4 == 0) {
-            return;
-        }
-        
-        mPath.reset();
         mPath.moveTo(19.5f, 9.5f);
         mPath.rMoveTo(-2.5f, 0.0f);
         mPath.cubicTo(16.998335f, 8.971059f, 17.164577f, 8.454992f, 17.474674f, 8.026481f);
@@ -138,21 +118,16 @@ public class ic_pets_black extends SVGRenderer {
         mPath.cubicTo(18.223003f, 11.72127f, 17.784771f, 11.402031f, 17.474674f, 10.973519f);
         mPath.cubicTo(17.164577f, 10.545008f, 16.998335f, 10.028941f, 17.0f, 9.5f);
         
-        mRenderPath.reset();
         mRenderPath.addPath(mPath, mFinalPathMatrix);
         mFillPaint.setColor(applyAlpha(-16777216, 1.0f));
         mFillPaint.setColorFilter(filter);
         canvas.drawPath(mRenderPath, mFillPaint);
-        mGroupStackedMatrix.setValues(new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
-        mFinalPathMatrix.set(mGroupStackedMatrix);
+        mPath.reset();
+        mRenderPath.reset();
+        
+        mFinalPathMatrix.setValues(new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
         mFinalPathMatrix.postScale(scaleX, scaleY);
         
-        final float matrixScale5 = getMatrixScale(mGroupStackedMatrix);
-        if (matrixScale5 == 0) {
-            return;
-        }
-        
-        mPath.reset();
         mPath.moveTo(17.34f, 14.86f);
         mPath.rCubicTo(-0.87f, -1.02f, -1.6f, -1.89f, -2.48f, -2.91f);
         mPath.rCubicTo(-0.46f, -0.54f, -1.05f, -1.08f, -1.75f, -1.32f);
@@ -172,7 +147,6 @@ public class ic_pets_black extends SVGRenderer {
         mPath.close();
         mPath.moveTo(17.34f, 14.86f);
         
-        mRenderPath.reset();
         mRenderPath.addPath(mPath, mFinalPathMatrix);
         mFillPaint.setColor(applyAlpha(-16777216, 1.0f));
         mFillPaint.setColorFilter(filter);

@@ -20,4 +20,8 @@ public abstract class NotifyVectorRenderer<T> extends CountableVectorRenderer<T>
 
     }
 
+    protected void drawNewLine() {
+        notifyResult("");
+    }
+
 }

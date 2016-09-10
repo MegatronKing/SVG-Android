@@ -2,6 +2,7 @@ package com.android.svg.support.render;
 
 import com.android.svg.support.model.ClipPath;
 import com.android.svg.support.model.Path;
+import com.android.svg.support.utils.Matrix;
 
 public class VectorPathRenderer extends NotifyVectorRenderer<Path> {
 
@@ -11,113 +12,91 @@ public class VectorPathRenderer extends NotifyVectorRenderer<Path> {
     @Override
     public void render(Path path) {
         super.render(path);
+        // no fill color and stroke color, no content to draw
         if (path.fillColor == 0 && path.strokeColor == 0) {
             return;
         }
+        // calculate matrixScale
         float[] matrixValues = new float[9];
-        path.parentGroup.getMatrix().getValues(matrixValues);
-        notifyResult("mGroupStackedMatrix.setValues(new float[]{" + matrixValues[0] + "f, " +
-                matrixValues[1] + "f, " + matrixValues[2] + "f, " + matrixValues[3] + "f, " +
-                matrixValues[4] + "f, " + matrixValues[5] + "f, " + matrixValues[6] + "f, " +
-                matrixValues[7] + "f, " + matrixValues[8] + "f});");
-        notifyResult("mFinalPathMatrix.set(mGroupStackedMatrix);");
-        notifyResult("mFinalPathMatrix.postScale(scaleX, scaleY);");
-        notifyResult("");
-        notifyResult("final float matrixScale" + mCount + " = getMatrixScale(mGroupStackedMatrix);");
-        notifyResult("if (matrixScale" + mCount + " == 0) {");
-        notifyResult(HEAD_SPACE + "return;");
-        notifyResult("}");
-        notifyResult("");
-        notifyResult("mPath.reset();");
-        PathDataNode[] nodes = PathDataNode.createNodesFromPathData(path.pathData);
-        float[] current = new float[6];
-        char previousCommand = 'm';
-        for (int i = 0; i < nodes.length; i++) {
-            addCommand(current, previousCommand, nodes[i].type, nodes[i].params);
-            previousCommand = nodes[i].type;
+        Matrix groupStackedMatrix = path.parentGroup.getMatrix();
+        groupStackedMatrix.getValues(matrixValues);
+        float matrixScale = getMatrixScale(groupStackedMatrix);
+        if (matrixScale == 0) {
+            return;
         }
-        notifyResult("");
-        notifyResult("mRenderPath.reset();");
+
+        resetPaths();
+        drawNewLine();
+
+        initFinalPathMatrix(matrixValues);
+        drawNewLine();
+
+        drawPathData(path.pathData);
+        drawNewLine();
+
         if (path instanceof ClipPath) {
-            notifyResult("mRenderPath.addPath(mPath, mFinalPathMatrix);");
-            notifyResult("canvas.clipPath(mRenderPath, Region.Op.REPLACE);");
+            drawClipPath();
         } else {
-            if (path.trimPathStart != 0.0f || path.trimPathEnd != 1.0f) {
-                float start = (path.trimPathStart + path.trimPathOffset) % 1.0f;
-                float end = (path.trimPathEnd + path.trimPathOffset) % 1.0f;
-                notifyResult("if (mPathMeasure == null) {");
-                notifyResult(HEAD_SPACE + "mPathMeasure = new PathMeasure();");
-                notifyResult("}");
-                notifyResult("mPathMeasure.setPath(mPath, false);");
-                notifyResult("float len" + mCount + " = mPathMeasure.getLength();");
-                notifyResult("float start" + mCount + " = " + start + " * len" + mCount);
-                notifyResult("float end" + mCount + " = " + end + " * len" + mCount);
-                notifyResult("mPath.reset();");
-                notifyResult("if (start" + mCount + " > end" + mCount +") {");
-                notifyResult(HEAD_SPACE + "mPathMeasure.getSegment(start" + mCount + ", len" + mCount + ", path, true);");
-                notifyResult(HEAD_SPACE + "mPathMeasure.getSegment(0f, end" + mCount + ", path, true);");
-                notifyResult("} else {");
-                notifyResult(HEAD_SPACE + "mPathMeasure.getSegment(start" + mCount + ", end" + mCount + ", path, true);");
-                notifyResult("}");
-                notifyResult("mPath.rLineTo(0, 0);");
-            }
-            notifyResult("mRenderPath.addPath(mPath, mFinalPathMatrix);");
-            if (path.fillColor != 0) {
-                if (!isFillPaintInited) {
-                    isFillPaintInited = true;
-                    notifyResult("if (mFillPaint == null) {");
-                    notifyResult(HEAD_SPACE + "mFillPaint = new Paint();");
-                    notifyResult(HEAD_SPACE + "mFillPaint.setStyle(Paint.Style.FILL);");
-                    notifyResult(HEAD_SPACE + "mFillPaint.setAntiAlias(true);");
-                    notifyResult("}");
-                }
-                notifyResult("mFillPaint.setColor(applyAlpha(" + path.fillColor +", " + path.fillAlpha + "f));");
-                notifyResult("mFillPaint.setColorFilter(filter);");
-                notifyResult("canvas.drawPath(mRenderPath, mFillPaint);");
-            }
-            if (path.strokeColor != 0) {
-                if (!isStrokePaintInited) {
-                    isStrokePaintInited = true;
-                    notifyResult("if (mStrokePaint == null) {");
-                    notifyResult(HEAD_SPACE + "mStrokePaint = new Paint();");
-                    notifyResult(HEAD_SPACE + "mStrokePaint.setStyle(Paint.Style.STROKE);");
-                    notifyResult(HEAD_SPACE + "mStrokePaint.setAntiAlias(true);");
-                    notifyResult("}");
-                }
-                if (path.strokeLineJoin != null) {
-                    String strokeLineJoin = null;
-                    if ("bevel".equals(path.strokeLineJoin)) {
-                        strokeLineJoin = "Paint.Join.BEVEL";
-                    } else if ("miter".equals(path.strokeLineJoin)) {
-                        strokeLineJoin = "Paint.Join.MITER";
-                    } else if ("round".equals(path.strokeLineJoin)) {
-                        strokeLineJoin = "Paint.Join.ROUND";
-                    }
-                    notifyResult("mStrokePaint.setStrokeJoin(" + strokeLineJoin + ");");
-                }
-                if (path.strokeLineCap != null) {
-                    String strokeLineCap = null;
-                    if ("butt".equals(path.strokeLineCap)) {
-                        strokeLineCap = "Paint.Cap.BUTT";
-                    } else if ("round".equals(path.strokeLineCap)) {
-                        strokeLineCap = "Paint.Cap.ROUND";
-                    } else if ("square".equals(path.strokeLineCap)) {
-                        strokeLineCap = "Paint.Cap.SQUARE";
-                    }
-                    notifyResult("mStrokePaint.setStrokeCap(" + strokeLineCap + ");");
-                }
-                notifyResult("mStrokePaint.setStrokeMiter(" + path.strokeMiterLimit + "f);");
-                notifyResult("mStrokePaint.setColor(applyAlpha(" + path.strokeColor +", " + path.strokeAlpha + "f));");
-                notifyResult("mStrokePaint.setColorFilter(filter);");
-                notifyResult("mStrokePaint.setStrokeWidth(minScale * matrixScale" + mCount + " * " + path.strokeWidth + "f);");
-                notifyResult("canvas.drawPath(mRenderPath, mStrokePaint);");
-            }
+            drawPath(path, matrixScale);
         }
     }
 
     @Override
     protected void notifyResult(String result) {
         super.notifyResult(HEAD_SPACE + HEAD_SPACE + result + "\n");
+    }
+
+    private void resetPaths() {
+        notifyResult("mPath.reset();");
+        notifyResult("mRenderPath.reset();");
+    }
+
+    private void initFinalPathMatrix(float[] matrixValues) {
+        notifyResult("mFinalPathMatrix.setValues(new float[]{" + matrixValues[0] + "f, " +
+                matrixValues[1] + "f, " + matrixValues[2] + "f, " + matrixValues[3] + "f, " +
+                matrixValues[4] + "f, " + matrixValues[5] + "f, " + matrixValues[6] + "f, " +
+                matrixValues[7] + "f, " + matrixValues[8] + "f});");
+        notifyResult("mFinalPathMatrix.postScale(scaleX, scaleY);");
+    }
+
+    private float getMatrixScale(Matrix groupStackedMatrix) {
+        // Given unit vectors A = (0, 1) and B = (1, 0).
+        // After matrix mapping, we got A' and B'. Let theta = the angel b/t A' and B'.
+        // Therefore, the final scale we want is min(|A'| * sin(theta), |B'| * sin(theta)),
+        // which is (|A'| * |B'| * sin(theta)) / max (|A'|, |B'|);
+        // If  max (|A'|, |B'|) = 0, that means either x or y has a scale of 0.
+        //
+        // For non-skew case, which is most of the cases, matrix scale is computing exactly the
+        // scale on x and y axis, and take the minimal of these two.
+        // For skew case, an unit square will mapped to a parallelogram. And this function will
+        // return the minimal height of the 2 bases.
+        float[] unitVectors = new float[]{0, 1, 1, 0};
+        groupStackedMatrix.mapVectors(unitVectors);
+        float scaleX = (float) Math.hypot(unitVectors[0], unitVectors[1]);
+        float scaleY = (float) Math.hypot(unitVectors[2], unitVectors[3]);
+        float crossProduct = cross(unitVectors[0], unitVectors[1], unitVectors[2],
+                unitVectors[3]);
+        float maxScale = Math.max(scaleX, scaleY);
+
+        float matrixScale = 0;
+        if (maxScale > 0) {
+            matrixScale = Math.abs(crossProduct) / maxScale;
+        }
+        return matrixScale;
+    }
+
+    private float cross(float v1x, float v1y, float v2x, float v2y) {
+        return v1x * v2y - v1y * v2x;
+    }
+
+    private void drawPathData(String pathData) {
+        PathDataNode[] nodes = PathDataNode.createNodesFromPathData(pathData);
+        float[] current = new float[6];
+        char previousCommand = 'm';
+        for (int i = 0; i < nodes.length; i++) {
+            addCommand(current, previousCommand, nodes[i].type, nodes[i].params);
+            previousCommand = nodes[i].type;
+        }
     }
 
     private void addCommand(float[] current, char previousCmd, char cmd, float[] val) {
@@ -494,6 +473,84 @@ public class VectorPathRenderer extends NotifyVectorRenderer<Path> {
             e1y = e2y;
             ep1x = ep2x;
             ep1y = ep2y;
+        }
+    }
+
+    private void drawClipPath() {
+        notifyResult("mRenderPath.addPath(mPath, mFinalPathMatrix);");
+        notifyResult("canvas.clipPath(mRenderPath, Region.Op.REPLACE);");
+    }
+
+    private void drawPath(Path path, float matrixScale) {
+        if (path.trimPathStart != 0.0f || path.trimPathEnd != 1.0f) {
+            float start = (path.trimPathStart + path.trimPathOffset) % 1.0f;
+            float end = (path.trimPathEnd + path.trimPathOffset) % 1.0f;
+            notifyResult("if (mPathMeasure == null) {");
+            notifyResult(HEAD_SPACE + "mPathMeasure = new PathMeasure();");
+            notifyResult("}");
+            notifyResult("mPathMeasure.setPath(mPath, false);");
+            notifyResult("float len" + mCount + " = mPathMeasure.getLength();");
+            notifyResult("float start" + mCount + " = " + start + " * len" + mCount);
+            notifyResult("float end" + mCount + " = " + end + " * len" + mCount);
+            notifyResult("mPath.reset();");
+            notifyResult("if (start" + mCount + " > end" + mCount +") {");
+            notifyResult(HEAD_SPACE + "mPathMeasure.getSegment(start" + mCount + ", len" + mCount + ", path, true);");
+            notifyResult(HEAD_SPACE + "mPathMeasure.getSegment(0f, end" + mCount + ", path, true);");
+            notifyResult("} else {");
+            notifyResult(HEAD_SPACE + "mPathMeasure.getSegment(start" + mCount + ", end" + mCount + ", path, true);");
+            notifyResult("}");
+            notifyResult("mPath.rLineTo(0, 0);");
+        }
+        notifyResult("mRenderPath.addPath(mPath, mFinalPathMatrix);");
+        if (path.fillColor != 0) {
+            if (!isFillPaintInited) {
+                isFillPaintInited = true;
+                notifyResult("if (mFillPaint == null) {");
+                notifyResult(HEAD_SPACE + "mFillPaint = new Paint();");
+                notifyResult(HEAD_SPACE + "mFillPaint.setStyle(Paint.Style.FILL);");
+                notifyResult(HEAD_SPACE + "mFillPaint.setAntiAlias(true);");
+                notifyResult("}");
+            }
+            notifyResult("mFillPaint.setColor(applyAlpha(" + path.fillColor +", " + path.fillAlpha + "f));");
+            notifyResult("mFillPaint.setColorFilter(filter);");
+            notifyResult("canvas.drawPath(mRenderPath, mFillPaint);");
+        }
+        if (path.strokeColor != 0) {
+            if (!isStrokePaintInited) {
+                isStrokePaintInited = true;
+                notifyResult("if (mStrokePaint == null) {");
+                notifyResult(HEAD_SPACE + "mStrokePaint = new Paint();");
+                notifyResult(HEAD_SPACE + "mStrokePaint.setStyle(Paint.Style.STROKE);");
+                notifyResult(HEAD_SPACE + "mStrokePaint.setAntiAlias(true);");
+                notifyResult("}");
+            }
+            if (path.strokeLineJoin != null) {
+                String strokeLineJoin = null;
+                if ("bevel".equals(path.strokeLineJoin)) {
+                    strokeLineJoin = "Paint.Join.BEVEL";
+                } else if ("miter".equals(path.strokeLineJoin)) {
+                    strokeLineJoin = "Paint.Join.MITER";
+                } else if ("round".equals(path.strokeLineJoin)) {
+                    strokeLineJoin = "Paint.Join.ROUND";
+                }
+                notifyResult("mStrokePaint.setStrokeJoin(" + strokeLineJoin + ");");
+            }
+            if (path.strokeLineCap != null) {
+                String strokeLineCap = null;
+                if ("butt".equals(path.strokeLineCap)) {
+                    strokeLineCap = "Paint.Cap.BUTT";
+                } else if ("round".equals(path.strokeLineCap)) {
+                    strokeLineCap = "Paint.Cap.ROUND";
+                } else if ("square".equals(path.strokeLineCap)) {
+                    strokeLineCap = "Paint.Cap.SQUARE";
+                }
+                notifyResult("mStrokePaint.setStrokeCap(" + strokeLineCap + ");");
+            }
+            notifyResult("mStrokePaint.setStrokeMiter(" + path.strokeMiterLimit + "f);");
+            notifyResult("mStrokePaint.setColor(applyAlpha(" + path.strokeColor +", " + path.strokeAlpha + "f));");
+            notifyResult("mStrokePaint.setColorFilter(filter);");
+            notifyResult("mStrokePaint.setStrokeWidth(minScale * " + matrixScale + "f * " + path.strokeWidth + "f);");
+            notifyResult("canvas.drawPath(mRenderPath, mStrokePaint);");
         }
     }
 }
