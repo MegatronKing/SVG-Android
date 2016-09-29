@@ -16,7 +16,10 @@ public class MainActivity extends AppCompatActivity {
 
         // create a svg drawable in java code
         SVGDrawable drawable = new SVGDrawable(new ic_pets_black(this));
-        ImageView image = (ImageView) findViewById(R.id.image);
-        image.setImageDrawable(drawable);
+        ImageView image1 = (ImageView) findViewById(R.id.image1);
+        image1.setImageDrawable(drawable);
+
+        ImageView image2 = (ImageView) findViewById(R.id.image2);
+        image2.setImageResource(R.drawable.ic_assignment_returned);
     }
 }

@@ -12,9 +12,15 @@
         android:src="@drawable/ic_android_red"/>
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/image1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="20dip" />
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="96dip"
+        android:layout_height="96dip"
         android:layout_margin="20dip" />
 
 </LinearLayout>
