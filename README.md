@@ -2,6 +2,9 @@
 support svg images for android 2.3+
 ___
 
+## 参考博客：http://blog.csdn.net/megatronkings
+___
+
 ##一、SVG-Android为何而生
 Android从5.0开始支持SVG图片，也就是VectorDarwable，但是相比于常用的PNG位图却存在着诸多问题。
 ###1、性能方面
