@@ -1,7 +1,6 @@
 package com.android.svg.support.writer.impl;
 
 
-import com.android.svg.support.Config;
 import com.android.svg.support.model.Vector;
 import com.android.svg.support.render.VectorRenderer;
 import com.android.svg.support.utils.Dimen;
@@ -18,7 +17,6 @@ public class SVGRendererTemplateWriter extends JavaClassWriter {
     public SVGRendererTemplateWriter(VectorRenderer renderer, Vector vector) {
         this.mRenderer = renderer;
         this.mVector = vector;
-        setPackage(Config.SVG_CODE_PACKAGE);
         setClassRelation("SVGRenderer", null);
     }
 

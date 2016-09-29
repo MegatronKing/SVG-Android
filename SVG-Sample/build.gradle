@@ -17,6 +17,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        release {
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res', "src/main/svg_release"]
+        }
+        debug {
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res', 'src/main/svg_debug']
+        }
+    }
 }
 
 dependencies {
@@ -24,5 +35,4 @@ dependencies {
     compile project(":SVG-Support")
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.0.0'
-    compile project(path: ':SVG-Support')
 }

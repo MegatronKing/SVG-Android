@@ -8,6 +8,11 @@ dependencies {
 
 task run(type: JavaExec, dependsOn: 'classes') {
     classpath = sourceSets.main.runtimeClasspath
-    args = ["${projectDir}\\src\\main\\resources", "${rootDir}\\SVG-Sample"]
+    // 第一个参数，存放vector的文件夹，可以打到debug包中，方便开发视图调试
+    // 第二个参数，生成fake图片的文件夹，真正参与release包编译的空shape文件
+    // 第三个参数，生成java code的文件夹
+    args = ["${rootDir}\\SVG-Sample\\src\\main\\svg_debug\\drawable",
+            "${rootDir}\\SVG-Sample\\src\\main\\svg_release\\drawable",
+            "${rootDir}\\SVG-Sample\\src\\main\\java\\com\\android\\svg\\sample\\drawables"]
     main = "com.android.svg.support.Generator"
 }

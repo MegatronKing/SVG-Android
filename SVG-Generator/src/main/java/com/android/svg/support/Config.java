@@ -15,8 +15,6 @@ public class Config {
 
     // define app package name
     public static final String APP_PACKAGE = "com.android.svg.sample";
-    // define automatically generated java class package
-    public static final String SVG_CODE_PACKAGE = "com.android.svg.sample.drawables";
 
     public static HashMap<String, Integer> systemColorMaps = new HashMap<>();
     public static HashMap<String, Integer> appColorMaps = new HashMap<>();

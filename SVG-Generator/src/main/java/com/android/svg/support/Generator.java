@@ -19,57 +19,50 @@ import java.io.IOException;
 public class Generator {
 
     public static void main(String[] args) throws IOException, VectorException {
-        // There must be two arguments.
+        // There must be three arguments.
         // The first is the resource path of vector xml.
-        // The second is the code path of generated classes.
-        File imageFolder = new File(args[0]);
-        File projectFolder = new File(args[1]);
+        // The second is the resource path of fake xml.
+        // The third is the class path of java code.
+        File vectorFolder = new File(args[0]);
+        File fakeFolder = new File(args[1]);
+        File codeFolder = new File(args[2]);
 
-        if (!imageFolder.exists() || !imageFolder.isDirectory()) {
+        if (!vectorFolder.exists() || !vectorFolder.isDirectory()) {
             return;
         }
-        if (!projectFolder.exists() || !projectFolder.isDirectory()) {
+        if (!fakeFolder.exists() && !fakeFolder.mkdirs()) {
+            return;
+        }
+        if (!codeFolder.exists() && !codeFolder.mkdirs()) {
+            return;
+        }
+        deleteFilesInFolder(fakeFolder);
+        deleteFilesInFolder(codeFolder);
+
+        File[] vectors = vectorFolder.listFiles();
+        if (vectors == null || vectors.length == 0) {
             return;
         }
 
-        String[] configPackage = Config.SVG_CODE_PACKAGE.split("\\.");
-        String codeFolder = "\\src\\main\\java\\";
-        for (String configPackagePath : configPackage) {
-            codeFolder += "\\" + configPackagePath;
-        }
-        File projectCodeFolder = new File(projectFolder.getPath() + codeFolder);
-        if (!projectCodeFolder.exists()) {
-            projectCodeFolder.mkdirs();
-        }
-        deleteFilesInFolder(projectCodeFolder);
-
-        String xmlFolder = "\\src\\main\\res\\drawable";
-        File projectXmlFolder = new File(projectFolder.getPath() + xmlFolder);
-        if (!projectXmlFolder.exists()) {
-            projectXmlFolder.mkdirs();
-        }
-        deleteFilesInFolder(projectXmlFolder);
-
-        File[] images = imageFolder.listFiles();
-        if (images == null || images.length == 0) {
-            return;
-        }
+        String codePath = codeFolder.getAbsolutePath().replace("\\", ".").replace("/", ".");
+        String codePackage = codePath.substring(codePath.indexOf("src.main.java.") + 14, codePath.length());
 
         // write SVGRenderer.java
         SVGLoaderTemplateWriter svgLoaderTemplateWriter = new SVGLoaderTemplateWriter();
+        svgLoaderTemplateWriter.setPackage(codePackage);
         SVGFakeXmlTemplateWriter svgFakeXmlTemplateWriter = new SVGFakeXmlTemplateWriter();
         VectorSAXReader reader = new VectorSAXReader();
-        for (File image : images) {
-            if (image.getName().endsWith("xml")) {
-                String noExtentionName = image.getName().substring(0, image.getName().lastIndexOf(".xml"));
-                generateCode(reader.read(image), noExtentionName, projectCodeFolder.getPath());
-                generateXml(svgFakeXmlTemplateWriter, noExtentionName, projectXmlFolder.getPath());
-                svgLoaderTemplateWriter.addRendererName(noExtentionName);
+        for (File vector : vectors) {
+            if (vector.getName().endsWith("xml")) {
+                String noExtensionName = vector.getName().substring(0, vector.getName().lastIndexOf(".xml"));
+                generateCode(reader.read(vector), noExtensionName, codeFolder.getPath(), codePackage);
+                generateXml(svgFakeXmlTemplateWriter, noExtensionName, fakeFolder.getPath());
+                svgLoaderTemplateWriter.addRendererName(noExtensionName);
             }
         }
 
         // write SVGLoader.java
-        BufferedWriter bw = new BufferedWriter(new FileWriter(new File(projectCodeFolder.getPath(), "SVGLoader.java")));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(new File(codeFolder.getPath(), "SVGLoader.java")));
         svgLoaderTemplateWriter.write(bw);
         bw.flush();
         bw.close();
@@ -88,11 +81,12 @@ public class Generator {
         }
     }
 
-    private static void generateCode(Vector vector, String imageName, String codeFolder) throws IOException {
+    private static void generateCode(Vector vector, String imageName, String codeFolder, String packageName) throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter(new File(codeFolder, imageName + ".java")));
         VectorRenderer renderer = new VectorRenderer();
         renderer.render(vector);
         JavaClassWriter writer = new SVGRendererTemplateWriter(renderer, vector);
+        writer.setPackage(packageName);
         writer.setClassSimpleName(imageName);
         writer.write(bw);
         bw.flush();

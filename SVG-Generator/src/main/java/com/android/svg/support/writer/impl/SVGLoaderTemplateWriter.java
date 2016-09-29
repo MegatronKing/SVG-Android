@@ -14,7 +14,6 @@ public class SVGLoaderTemplateWriter extends JavaClassWriter {
     private List<String> mDrawableRendererList = new ArrayList<>();
 
     public SVGLoaderTemplateWriter() {
-        setPackage(Config.SVG_CODE_PACKAGE);
         setClassSimpleName("SVGLoader");
     }
 
