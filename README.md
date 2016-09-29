@@ -2,7 +2,7 @@
 support svg images for android 2.3+
 ___
 
-## 参考博客：http://blog.csdn.net/megatronkings
+### 参考博客：http://blog.csdn.net/megatronkings
 ___
 
 ##一、SVG-Android为何而生
@@ -63,7 +63,7 @@ SVG图片转换成Vector文件有很多种方式。<br>
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/step1.png)
 
 
-其次，在SVG-Generator模块的build.gradle文件中配置两个参数：存放Vector文件的目录，主项目模块目录。<br><br>
+其次，在SVG-Generator模块的build.gradle文件中配置三个参数：存放Vector文件的目录，生成空shape文件目录、生成Java渲染代码目录。<br><br>
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/step2.png)
 
 
