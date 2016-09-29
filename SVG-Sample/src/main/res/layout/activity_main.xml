@@ -21,6 +21,7 @@
         android:id="@+id/image2"
         android:layout_width="96dip"
         android:layout_height="96dip"
-        android:layout_margin="20dip" />
+        android:layout_margin="20dip"
+        android:alpha="0.5"/>
 
 </LinearLayout>

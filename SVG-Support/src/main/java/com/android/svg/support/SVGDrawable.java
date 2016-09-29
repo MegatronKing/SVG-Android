@@ -51,7 +51,7 @@ public class SVGDrawable extends Drawable {
     @Override
     public void setAlpha(int alpha) {
         if (getAlpha() != alpha) {
-            mState.mRenderer.mAlpha = alpha / 0xFF;
+            mState.mRenderer.mAlpha = (float)alpha / 0xFF;
             invalidateSelf();
         }
     }
