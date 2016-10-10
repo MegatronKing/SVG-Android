@@ -26,6 +26,9 @@ SVG-Android在decode阶段性能远远优于PNG位图，但是draw渲染阶段�
 ### SVG-Android VS Vector
 SVG-Android在decode阶段的性能遥遥领先，耗时大约在100-200us，比Vector高出至少10倍<br>
 SVG-Android在draw阶段也稍稍领先,大概节约了250us<br>
+### SVG-Android VS IconFont
+IconFont必须提前加载字体库，这其实是一个相当耗时的操作，500个字符大约在4000us左右，随着图片增加，字体库肯定会膨胀，总耗时实际更多。
+虽然，在渲染阶段耗时极少，但是整体耗时依然很高。从内存方面来看，加载字体库的内存消耗在native层，不太好监测，但估计应该也不小。
 
 总体来说，SVG-Android性能方面比PNG位图略低0.2-0.5倍，比Vector提高了2-3倍。但是对于对图片效果的呈现，SVG-Android比PNG好很多，完全不会因为尺寸拉伸而失真。<br>
 
@@ -34,7 +37,21 @@ SVG-Android在draw阶段也稍稍领先,大概节约了250us<br>
 
 ___
 
-##三、SVG-Android实现原理
+##三、SVG-Android功能比较
+
+### SVG-Android VS PNG&Vector
+展现效果：SVG-Android图片完美实现了矢量图的效果，无论放大缩小，图片的展现效果永远不会失真。
+多图复用：对于相同内容颜色不同的图片，SVG-Android只需要一份，可以随时改变图片颜色和透明。
+
+### SVG-Android VS IconFont
+SVG-Android可以直接绑定ImageView，支持scaleType、alpha、tint等功能。
+SVG-Android使用在布局文件中的时候，可以直接在右侧预览效果，这一点IconFont不具有。
+SVG-Android使用SVGColorImageView控件同样可以完美支持selector。
+使用PNG&Vector的项目接入SVG-Android非常快速，而接入IconFont会非常耗时。
+
+___
+
+##四、SVG-Android实现原理
 
 ###1、预解析
 从对Vector的性能测试数据来看，大部分耗时都在解析xml和绘制渲染两个阶段。为了提高性能，SVG-Android的做法是将部分耗时操作由运行时转移到编译前，也就是预解析。同时，由于svg文件的fillData的数据在Android中表现为Path，这部分计算量也是可以预先计算好的。<br><br>
@@ -47,7 +64,7 @@ ___
 
 ___
 
-##四、SVG-Android如何接入
+##五、SVG-Android如何接入
 
 ###1、SVG图片转换成Vector文件
 由于Android只支持部分规范的SVG文件，所以我们还是按照官方的思路，先生成合法的Vector文件，这样还有个好处就是可以引用dimen和color，方面以后统一修改尺寸和颜色。<br>
@@ -76,7 +93,7 @@ SVG图片转换成Vector文件有很多种方式。<br>
 
 ___
 
-##五、Enjoy SVG-Android！
+##六、Enjoy SVG-Android！
 
 --------
 
