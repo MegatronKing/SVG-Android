@@ -40,13 +40,13 @@ ___
 ##三、SVG-Android功能比较
 
 ### SVG-Android VS PNG&Vector
-展现效果：SVG-Android图片完美实现了矢量图的效果，无论放大缩小，图片的展现效果永远不会失真。
+展现效果：SVG-Android图片完美实现了矢量图的效果，无论放大缩小，图片的展现效果永远不会失真。<br>
 多图复用：对于相同内容颜色不同的图片，SVG-Android只需要一份，可以随时改变图片颜色和透明。
 
 ### SVG-Android VS IconFont
-SVG-Android可以直接绑定ImageView，支持scaleType、alpha、tint等功能。
-SVG-Android使用在布局文件中的时候，可以直接在右侧预览效果，这一点IconFont不具有。
-SVG-Android使用SVGColorImageView控件同样可以完美支持selector。
+SVG-Android可以直接绑定ImageView，支持scaleType、alpha、tint等功能。<br>
+SVG-Android使用在布局文件中的时候，可以直接在右侧预览效果，这一点IconFont不具有。<br>
+SVG-Android使用SVGColorImageView控件同样可以完美支持selector。<br>
 使用PNG&Vector的项目接入SVG-Android非常快速，而接入IconFont会非常耗时。
 
 ___
