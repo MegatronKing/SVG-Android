@@ -3,6 +3,7 @@ package com.android.svg.sample;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.android.svg.sample.drawables.ic_pets_black;
@@ -14,6 +15,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // ---------------------------------------------------
+
+        // test SVGColorImageView using a color selector
+        final View image = findViewById(R.id.image);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
 
         // ---------------------------------------------------
 
