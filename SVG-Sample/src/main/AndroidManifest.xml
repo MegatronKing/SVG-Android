@@ -15,6 +15,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SizeSampleActivity" />
+        <activity android:name=".ScaleTypeSampleActivity" />
+        <activity android:name=".TintSampleActivity" />
+        <activity android:name=".ExtendSampleActivity" />
+        <activity android:name=".ExtendViewSampleActivity" />
+        <activity android:name=".ExtendTextViewSampleActivity" />
+        <activity android:name=".ExtendEditTextSampleActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".ExtendButtonSampleActivity" />
+        <activity android:name=".ExtendImageViewSampleActivity" />
+        <activity android:name=".ExtendImageButtonSampleActivity" />
+        <activity android:name=".AlphaSampleActivity" />
     </application>
 
 </manifest>
