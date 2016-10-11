@@ -1,12 +1,11 @@
 package com.android.svg.sample.drawables;
 
 
-import com.android.svg.sample.R;
-
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.LongSparseArray;
 
+import com.android.svg.sample.R;
 import com.android.svg.support.SVGDrawable;
 import com.android.svg.support.SVGHelper;
 
@@ -38,8 +37,6 @@ public class SVGLoader  {
             return;
         }
         add(context, R.drawable.ic_android_red, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red(context)));
-        add(context, R.drawable.ic_assignment_returned, SVGDrawable.SVGDrawableConstantState.create(new ic_assignment_returned(context)));
-        add(context, R.drawable.ic_pets_black, SVGDrawable.SVGDrawableConstantState.create(new ic_pets_black(context)));
     }
 
     private static void add(Context context, int resId, SVGDrawable.SVGDrawableConstantState state) {
