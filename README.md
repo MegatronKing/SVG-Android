@@ -11,7 +11,7 @@ ___
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample5.png)
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample6.png)
 
-### 范例下载：https://github.com/MegatronKing/SVG-Android/blob/master/SVG-Sample.apk
+### 范例下载：https://github.com/MegatronKing/SVG-Android/raw/master/SVG-Sample.apk
 
 ___
 
