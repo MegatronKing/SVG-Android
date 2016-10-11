@@ -16,6 +16,6 @@ public class ExtendImageButtonSampleActivity extends AppCompatActivity {
 
         // set in code
         SVGColorImageButton view = (SVGColorImageButton) findViewById(R.id.extend_imagebutton);
-        view.setImageColor(getColorStateList(R.color.selector_image_color));
+        view.setImageColor(getResources().getColorStateList(R.color.selector_image_color));
     }
 }

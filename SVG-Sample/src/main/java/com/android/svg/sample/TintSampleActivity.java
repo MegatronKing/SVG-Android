@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 
+import com.android.svg.support.SVGDrawable;
+
 public class TintSampleActivity extends AppCompatActivity {
 
     @Override
@@ -29,7 +31,7 @@ public class TintSampleActivity extends AppCompatActivity {
         SeekBar.OnSeekBarChangeListener mOnSeekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                setDrawableTint(drawable, seekBarAlpha.getProgress(), seekBarRed.getProgress(), seekBarGreen.getProgress(), seekBarBlue.getProgress());
+                setDrawableTint((SVGDrawable) drawable, seekBarAlpha.getProgress(), seekBarRed.getProgress(), seekBarGreen.getProgress(), seekBarBlue.getProgress());
             }
 
             @Override
@@ -60,7 +62,7 @@ public class TintSampleActivity extends AppCompatActivity {
         seekBarBlue.setProgress(0);
     }
 
-    private void setDrawableTint(Drawable drawable, int alpha, int red, int green, int blue) {
+    private void setDrawableTint(SVGDrawable drawable, int alpha, int red, int green, int blue) {
         drawable.setTint(Color.argb(alpha, red, green, blue));
     }
 }

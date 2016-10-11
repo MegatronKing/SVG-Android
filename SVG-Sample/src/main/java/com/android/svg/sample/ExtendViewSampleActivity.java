@@ -16,6 +16,6 @@ public class ExtendViewSampleActivity extends AppCompatActivity {
 
         // set in code
         SVGColorView view = (SVGColorView) findViewById(R.id.extend_view);
-        view.setImageColor(getColorStateList(R.color.selector_image_color));
+        view.setImageColor(getResources().getColorStateList(R.color.selector_image_color));
     }
 }
