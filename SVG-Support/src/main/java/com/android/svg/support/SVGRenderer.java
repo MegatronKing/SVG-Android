@@ -50,6 +50,9 @@ public abstract class SVGRenderer implements Cloneable {
         SVGRenderer renderer = null;
         try {
             renderer = (SVGRenderer) super.clone();
+            // there is a reference in strategy, so we set it null
+            // and the renderer will create a new strategy when drawing.
+            renderer.mRendererStrategy = null;
         } catch (CloneNotSupportedException e) {
             // it may not happen
         }
