@@ -3,6 +3,16 @@ support svg images for android 2.3+
 ___
 
 ### 参考博客：http://blog.csdn.net/megatronkings
+
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample1.png)
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample2.png)
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample3.png)
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample4.png)
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample5.png)
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample6.png)
+
+### 范例下载：https://github.com/MegatronKing/SVG-Android/blob/master/SVG-Sample.apk
+
 ___
 
 ##一、SVG-Android为何而生
