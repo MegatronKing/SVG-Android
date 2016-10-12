@@ -1,3 +1,4 @@
+//apply from: '../bintray.gradle'
 apply plugin: 'com.android.library'
 
 android {
