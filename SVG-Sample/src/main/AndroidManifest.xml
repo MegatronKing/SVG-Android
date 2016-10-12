@@ -18,6 +18,7 @@
         <activity android:name=".SizeSampleActivity" />
         <activity android:name=".ScaleTypeSampleActivity" />
         <activity android:name=".TintSampleActivity" />
+        <activity android:name=".AnimationDrawableSampleActivity" />
         <activity android:name=".ExtendSampleActivity" />
         <activity android:name=".ExtendViewSampleActivity" />
         <activity android:name=".ExtendTextViewSampleActivity" />

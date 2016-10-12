@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         sampleData.add(new SampleData("Tint Samples", TintSampleActivity.class.getName()));
         sampleData.add(new SampleData("ScaleType Samples", ScaleTypeSampleActivity.class.getName()));
         sampleData.add(new SampleData("Alpha Samples", AlphaSampleActivity.class.getName()));
+        sampleData.add(new SampleData("Animation Samples", AnimationDrawableSampleActivity.class.getName()));
         sampleData.add(new SampleData("Extend Samples", ExtendSampleActivity.class.getName()));
-
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, sampleData));
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

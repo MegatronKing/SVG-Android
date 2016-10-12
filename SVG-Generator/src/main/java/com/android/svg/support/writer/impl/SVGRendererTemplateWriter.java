@@ -81,6 +81,8 @@ public class SVGRendererTemplateWriter extends JavaClassWriter {
 
     private void writeMethodRender(BufferedWriter bw) throws IOException {
         bw.newLine();
+        bw.write(HEAD_SPACE + "@Override");
+        bw.newLine();
         bw.write(HEAD_SPACE + "public void render(Canvas canvas, int w, int h, ColorFilter filter) {");
         bw.newLine();
         bw.write(mRenderer.renderResult());

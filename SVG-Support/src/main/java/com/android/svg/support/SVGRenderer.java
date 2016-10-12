@@ -26,7 +26,6 @@ public abstract class SVGRenderer implements Cloneable {
     protected int mWidth;
     protected int mHeight;
 
-    protected final Matrix mGroupStackedMatrix = new Matrix();
     protected final Matrix mFinalPathMatrix = new Matrix();
 
     protected final Path mPath;

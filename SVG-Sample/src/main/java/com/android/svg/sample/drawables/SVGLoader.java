@@ -1,11 +1,12 @@
 package com.android.svg.sample.drawables;
 
 
+import com.android.svg.sample.R;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.LongSparseArray;
 
-import com.android.svg.sample.R;
 import com.android.svg.support.SVGDrawable;
 import com.android.svg.support.SVGHelper;
 
@@ -37,6 +38,26 @@ public class SVGLoader  {
             return;
         }
         add(context, R.drawable.ic_android_red, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red(context)));
+        add(context, R.drawable.ic_android_red_00, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_00(context)));
+        add(context, R.drawable.ic_android_red_01, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_01(context)));
+        add(context, R.drawable.ic_android_red_02, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_02(context)));
+        add(context, R.drawable.ic_android_red_03, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_03(context)));
+        add(context, R.drawable.ic_android_red_04, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_04(context)));
+        add(context, R.drawable.ic_android_red_05, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_05(context)));
+        add(context, R.drawable.ic_android_red_06, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_06(context)));
+        add(context, R.drawable.ic_android_red_07, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_07(context)));
+        add(context, R.drawable.ic_android_red_08, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_08(context)));
+        add(context, R.drawable.ic_android_red_09, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_09(context)));
+        add(context, R.drawable.ic_android_red_10, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_10(context)));
+        add(context, R.drawable.ic_android_red_11, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_11(context)));
+        add(context, R.drawable.ic_android_red_12, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_12(context)));
+        add(context, R.drawable.ic_android_red_13, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_13(context)));
+        add(context, R.drawable.ic_android_red_14, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_14(context)));
+        add(context, R.drawable.ic_android_red_15, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_15(context)));
+        add(context, R.drawable.ic_android_red_16, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_16(context)));
+        add(context, R.drawable.ic_android_red_17, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_17(context)));
+        add(context, R.drawable.ic_android_red_18, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_18(context)));
+        add(context, R.drawable.ic_android_red_19, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_19(context)));
     }
 
     private static void add(Context context, int resId, SVGDrawable.SVGDrawableConstantState state) {
