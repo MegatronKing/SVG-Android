@@ -12,7 +12,7 @@ import android.widget.Button;
 import com.android.svg.support.R;
 
 /**
- * Support rendering any color to Button with svg images.<br/>
+ * Support rendering any color to Button with svg images.<br>
  *
  * @author Megatron King
  * @since 2016/10/10 19:11

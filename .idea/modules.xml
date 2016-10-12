@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SVG-Android.iml" filepath="$PROJECT_DIR$/SVG-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/SVG-Generator/SVG-Generator.iml" filepath="$PROJECT_DIR$/SVG-Generator/SVG-Generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SVG-Plugin/SVG-Plugin.iml" filepath="$PROJECT_DIR$/SVG-Plugin/SVG-Plugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/SVG-Sample/SVG-Sample.iml" filepath="$PROJECT_DIR$/SVG-Sample/SVG-Sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/SVG-Support/SVG-Support.iml" filepath="$PROJECT_DIR$/SVG-Support/SVG-Support.iml" />
     </modules>

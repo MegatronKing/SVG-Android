@@ -1,1 +1,1 @@
-include ':SVG-Sample', ':SVG-Support', ':SVG-Generator'
+include ':SVG-Sample', ':SVG-Support', ':SVG-Generator', ':SVG-Plugin'

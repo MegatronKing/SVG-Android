@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply from: '../gradle-mvn-push.gradle'
 
 android {
     compileSdkVersion 24
@@ -16,6 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {

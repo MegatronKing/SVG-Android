@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import com.android.svg.support.R;
 
 /**
- * Support rendering any color to ImageView with svg images.<br/>
+ * Support rendering any color to ImageView with svg images.<br>
  *
  * @author Megatron King
  * @since 2016/10/10 19:11
