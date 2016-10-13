@@ -1,7 +1,3 @@
-group = PROJ_GROUP
-version = PROJ_VERSION
-def archivesBaseName = PROJ_ARTIFACTID
-
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
@@ -21,6 +17,11 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
 javadoc {
     options{
         encoding "UTF-8"
@@ -28,45 +29,39 @@ javadoc {
         author true
         version true
         links "http://docs.oracle.com/javase/7/docs/api"
-        title "$PROJ_NAME $PROJ_VERSION"
+        title "$ARTIFACTID $VERSION"
     }
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
 }
 
 install {
     repositories.mavenInstaller {
         pom.project {
-            name PROJ_NAME
-            description PROJ_DESCRIPTION
-            url PROJ_WEBSITEURL
-            inceptionYear '2016'
+            name ARTIFACTID
+            description POM_DESCRIPTION
+            url POM_URL
 
-            packaging 'aar'
-            groupId PROJ_GROUP
-            artifactId PROJ_ARTIFACTID
-            version PROJ_VERSION
+            packaging POM_PACKAGING
+            groupId GROUP
+            artifactId ARTIFACTID
+            version VERSION
 
             licenses {
                 license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
+                    name POM_LICENCE_NAME
+                    url POM_LICENCE_URL
+                    distribution POM_LICENCE_DIST
                 }
             }
             scm {
-                connection PROJ_VCSURL
-                url PROJ_WEBSITEURL
+                connection POM_SCM_CONNECTION
+                url POM_URL
 
             }
             developers {
                 developer {
-                    id DEVELOPER_ID
-                    name DEVELOPER_NAME
-                    email DEVELOPER_EMAIL
+                    id POM_DEVELOPER_ID
+                    name POM_DEVELOPER_NAME
+                    email POM_DEVELOPER_EMAIL
                 }
             }
         }
@@ -75,7 +70,7 @@ install {
 
 bintray {
 
-    def pFile = file("local.properties")
+    def pFile = file("${rootDir}//local.properties")
 
     Properties p = new Properties()
 
@@ -93,19 +88,19 @@ bintray {
 
     pkg {
         repo = 'maven'
-        name = PROJ_NAME
+        name = ARTIFACTID
         licenses = ['Apache-2.0']
-        vcsUrl = PROJ_VCSURL
-        websiteUrl = PROJ_WEBSITEURL
-        issueTrackerUrl = PROJ_ISSUETRACKERURL
+        vcsUrl = POM_URL
+        websiteUrl = POM_URL
+        issueTrackerUrl = POM_URL
         publicDownloadNumbers = true
         version {
-            name = PROJ_VERSION
-            desc = PROJ_DESCRIPTION
-            vcsTag = PROJ_VERSION
+            name = VERSION
+            desc = POM_DESCRIPTION
+            vcsTag = VERSION
 
             gpg {
-                sign = false
+                sign = true
             }
         }
     }
