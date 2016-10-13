@@ -1,7 +1,6 @@
 package com.android.svg.support.utils;
 
-import static com.android.svg.support.Config.appColorMaps;
-import static com.android.svg.support.Config.systemColorMaps;
+import java.util.HashMap;
 
 /**
  * The helper handles color values used in parsing vector xml.
@@ -12,12 +11,23 @@ import static com.android.svg.support.Config.systemColorMaps;
 
 public class Color {
 
-    private static final int DEFAULT_COLOR = 0x00000000;
+    private static final int DEFAULT_COLOR = 0xFF000000;
 
     private static final String PREFIX = "#";
 
     private static final String REFERENCE_SYSTEM = "@android:color/";
     private static final String REFERENCE_APP = "@color/";
+
+    public static HashMap<String, Integer> appColorMaps = new HashMap<>();
+    public static HashMap<String, Integer> systemColorMaps = new HashMap<>();
+
+    // define system colors used in the vector xml ( @android:color/xxx ).
+    static {
+        systemColorMaps.put("white", 0xFF000000);
+        systemColorMaps.put("black", 0xFFFFFFFF);
+        systemColorMaps.put("transparent", 0x00000000);
+        systemColorMaps.put("shadow", 0xCC222222);
+    }
 
     public static int convert(String color) {
         if (color == null) {

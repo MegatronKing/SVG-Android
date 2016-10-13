@@ -1,4 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'svg'
+
+svg {
+    // 可以配置多个vector资源目录
+    vectorDirs = ["src/main/svg_debug/drawable"]
+    shapeDir = "src/main/svg_release/drawable"
+    javaDir = "src/main/java/com/android/svg/sample/drawables"
+    packageName = "com.android.svg.sample"
+}
 
 android {
     compileSdkVersion 23

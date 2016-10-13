@@ -1,7 +1,6 @@
 package com.android.svg.support.writer.impl;
 
 
-import com.android.svg.support.Config;
 import com.android.svg.support.writer.JavaClassWriter;
 
 import java.io.BufferedWriter;
@@ -11,9 +10,11 @@ import java.util.List;
 
 public class SVGLoaderTemplateWriter extends JavaClassWriter {
 
+    private String mPackageName;
     private List<String> mDrawableRendererList = new ArrayList<>();
 
-    public SVGLoaderTemplateWriter() {
+    public SVGLoaderTemplateWriter(String packageName) {
+        mPackageName = packageName;
         setClassSimpleName("SVGLoader");
     }
 
@@ -25,7 +26,7 @@ public class SVGLoaderTemplateWriter extends JavaClassWriter {
     protected void writeImports(BufferedWriter bw) throws IOException {
         super.writeImports(bw);
         bw.newLine();
-        bw.write("import " + Config.APP_PACKAGE + ".R;");
+        bw.write("import " + mPackageName + ".R;");
         bw.newLine();
         bw.newLine();
         bw.write("import android.content.Context;");

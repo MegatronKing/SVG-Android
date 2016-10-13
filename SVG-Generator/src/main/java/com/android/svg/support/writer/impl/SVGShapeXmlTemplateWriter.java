@@ -5,7 +5,7 @@ import com.android.svg.support.writer.IBufferWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-public class SVGFakeXmlTemplateWriter implements IBufferWriter {
+public class SVGShapeXmlTemplateWriter implements IBufferWriter {
 
     @Override
     public void write(BufferedWriter bw) throws IOException {
