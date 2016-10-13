@@ -1,6 +1,16 @@
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'maven'
 
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from 'build/docs/javadoc'
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
 javadoc {
     options{
         encoding "UTF-8"
