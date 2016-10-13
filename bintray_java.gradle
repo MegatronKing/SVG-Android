@@ -1,5 +1,9 @@
 apply plugin: 'com.jfrog.bintray'
-apply plugin: 'maven'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = GROUP
+version = VERSION
+project.archivesBaseName = ARTIFACTID
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
@@ -9,6 +13,11 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 task sourcesJar(type: Jar, dependsOn: classes) {
     classifier = 'sources'
     from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
 }
 
 javadoc {
@@ -25,7 +34,7 @@ javadoc {
 install {
     repositories.mavenInstaller {
         pom.project {
-            name ARTIFACTID
+            name project.name
             description POM_DESCRIPTION
             url POM_URL
 
@@ -77,7 +86,7 @@ bintray {
 
     pkg {
         repo = 'maven'
-        name = ARTIFACTID
+        name = project.name
         licenses = ['Apache-2.0']
         vcsUrl = POM_URL
         websiteUrl = POM_URL

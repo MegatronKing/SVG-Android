@@ -1,6 +1,10 @@
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
+group = GROUP
+version = VERSION
+project.archivesBaseName = ARTIFACTID
+
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
@@ -36,9 +40,11 @@ javadoc {
 install {
     repositories.mavenInstaller {
         pom.project {
-            name ARTIFACTID
+
+            name project.name
             description POM_DESCRIPTION
             url POM_URL
+            inceptionYear '2016'
 
             packaging POM_PACKAGING
             groupId GROUP
@@ -88,7 +94,7 @@ bintray {
 
     pkg {
         repo = 'maven'
-        name = ARTIFACTID
+        name = project.name
         licenses = ['Apache-2.0']
         vcsUrl = POM_URL
         websiteUrl = POM_URL
