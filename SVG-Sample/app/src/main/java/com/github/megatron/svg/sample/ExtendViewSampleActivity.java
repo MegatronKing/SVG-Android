@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.android.svg.support.extend.SVGColorView;
+import com.android.svg.support.extend.SVGView;
 
 public class ExtendViewSampleActivity extends AppCompatActivity {
 
@@ -15,7 +15,7 @@ public class ExtendViewSampleActivity extends AppCompatActivity {
         setTitle(getIntent().getStringExtra("title"));
 
         // set in code
-        SVGColorView view = (SVGColorView) findViewById(R.id.extend_view);
-        view.setImageColor(getResources().getColorStateList(R.color.selector_image_color));
+        SVGView view = (SVGView) findViewById(R.id.extend_view);
+        view.setSvgColor(getResources().getColorStateList(R.color.selector_image_color));
     }
 }

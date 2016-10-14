@@ -44,7 +44,7 @@ task：
 
 ##SVG-Support
 SVG渲染支持库和组件库，提供对SVG功能的支持，包括tint、alpha、selector、size等。<br>
-
+虽然SVG-Android支持直接使用View组件显示图片，但是一些SVG特性需要扩展组件才能支持。<br>
 组件支持：
 - SVGView
 - SVGImageView

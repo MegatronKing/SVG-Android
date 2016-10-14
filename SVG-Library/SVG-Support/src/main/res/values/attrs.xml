@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="SVGColorView">
-        <attr name="imageColor" format="color"/>
+    <declare-styleable name="SVGView">
+        <attr name="svgColor" format="color"/>
+        <attr name="svgAlpha" format="float"/>
+        <attr name="svgWidth" format="dimension"/>
+        <attr name="svgHeight" format="dimension"/>
     </declare-styleable>
-
 </resources>

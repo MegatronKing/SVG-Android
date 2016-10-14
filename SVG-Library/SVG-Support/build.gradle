@@ -30,5 +30,5 @@ dependencies {
 }
 
 //apply from: '../bintray_android.gradle'
-//apply from: '../nexus_android.gradle'
+apply from: '../nexus_android.gradle'
 

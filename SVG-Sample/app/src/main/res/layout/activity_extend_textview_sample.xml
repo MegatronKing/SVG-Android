@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.android.svg.support.extend.SVGColorTextView
+    <com.android.svg.support.extend.SVGTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -18,6 +18,24 @@
         android:text="TextView"
         android:gravity="center"
         android:background="@drawable/shape_rect_border"
-        svg:imageColor="@color/selector_image_color" />
+        svg:svgColor="@color/selector_image_color" />
+
+    <com.android.svg.support.extend.SVGTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:drawableBottom="@drawable/ic_android_red"
+        android:drawableLeft="@drawable/ic_android_red"
+        android:drawablePadding="10dip"
+        android:layout_marginTop="50dip"
+        android:drawableRight="@drawable/ic_android_red"
+        android:drawableTop="@drawable/ic_android_red"
+        android:text="TextView"
+        android:gravity="center"
+        android:background="@drawable/shape_rect_border"
+        svg:svgColor="@color/selector_image_color"
+        svg:svgWidth="24dip"
+        svg:svgHeight="24dip"
+        svg:svgAlpha="0.8"/>
 
 </LinearLayout>

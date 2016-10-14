@@ -6,22 +6,22 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.android.svg.support.extend.SVGColorView
+    <com.android.svg.support.extend.SVGView
         android:layout_width="48dip"
         android:layout_height="48dip"
         android:background="@drawable/ic_android_red"
-        svg:imageColor="#ffff00" />
+        svg:svgColor="#ffff00" />
 
     <!--使用selector-->
-    <com.android.svg.support.extend.SVGColorView
+    <com.android.svg.support.extend.SVGView
         android:layout_width="48dip"
         android:layout_height="48dip"
         android:layout_marginTop="50dip"
         android:background="@drawable/ic_android_red"
         android:clickable="true"
-        svg:imageColor="@color/selector_image_color" />
+        svg:svgColor="@color/selector_image_color" />
 
-    <com.android.svg.support.extend.SVGColorView
+    <com.android.svg.support.extend.SVGView
         android:id="@+id/extend_view"
         android:layout_width="48dip"
         android:layout_height="48dip"

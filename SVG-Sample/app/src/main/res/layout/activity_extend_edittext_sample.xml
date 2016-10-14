@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.android.svg.support.extend.SVGColorEditText
+    <com.android.svg.support.extend.SVGEditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_android_red"
@@ -15,6 +15,21 @@
         android:gravity="center_vertical"
         android:focusable="true"
         android:background="@drawable/shape_rect_border"
-        svg:imageColor="@android:color/black" />
+        svg:svgColor="@android:color/black" />
+
+    <com.android.svg.support.extend.SVGEditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_android_red"
+        android:layout_marginTop="50dip"
+        android:drawablePadding="10dip"
+        android:text="EditText"
+        android:gravity="center_vertical"
+        android:focusable="true"
+        android:background="@drawable/shape_rect_border"
+        svg:svgColor="@android:color/black"
+        svg:svgWidth="24dip"
+        svg:svgHeight="24dip"
+        svg:svgAlpha="0.2"/>
 
 </LinearLayout>

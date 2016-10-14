@@ -56,6 +56,22 @@ public class SVGDrawable extends Drawable {
         }
     }
 
+    public void setWidth(int width) {
+        if (getIntrinsicWidth() != width) {
+            mState.mRenderer.mWidth = width;
+            setBounds(0, 0, getIntrinsicWidth(), getIntrinsicHeight());
+            invalidateSelf();
+        }
+    }
+
+    public void setHeight(int height) {
+        if (getIntrinsicHeight() != height) {
+            mState.mRenderer.mHeight = height;
+            setBounds(0, 0, getIntrinsicWidth(), getIntrinsicHeight());
+            invalidateSelf();
+        }
+    }
+
     @Override
     public int getAlpha() {
         return (int) (mState.mRenderer.mAlpha * 0xFF);
