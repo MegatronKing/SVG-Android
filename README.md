@@ -17,6 +17,20 @@ ___
 
 ___
 
+#About SVG-Android
+SVG-Android is a support library for showing svg images in android 2.3+ .
+-- faster than png, vector and iconfont, the decoding stage costs less time.
+-- better performance and expression than png even using a huge image.
+-- support tint, alpha, size, selector whether in java code or xml code.
+-- shrink the apk size, it can reduce the image size obviously.
+
+\\                | speed  | memory | compatible | extension | expression
+  ----------------|--------|--------|------------|-----------| -----------
+   SVG-Android    | √      | √      | √          | √         | √
+   Vector         | ×      | √      | x          | ×         | √
+   Png            | √      | ×      | √          | ×         | ×
+   Iconfont       | ×      | √      | √          | ×         | √
+
 #How to Use
 
 ## add plugin dependencies in app build.gradle
@@ -56,10 +70,7 @@ dependencies {
 ## with command Line
 
 ```
-
     gradlew svgAssemble
-
-
 ```
 
 --------
