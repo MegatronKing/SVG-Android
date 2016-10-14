@@ -1,6 +1,15 @@
 apply plugin: 'com.android.application'
 apply plugin: 'svg'
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.megatronking:svg-plugin:1.0.0'
+    }
+}
+
 svg {
     // 可以配置多个vector资源目录
     vectorDirs = ["src/main/svg_debug/drawable"]
