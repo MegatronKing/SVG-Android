@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+apply plugin: 'svg'
+
+svg {
+    // 可以配置多个vector资源目录
+    vectorDirs = ["src/main/svg_debug/drawable"]
+    // 配置生成空shape文件目录
+    shapeDir = "src/main/svg_release/drawable"
+    // 配置生成java文件目录
+    javaDir = "src/main/java/com/github/megatron/svg/sample/drawables"
+    // 配置应用包名(R文件包名)
+    packageName = "com.github.megatron.svg.sample"
+}
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+    defaultConfig {
+        applicationId "com.github.megatron.svg.sample"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        // 为了开发时能引用vector文件方便预览，将存放vector文件目录添加到资源文件目录中
+        debug {
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res', 'src/main/svg_debug']
+        }
+        release {
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res', "src/main/svg_release"]
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:24.2.0'
+    testCompile 'junit:junit:4.12'
+    compile 'com.github.megatronking:svg-support:1.0.0'
+}

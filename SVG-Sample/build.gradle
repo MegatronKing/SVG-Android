@@ -1,47 +1,23 @@
-apply plugin: 'com.android.application'
-apply plugin: 'svg'
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-svg {
-    // 可以配置多个vector资源目录
-    vectorDirs = ["src/main/svg_debug/drawable"]
-    shapeDir = "src/main/svg_release/drawable"
-    javaDir = "src/main/java/com/android/svg/sample/drawables"
-    packageName = "com.android.svg.sample"
-}
-
-android {
-    compileSdkVersion 23
-    buildToolsVersion "24.0.0"
-
-    defaultConfig {
-        applicationId "com.android.svg.sample"
-        minSdkVersion 15
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+buildscript {
+    repositories {
+        jcenter()
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    sourceSets {
-        debug {
-            java.srcDirs = ['src/main/java']
-            res.srcDirs = ['src/main/res', 'src/main/svg_debug']
-        }
-        release {
-            java.srcDirs = ['src/main/java']
-            res.srcDirs = ['src/main/res', "src/main/svg_release"]
-        }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.0'
+        classpath 'com.github.megatronking:svg-plugin:1.0.0'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }
 
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.0.0'
-    compile 'com.github.megatronking:svg-support:1.0.0'
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
