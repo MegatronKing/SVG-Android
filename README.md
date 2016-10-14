@@ -1,10 +1,8 @@
 # SVG-Android
 support svg images for android 2.3+
-___
 
 ### Blog：http://blog.csdn.net/megatronkings
 
-___
 
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample1.png)
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample2.png)
@@ -15,7 +13,6 @@ ___
 
 ### Sample Download: https://github.com/MegatronKing/SVG-Android/raw/master/SVG-Sample.apk
 
-___
 
 #About SVG-Android
 SVG-Android is a support library for showing svg images in android 2.3+ .
@@ -69,7 +66,7 @@ dependencies {
 
 ## with command Line
 ```
-    gradlew svgAssemble
+gradlew svgAssemble
 ```
 
 ## install SVGLoader in Application class

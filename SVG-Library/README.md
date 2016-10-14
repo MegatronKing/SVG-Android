@@ -1,10 +1,8 @@
 # SVG-Android
 support svg images for android 2.3+
-___
 
 ### 博客：http://blog.csdn.net/megatronkings
 
-___
 
 ##SVG-Generator
 
@@ -16,8 +14,6 @@ ___
 SVG图片转换成Vector文件有两种方式：<br>
 1、使用svg2android网站转换 http://inloop.github.io/svg2android/ <br>
 2、使用Android Studio 右键 -> New -> Vector Asset -> Local SVG File<br>
-
-___
 
 
 ##SVG-Plugin
@@ -50,12 +46,12 @@ task：
 SVG渲染支持库和组件库，提供对SVG功能的支持，包括tint、alpha、selector、size等。<br>
 
 组件支持：
-- SVGView 替代View
-- SVGImageView 替代ImageView
-- SVGTextView 替代TextView
-- SVGButton 替代Button
-- SVGImageButton 替代ImageButton
-- SVGEditText 替代EditText
+- SVGView
+- SVGImageView
+- SVGTextView
+- SVGButton
+- SVGImageButton
+- SVGEditText
 
 
 ##Enjoy SVG-Android！
