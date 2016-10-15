@@ -14,7 +14,7 @@ support svg images for android 2.3+
 ### Sample Download: https://github.com/MegatronKing/SVG-Android/raw/master/SVG-Sample.apk
 
 
-#About SVG-Android
+#About 
 SVG-Android is a support library for showing svg images in android 2.3+ .
 - faster than png, vector and iconfont, the decoding stage costs less time.
 - better performance and expression than png even using a huge image.
@@ -59,7 +59,7 @@ svg {
 ```gradle
 
 dependencies {
-    compile 'com.github.megatronking:svg-support:1.0.0'
+    compile 'com.github.megatronking:svg-support:1.0.1'
 }
 
 ```

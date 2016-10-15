@@ -42,7 +42,7 @@ afterEvaluate { project ->
                 pom.groupId = GROUP
                 pom.artifactId = ARTIFACTID
                 pom.version = VERSION
-                repository(url: uri('../maven')) {
+                repository(url: getReleaseRepositoryUrl()) {
                     authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
                 }
                 snapshotRepository(url: getSnapshotRepositoryUrl()) {
