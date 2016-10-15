@@ -11,7 +11,20 @@ import java.util.HashMap;
 
 public class Color {
 
-    private static final int DEFAULT_COLOR = 0xFF000000;
+    public static final int BLACK       = 0xFF000000;
+    public static final int DKGRAY      = 0xFF444444;
+    public static final int GRAY        = 0xFF888888;
+    public static final int LTGRAY      = 0xFFCCCCCC;
+    public static final int WHITE       = 0xFFFFFFFF;
+    public static final int RED         = 0xFFFF0000;
+    public static final int GREEN       = 0xFF00FF00;
+    public static final int BLUE        = 0xFF0000FF;
+    public static final int YELLOW      = 0xFFFFFF00;
+    public static final int CYAN        = 0xFF00FFFF;
+    public static final int MAGENTA     = 0xFFFF00FF;
+    public static final int TRANSPARENT = 0;
+
+    private static final int DEFAULT_COLOR = TRANSPARENT;
 
     private static final String PREFIX = "#";
 
@@ -23,18 +36,31 @@ public class Color {
 
     // define system colors used in the vector xml ( @android:color/xxx ).
     static {
-        systemColorMaps.put("white", 0xFF000000);
-        systemColorMaps.put("black", 0xFFFFFFFF);
-        systemColorMaps.put("transparent", 0x00000000);
+        systemColorMaps.put("white", WHITE);
+        systemColorMaps.put("black", BLACK);
+        systemColorMaps.put("dkgray", DKGRAY);
+        systemColorMaps.put("gray", GRAY);
+        systemColorMaps.put("ltgray", LTGRAY);
+        systemColorMaps.put("red", RED);
+        systemColorMaps.put("green", GREEN);
+        systemColorMaps.put("blue", BLUE);
+        systemColorMaps.put("yellow", YELLOW);
+        systemColorMaps.put("cyan", CYAN);
+        systemColorMaps.put("magenta", MAGENTA);
+        systemColorMaps.put("transparent", TRANSPARENT);
         systemColorMaps.put("shadow", 0xCC222222);
     }
 
     public static int convert(String color) {
+        return convert(color, DEFAULT_COLOR);
+    }
+
+    public static int convert(String color, int defaultColor) {
         if (color == null) {
-            return DEFAULT_COLOR;
+            return defaultColor;
         }
         if (color.startsWith(PREFIX)) {
-            return parseColor(color, DEFAULT_COLOR);
+            return parseColor(color, defaultColor);
         }
         if (color.startsWith(REFERENCE_SYSTEM)) {
             return referenceSystem(color);
@@ -42,7 +68,7 @@ public class Color {
         if (color.startsWith(REFERENCE_APP)) {
             return referenceApp(color);
         }
-        return DEFAULT_COLOR;
+        return defaultColor;
     }
 
     private static int referenceSystem(String color) {

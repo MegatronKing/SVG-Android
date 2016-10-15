@@ -46,4 +46,8 @@ public abstract class BaseVectorAttributeParser<T> implements IAttributeParser<T
     protected int parseColor(Element element, String name) {
         return Color.convert(parseString(element, name));
     }
+
+    protected int parseColor(Element element, String name, int defaultColor) {
+        return Color.convert(parseString(element, name), defaultColor);
+    }
 }
