@@ -1,8 +1,10 @@
-package com.github.megatron.svg.sample;
+package com.github.megatron.svg.sample.extend;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.github.megatron.svg.sample.R;
 
 public class ExtendEditTextSampleActivity extends AppCompatActivity {
 

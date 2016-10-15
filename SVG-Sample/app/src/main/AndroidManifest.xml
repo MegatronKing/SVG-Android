@@ -21,15 +21,16 @@
         <activity android:name=".ScaleTypeSampleActivity" />
         <activity android:name=".TintSampleActivity" />
         <activity android:name=".AnimationDrawableSampleActivity" />
-        <activity android:name=".ExtendSampleActivity" />
-        <activity android:name=".ExtendViewSampleActivity" />
-        <activity android:name=".ExtendTextViewSampleActivity" />
+        <activity android:name=".extend.ExtendSampleActivity" />
+        <activity android:name=".extend.ExtendViewSampleActivity" />
+        <activity android:name=".extend.ExtendTextViewSampleActivity" />
         <activity
-            android:name=".ExtendEditTextSampleActivity"
+            android:name=".extend.ExtendEditTextSampleActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".ExtendButtonSampleActivity" />
-        <activity android:name=".ExtendImageViewSampleActivity" />
-        <activity android:name=".ExtendImageButtonSampleActivity" />
+        <activity android:name=".extend.ExtendButtonSampleActivity" />
+        <activity android:name=".extend.ExtendImageViewSampleActivity" />
+        <activity android:name=".extend.ExtendImageViewSizeSimpleActivity" />
+        <activity android:name=".extend.ExtendImageButtonSampleActivity" />
         <activity android:name=".AlphaSampleActivity" />
 
     </application>

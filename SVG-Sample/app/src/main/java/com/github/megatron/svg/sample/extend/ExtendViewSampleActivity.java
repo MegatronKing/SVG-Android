@@ -1,10 +1,11 @@
-package com.github.megatron.svg.sample;
+package com.github.megatron.svg.sample.extend;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.android.svg.support.extend.SVGView;
+import com.github.megatron.svg.sample.R;
 
 public class ExtendViewSampleActivity extends AppCompatActivity {
 

@@ -10,16 +10,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_android_red"
-        svg:svgColor="#ffff00" />
-
-    <!--使用selector-->
-    <com.android.svg.support.extend.SVGImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dip"
-        android:src="@drawable/ic_android_red"
-        android:clickable="true"
-        svg:svgColor="@color/selector_image_color" />
+        android:background="@drawable/shape_rect_border"
+        svg:svgWidth="96dip"
+        svg:svgHeight="24dip"/>
 
     <com.android.svg.support.extend.SVGImageView
         android:id="@+id/extend_imageview"
@@ -27,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dip"
         android:src="@drawable/ic_android_red"
+        android:background="@drawable/shape_rect_border"
         android:clickable="true"/>
 
 </LinearLayout>

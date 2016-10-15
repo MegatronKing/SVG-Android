@@ -1,4 +1,4 @@
-package com.github.megatron.svg.sample;
+package com.github.megatron.svg.sample.extend;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,19 +8,22 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.github.megatron.svg.sample.R;
+import com.github.megatron.svg.sample.SampleData;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExtendSampleActivity extends AppCompatActivity {
+public class ExtendImageViewSampleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_extend);
+        setContentView(R.layout.activity_list);
         setTitle(getIntent().getStringExtra("title"));
 
         final List<SampleData> sampleData = new ArrayList<>();
-        sampleData.add(new SampleData("View", ExtendViewSampleActivity.class.getName()));
+        sampleData.add(new SampleData("Size", ExtendImageViewSizeSimpleActivity.class.getName()));
         sampleData.add(new SampleData("ImageView", ExtendImageViewSampleActivity.class.getName()));
         sampleData.add(new SampleData("TextView", ExtendTextViewSampleActivity.class.getName()));
         sampleData.add(new SampleData("EditText", ExtendEditTextSampleActivity.class.getName()));
