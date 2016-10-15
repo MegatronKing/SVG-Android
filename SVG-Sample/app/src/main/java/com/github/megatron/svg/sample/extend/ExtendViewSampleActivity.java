@@ -1,22 +1,27 @@
 package com.github.megatron.svg.sample.extend;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 
-import com.android.svg.support.extend.SVGView;
-import com.github.megatron.svg.sample.R;
+import com.github.megatron.svg.sample.ListSampleActivity;
+import com.github.megatron.svg.sample.SampleData;
 
-public class ExtendViewSampleActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ExtendViewSampleActivity extends ListSampleActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_extend_view_sample);
-        setTitle(getIntent().getStringExtra("title"));
-
-        // set in code
-        SVGView view = (SVGView) findViewById(R.id.extend_view);
-        view.setSvgColor(getResources().getColorStateList(R.color.selector_image_color));
+    protected List<SampleData> sampleData() {
+        final List<SampleData> sampleData = new ArrayList<>();
+        sampleData.add(new SampleData("Color", ExtendViewColorSampleActivity.class.getName()));
+        sampleData.add(new SampleData("Alpha", ExtendViewAlphaSampleActivity.class.getName()));
+        return sampleData;
     }
+
+    @Override
+    public void startActivity(Intent intent) {
+        intent.putExtra("title", getTitle() + " " + intent.getStringExtra("title"));
+        super.startActivity(intent);
+    }
+
 }

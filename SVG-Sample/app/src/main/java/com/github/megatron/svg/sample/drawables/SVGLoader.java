@@ -1,13 +1,14 @@
 package com.github.megatron.svg.sample.drawables;
 
 
+import com.github.megatron.svg.sample.R;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.LongSparseArray;
 
 import com.android.svg.support.SVGDrawable;
 import com.android.svg.support.SVGHelper;
-import com.github.megatron.svg.sample.R;
 
 /**
  * AUTO-GENERATED FILE.  DO NOT MODIFY.

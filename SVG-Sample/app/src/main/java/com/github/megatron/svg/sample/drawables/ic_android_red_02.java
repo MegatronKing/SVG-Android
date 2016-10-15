@@ -27,7 +27,6 @@ public class ic_android_red_02 extends SVGRenderer {
         
         final float scaleX = w / 24.0f;
         final float scaleY = h / 24.0f;
-        final float minScale = Math.min(scaleX, scaleY);
         
         mPath.reset();
         mRenderPath.reset();
@@ -112,18 +111,6 @@ public class ic_android_red_02 extends SVGRenderer {
         mFillPaint.setColor(applyAlpha(-65536, 1.0f));
         mFillPaint.setColorFilter(filter);
         canvas.drawPath(mRenderPath, mFillPaint);
-        if (mStrokePaint == null) {
-            mStrokePaint = new Paint();
-            mStrokePaint.setStyle(Paint.Style.STROKE);
-            mStrokePaint.setAntiAlias(true);
-        }
-        mStrokePaint.setStrokeJoin(Paint.Join.MITER);
-        mStrokePaint.setStrokeCap(Paint.Cap.BUTT);
-        mStrokePaint.setStrokeMiter(4.0f);
-        mStrokePaint.setColor(applyAlpha(-16777216, 1.0f));
-        mStrokePaint.setColorFilter(filter);
-        mStrokePaint.setStrokeWidth(minScale * 1.0f * 0.0f);
-        canvas.drawPath(mRenderPath, mStrokePaint);
 
     }
 

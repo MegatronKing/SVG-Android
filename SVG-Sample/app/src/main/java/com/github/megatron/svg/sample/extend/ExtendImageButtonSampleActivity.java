@@ -1,22 +1,28 @@
 package com.github.megatron.svg.sample.extend;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 
-import com.android.svg.support.extend.SVGImageButton;
-import com.github.megatron.svg.sample.R;
+import com.github.megatron.svg.sample.ListSampleActivity;
+import com.github.megatron.svg.sample.SampleData;
 
-public class ExtendImageButtonSampleActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ExtendImageButtonSampleActivity extends ListSampleActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_extend_imagebutton_sample);
-        setTitle(getIntent().getStringExtra("title"));
-
-        // set in code
-        SVGImageButton view = (SVGImageButton) findViewById(R.id.extend_imagebutton);
-        view.setSvgColor(getResources().getColorStateList(R.color.selector_image_color));
+    protected List<SampleData> sampleData() {
+        final List<SampleData> sampleData = new ArrayList<>();
+        sampleData.add(new SampleData("Size", ExtendImageButtonSizeSampleActivity.class.getName()));
+        sampleData.add(new SampleData("Color", ExtendImageButtonColorSampleActivity.class.getName()));
+        sampleData.add(new SampleData("Alpha", ExtendImageButtonAlphaSampleActivity.class.getName()));
+        return sampleData;
     }
+
+    @Override
+    public void startActivity(Intent intent) {
+        intent.putExtra("title", getTitle() + " " + intent.getStringExtra("title"));
+        super.startActivity(intent);
+    }
+
 }

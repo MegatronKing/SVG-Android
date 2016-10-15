@@ -29,6 +29,6 @@ dependencies {
     compile 'com.android.support:support-v4:24.0.0'
 }
 
-apply from: '../bintray_android.gradle'
+//apply from: '../bintray_android.gradle'
 //apply from: '../nexus_android.gradle'
 

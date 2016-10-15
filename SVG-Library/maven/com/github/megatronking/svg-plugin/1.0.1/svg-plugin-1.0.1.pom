@@ -3,19 +3,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.megatronking</groupId>
-  <artifactId>svg-generator</artifactId>
-  <version>1.0.0</version>
+  <artifactId>svg-plugin</artifactId>
+  <version>1.0.1</version>
   <dependencies>
     <dependency>
-      <groupId>dom4j</groupId>
-      <artifactId>dom4j</artifactId>
-      <version>1.6.1</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>jaxen</groupId>
-      <artifactId>jaxen</artifactId>
-      <version>1.1.6</version>
+      <groupId>com.github.megatronking</groupId>
+      <artifactId>svg-generator</artifactId>
+      <version>1.0.1</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>

@@ -1,23 +1,23 @@
 apply plugin: 'groovy'
-//apply plugin: 'maven'
+apply plugin: 'maven'
 
 dependencies {
     compile gradleApi()
     compile localGroovy()
-    compile 'com.github.megatronking:svg-generator:1.0.0'
+    compile 'com.github.megatronking:svg-generator:1.0.1'
 }
 
-//group=GROUP
-//archivesBaseName=ARTIFACTID
-//version=VERSION
-//
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            repository(url: uri('../maven'))
-//        }
-//    }
-//}
+group=GROUP
+archivesBaseName=ARTIFACTID
+version=VERSION
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../maven'))
+        }
+    }
+}
 
 //apply from: '../bintray_java.gradle'
 //apply from: '../nexus_java.gradle'

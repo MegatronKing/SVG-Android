@@ -1,5 +1,5 @@
 apply plugin: 'java'
-//apply plugin: 'maven'
+apply plugin: 'maven'
 
 dependencies {
     compile 'dom4j:dom4j:1.6.1'
@@ -7,17 +7,17 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
-//group=GROUP
-//archivesBaseName=ARTIFACTID
-//version=VERSION
-//
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            repository(url: uri('../maven'))
-//        }
-//    }
-//}
+group=GROUP
+archivesBaseName=ARTIFACTID
+version=VERSION
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../maven'))
+        }
+    }
+}
 
 //apply from: '../bintray_java.gradle'
 //apply from: '../nexus_java.gradle'

@@ -10,16 +10,7 @@
         android:layout_width="48dip"
         android:layout_height="48dip"
         android:background="@drawable/ic_android_red"
-        svg:svgColor="#ffff00" />
-
-    <!--使用selector-->
-    <com.android.svg.support.extend.SVGView
-        android:layout_width="48dip"
-        android:layout_height="48dip"
-        android:layout_marginTop="50dip"
-        android:background="@drawable/ic_android_red"
-        android:clickable="true"
-        svg:svgColor="@color/selector_image_color" />
+        svg:svgAlpha="0.5"/>
 
     <com.android.svg.support.extend.SVGView
         android:id="@+id/extend_view"
