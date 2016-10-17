@@ -1,5 +1,5 @@
 # SVG-Android
-support svg images for android 2.3+
+support svg images for android 4.0+
 
 ### Blog：http://blog.csdn.net/megatronkings
 
