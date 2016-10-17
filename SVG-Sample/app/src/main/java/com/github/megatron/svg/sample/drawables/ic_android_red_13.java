@@ -31,7 +31,7 @@ public class ic_android_red_13 extends SVGRenderer {
         mPath.reset();
         mRenderPath.reset();
         
-        mFinalPathMatrix.setValues(new float[]{-0.58778524f, 0.809017f, 9.345219f, -0.809017f, -0.58778524f, 28.761627f, 0.0f, 0.0f, 1.0f});
+        mFinalPathMatrix.setValues(new float[]{-0.809017f, 0.58778524f, 14.654781f, -0.58778524f, -0.809017f, 28.761627f, 0.0f, 0.0f, 1.0f});
         mFinalPathMatrix.postScale(scaleX, scaleY);
         
         mPath.moveTo(6.0f, 18.0f);

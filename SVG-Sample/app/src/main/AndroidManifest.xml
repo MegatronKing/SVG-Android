@@ -18,50 +18,63 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SizeSampleActivity" />
-        <activity android:name=".ScaleTypeSampleActivity" />
-        <activity android:name=".TintSampleActivity" />
-        <activity android:name=".AlphaSampleActivity" />
-        <activity android:name=".AnimationDrawableSampleActivity" />
 
+        <activity android:name=".IconSampleActivity" />
+
+        <!--graphics-->
+        <activity android:name=".graphics.GraphicsSampleActivity" />
+        <activity android:name=".graphics.SizeSampleActivity" />
+        <activity android:name=".graphics.ScaleTypeSampleActivity" />
+        <activity android:name=".graphics.TintSampleActivity" />
+        <activity android:name=".graphics.AlphaSampleActivity" />
+
+        <!--animation-->
+        <activity android:name=".animation.AnimationSampleActivity" />
+        <activity android:name=".animation.AnimationDrawableSampleActivity" />
+
+        <!--matrix-->
+        <activity android:name=".matrix.MatrixSampleActivity" />
+        <activity android:name=".matrix.TranslationSampleActivity" />
+        <activity android:name=".matrix.RotationSampleActivity" />
+        <activity android:name=".matrix.ScaleSampleActivity" />
 
         <activity android:name=".extend.ExtendSampleActivity" />
-        <!--View-->
-        <activity android:name=".extend.ExtendViewSampleActivity" />
-        <activity android:name=".extend.ExtendViewColorSampleActivity" />
-        <activity android:name=".extend.ExtendViewAlphaSampleActivity" />
-        <!--ImageView-->
-        <activity android:name=".extend.ExtendImageViewSampleActivity" />
-        <activity android:name=".extend.ExtendImageViewSizeSampleActivity" />
-        <activity android:name=".extend.ExtendImageViewColorSampleActivity" />
-        <activity android:name=".extend.ExtendImageViewAlphaSampleActivity" />
-        <!--TextView-->
-        <activity android:name=".extend.ExtendTextViewSampleActivity" />
-        <activity android:name=".extend.ExtendTextViewSizeSampleActivity" />
-        <activity android:name=".extend.ExtendTextViewColorSampleActivity" />
-        <activity android:name=".extend.ExtendTextViewAlphaSampleActivity" />
-        <!--ImageButton-->
-        <activity android:name=".extend.ExtendImageButtonSampleActivity" />
-        <activity android:name=".extend.ExtendImageButtonSizeSampleActivity" />
-        <activity android:name=".extend.ExtendImageButtonColorSampleActivity" />
-        <activity android:name=".extend.ExtendImageButtonAlphaSampleActivity" />
-        <!--Button-->
-        <activity android:name=".extend.ExtendButtonSampleActivity" />
-        <activity android:name=".extend.ExtendButtonSizeSampleActivity" />
-        <activity android:name=".extend.ExtendButtonColorSampleActivity" />
-        <activity android:name=".extend.ExtendButtonAlphaSampleActivity" />
-        <!--EditText-->
+        <!--SVGView-->
+        <activity android:name=".extend.SVGViewSampleActivity" />
+        <activity android:name=".extend.SVGViewColorSampleActivity" />
+        <activity android:name=".extend.SVGViewAlphaSampleActivity" />
+        <!--SVGImageView-->
+        <activity android:name=".extend.SVGImageViewSampleActivity" />
+        <activity android:name=".extend.SVGImageViewSizeSampleActivity" />
+        <activity android:name=".extend.SVGImageViewColorSampleActivity" />
+        <activity android:name=".extend.SVGImageViewAlphaSampleActivity" />
+        <!--SVGTextView-->
+        <activity android:name=".extend.SVGTextViewSampleActivity" />
+        <activity android:name=".extend.SVGTextViewSizeSampleActivity" />
+        <activity android:name=".extend.SVGTextViewColorSampleActivity" />
+        <activity android:name=".extend.SVGTextViewAlphaSampleActivity" />
+        <!--SVGImageButton-->
+        <activity android:name=".extend.SVGImageButtonSampleActivity" />
+        <activity android:name=".extend.SVGImageButtonSizeSampleActivity" />
+        <activity android:name=".extend.SVGImageButtonColorSampleActivity" />
+        <activity android:name=".extend.SVGImageButtonAlphaSampleActivity" />
+        <!--SVGButton-->
+        <activity android:name=".extend.SVGButtonSampleActivity" />
+        <activity android:name=".extend.SVGButtonSizeSampleActivity" />
+        <activity android:name=".extend.SVGButtonColorSampleActivity" />
+        <activity android:name=".extend.SVGButtonAlphaSampleActivity" />
+        <!--SVGEditText-->
         <activity
-            android:name=".extend.ExtendEditTextSampleActivity"
+            android:name=".extend.SVGEditTextSampleActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".extend.ExtendEditTextSizeSampleActivity"
+            android:name=".extend.SVGEditTextSizeSampleActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".extend.ExtendEditTextColorSampleActivity"
+            android:name=".extend.SVGEditTextColorSampleActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".extend.ExtendEditTextAlphaSampleActivity"
+            android:name=".extend.SVGEditTextAlphaSampleActivity"
             android:windowSoftInputMode="adjustPan" />
     </application>
 

@@ -38,7 +38,6 @@ public class SVGLoader  {
             return;
         }
         add(context, R.drawable.ic_android_red, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red(context)));
-        add(context, R.drawable.ic_android_red_00, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_00(context)));
         add(context, R.drawable.ic_android_red_01, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_01(context)));
         add(context, R.drawable.ic_android_red_02, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_02(context)));
         add(context, R.drawable.ic_android_red_03, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_03(context)));
@@ -58,6 +57,36 @@ public class SVGLoader  {
         add(context, R.drawable.ic_android_red_17, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_17(context)));
         add(context, R.drawable.ic_android_red_18, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_18(context)));
         add(context, R.drawable.ic_android_red_19, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_19(context)));
+        add(context, R.drawable.ic_android_red_20, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_20(context)));
+        add(context, R.drawable.ic_android_red_rotation_01, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_rotation_01(context)));
+        add(context, R.drawable.ic_android_red_rotation_02, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_rotation_02(context)));
+        add(context, R.drawable.ic_android_red_scale_01, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_scale_01(context)));
+        add(context, R.drawable.ic_android_red_scale_02, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_scale_02(context)));
+        add(context, R.drawable.ic_android_red_scale_03, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_scale_03(context)));
+        add(context, R.drawable.ic_android_red_scale_04, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_scale_04(context)));
+        add(context, R.drawable.ic_android_red_translation_01, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_translation_01(context)));
+        add(context, R.drawable.ic_android_red_translation_02, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_translation_02(context)));
+        add(context, R.drawable.ic_android_red_translation_03, SVGDrawable.SVGDrawableConstantState.create(new ic_android_red_translation_03(context)));
+        add(context, R.drawable.ic_sample_01, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_01(context)));
+        add(context, R.drawable.ic_sample_02, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_02(context)));
+        add(context, R.drawable.ic_sample_03, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_03(context)));
+        add(context, R.drawable.ic_sample_04, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_04(context)));
+        add(context, R.drawable.ic_sample_05, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_05(context)));
+        add(context, R.drawable.ic_sample_06, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_06(context)));
+        add(context, R.drawable.ic_sample_07, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_07(context)));
+        add(context, R.drawable.ic_sample_08, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_08(context)));
+        add(context, R.drawable.ic_sample_09, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_09(context)));
+        add(context, R.drawable.ic_sample_10, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_10(context)));
+        add(context, R.drawable.ic_sample_11, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_11(context)));
+        add(context, R.drawable.ic_sample_12, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_12(context)));
+        add(context, R.drawable.ic_sample_13, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_13(context)));
+        add(context, R.drawable.ic_sample_14, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_14(context)));
+        add(context, R.drawable.ic_sample_15, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_15(context)));
+        add(context, R.drawable.ic_sample_16, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_16(context)));
+        add(context, R.drawable.ic_sample_17, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_17(context)));
+        add(context, R.drawable.ic_sample_18, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_18(context)));
+        add(context, R.drawable.ic_sample_19, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_19(context)));
+        add(context, R.drawable.ic_sample_20, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_20(context)));
     }
 
     private static void add(Context context, int resId, SVGDrawable.SVGDrawableConstantState state) {
