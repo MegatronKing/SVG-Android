@@ -1,5 +1,5 @@
 # SVG-Android
-support svg images for android 2.3+
+support svg images for android 4.0+
 
 ### Blog：http://blog.csdn.net/megatronkings
 
@@ -21,7 +21,8 @@ SVG-Android is a support library for showing svg images in android 2.3+ .
 - support tint, alpha, size, selector whether in java code or xml code.
 - shrink the apk size, it can reduce the image size obviously.
 
-\\                | speed  | memory | compatible | scaleType | expression | unlimited | shrink
+
+  \\              | speed  | memory | compatible | scaleType | expression | unlimited | shrink
   ----------------|--------|--------|------------|-----------|------------|-----------|--------
    SVG-Android    | √      | √      | √          | √         | √          | √         | √
    Vector         | ×      | √      | x          | √         | √          | √         | ×
