@@ -6,20 +6,9 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="24dip"
-        android:layout_height="24dip"
-        android:src="@drawable/ic_android_red"/>
-
-    <ImageView
+        android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dip"
-        android:src="@drawable/ic_android_red"/>
-
-    <ImageView
-        android:layout_width="128dip"
-        android:layout_height="128dip"
-        android:layout_marginTop="50dip"
         android:src="@drawable/ic_android_red"/>
 
 </LinearLayout>
