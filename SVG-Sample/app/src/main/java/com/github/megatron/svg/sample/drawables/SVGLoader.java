@@ -87,6 +87,18 @@ public class SVGLoader  {
         add(context, R.drawable.ic_sample_18, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_18(context)));
         add(context, R.drawable.ic_sample_19, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_19(context)));
         add(context, R.drawable.ic_sample_20, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_20(context)));
+        add(context, R.drawable.ic_svg_01, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_01(context)));
+        add(context, R.drawable.ic_svg_02, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_02(context)));
+        add(context, R.drawable.ic_svg_03, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_03(context)));
+        add(context, R.drawable.ic_svg_04, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_04(context)));
+        add(context, R.drawable.ic_svg_05, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_05(context)));
+        add(context, R.drawable.ic_svg_06, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_06(context)));
+        add(context, R.drawable.ic_svg_07, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_07(context)));
+        add(context, R.drawable.ic_svg_08, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_08(context)));
+        add(context, R.drawable.ic_svg_09, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_09(context)));
+        add(context, R.drawable.ic_svg_10, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_10(context)));
+        add(context, R.drawable.ic_svg_11, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_11(context)));
+        add(context, R.drawable.ic_svg_12, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_12(context)));
     }
 
     private static void add(Context context, int resId, SVGDrawable.SVGDrawableConstantState state) {

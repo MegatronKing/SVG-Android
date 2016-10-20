@@ -13,7 +13,12 @@ import android.widget.ImageView;
 
 public class IconSampleActivity extends AppCompatActivity {
 
-    private static final Integer[] ICONS = new Integer[] { R.drawable.ic_sample_01, R.drawable.ic_sample_02,
+    private static final Integer[] ICONS = new Integer[] {
+            R.drawable.ic_svg_01, R.drawable.ic_svg_02, R.drawable.ic_svg_03,
+            R.drawable.ic_svg_04, R.drawable.ic_svg_05, R.drawable.ic_svg_06,
+            R.drawable.ic_svg_07, R.drawable.ic_svg_08, R.drawable.ic_svg_09,
+            R.drawable.ic_svg_10, R.drawable.ic_svg_11, R.drawable.ic_svg_12,
+            R.drawable.ic_sample_01, R.drawable.ic_sample_02,
             R.drawable.ic_sample_03, R.drawable.ic_sample_04, R.drawable.ic_sample_05,
             R.drawable.ic_sample_06, R.drawable.ic_sample_07, R.drawable.ic_sample_08,
             R.drawable.ic_sample_09, R.drawable.ic_sample_10, R.drawable.ic_sample_11,

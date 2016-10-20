@@ -4,9 +4,15 @@ apply plugin: 'svg'
 buildscript {
     repositories {
         jcenter()
+
+        // ** 本地测试maven地址，真实项目中必须删除 start
+        maven {
+            url uri("${rootDir.getParent()}\\SVG-Library/maven")
+        }
+        // ** 本地测试maven地址，真实项目中必须删除 end
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.0.1'
+        classpath 'com.github.megatronking:svg-plugin:1.0.2'
     }
 }
 
@@ -19,6 +25,24 @@ svg {
     javaDir = "src/main/java/com/github/megatron/svg/sample/drawables"
     // 配置应用包名(R文件包名)
     packageName = "com.github.megatron.svg.sample"
+
+    // 定义svg生成vector的配置，可以配置多个目录，方便图片分类
+    svg2vector {
+        a {
+            svgDir = "${rootDir}/svg_a"
+            vectorDir = "src/main/svg_debug/drawable"
+            // 配置生成的vector尺寸，默认不设置是24
+            height = 48
+            width = 48
+        }
+        b {
+            svgDir = "${rootDir}/svg_b"
+            vectorDir = "src/main/svg_debug/drawable"
+            height = 48
+            width = 48
+        }
+    }
+
 }
 
 android {

@@ -1,12 +1,9 @@
 package com.android.svg.support
 
-import com.android.svg.support.task.SVGAppColorLoadTask
-import com.android.svg.support.task.SVGAssembleTask
-import com.android.svg.support.task.SVGJavaCleanTask
-import com.android.svg.support.task.SVGShapeCleanTask;
-import org.gradle.api.Plugin;
-import org.gradle.api.Project;
-
+import com.android.svg.support.task.*
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.api.Task
 /**
  * <p>apply plugin: "svg"</p>
  *
@@ -16,22 +13,51 @@ import org.gradle.api.Project;
 
 public class SVGPlugin implements Plugin<Project> {
 
-    private static final String SVG_TASK_GROUP = "svg";
+    private static final String SVG_TASK_GROUP = "svg"
 
     @Override
     public void apply(Project project) {
-        project.extensions.create("svg", SVGExtension);
-        def assemble = project.tasks.create("svgAssemble", SVGAssembleTask);
+        def svgExtension = project.extensions.create("svg", SVGExtension)
+
+        def assemble = project.tasks.create("svgAssemble", SVGAssembleTask)
         assemble.setGroup(SVG_TASK_GROUP)
-        def cleanShape = project.tasks.create("svgCleanShape", SVGShapeCleanTask);
+        def cleanShape = project.tasks.create("svgCleanShape", SVGShapeCleanTask)
         cleanShape.setGroup(SVG_TASK_GROUP)
-        def cleanJava = project.tasks.create("svgCleanJava", SVGJavaCleanTask);
+        def cleanJava = project.tasks.create("svgCleanJava", SVGJavaCleanTask)
         cleanJava.setGroup(SVG_TASK_GROUP)
-        def loadAppColor = project.tasks.create("svgLoadAppColor", SVGAppColorLoadTask);
+        def loadAppColor = project.tasks.create("svgLoadAppColor", SVGAppColorLoadTask)
         loadAppColor.setGroup(SVG_TASK_GROUP)
 
-        assemble.dependsOn cleanShape
-        assemble.dependsOn cleanJava
-        assemble.dependsOn loadAppColor
+        Task cleanTask = project.tasks.create("svgClean")
+        cleanTask.setGroup(SVG_TASK_GROUP)
+
+        def svg2vectorExtensions = project.container(SVG2VectorExtension)
+        project.extensions.svg2vector = svg2vectorExtensions
+
+        project.afterEvaluate {
+            if(!svg2vectorExtensions.isEmpty()) {
+                def svg2vectorTask = project.tasks.create("svg2vector")
+                svg2vectorTask.setGroup(SVG_TASK_GROUP)
+                svg2vectorExtensions.each { svg2vectorExtension->
+                    def svg2vectorChildTask = project.tasks.create("svg2vector" + firstLettertoUpperCase(svg2vectorExtension.name), SVG2VectorTask)
+                    svg2vectorChildTask.setGroup(SVG_TASK_GROUP)
+                    svg2vectorChildTask.setExtensionName(svg2vectorExtension.name)
+                    svg2vectorTask.dependsOn svg2vectorChildTask
+                }
+                assemble.dependsOn svg2vectorTask
+            }
+
+            cleanTask.dependsOn cleanShape
+            cleanTask.dependsOn cleanJava
+
+            if (!svgExtension.uncleanMode) {
+                assemble.dependsOn cleanTask
+            }
+            assemble.dependsOn loadAppColor
+        }
+    }
+
+    private def firstLettertoUpperCase(def text) {
+        text.getAt(0).toString().toUpperCase() + text.substring(1)
     }
 }

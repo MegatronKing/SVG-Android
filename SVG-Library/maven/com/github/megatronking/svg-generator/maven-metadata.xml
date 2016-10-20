@@ -3,11 +3,12 @@
   <groupId>com.github.megatronking</groupId>
   <artifactId>svg-generator</artifactId>
   <versioning>
-    <release>1.0.1</release>
+    <release>1.0.2</release>
     <versions>
       <version>1.0.0</version>
       <version>1.0.1</version>
+      <version>1.0.2</version>
     </versions>
-    <lastUpdated>20161015085456</lastUpdated>
+    <lastUpdated>20161020111718</lastUpdated>
   </versioning>
 </metadata>

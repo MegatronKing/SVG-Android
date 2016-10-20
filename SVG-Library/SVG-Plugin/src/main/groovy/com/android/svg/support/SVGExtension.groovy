@@ -1,10 +1,12 @@
-package com.android.svg.support
+package com.android.svg.support;
+
+import java.util.Map;
 
 /**
  * <p>svg {
  *      vectorDirs = "${projectDir}\vector-resources1"
- *      shapeDir = "${projectDir}\src\main\res\drawables"
- *      javaDir = "${projectDir}\src\main\java\com\android\svg\sample\drawables"
+ *      shapeDir = "src\main\res\drawables"
+ *      javaDir = "src\main\java\com\android\svg\sample\drawables"
  *      packageName="com.android.svg.sample"
  * }</p>
  *
@@ -13,15 +15,12 @@ package com.android.svg.support
  */
 public class SVGExtension {
 
-    def vectorDirs;
-    def shapeDir;
-    def javaDir;
+    public def vectorDirs;
+    public def shapeDir;
+    public def javaDir;
 
-    def packageName;
-    def appColors;
+    public def packageName;
+    public def appColors;
 
-    @Override
-    String toString() {
-        return "[vectorDirs] $vectorDirs \n [shapeDir] $shapeDir \n [javaDir] $javaDir"
-    }
+    public def uncleanMode;
 }
