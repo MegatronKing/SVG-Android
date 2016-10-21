@@ -1,9 +1,11 @@
+import com.android.svg.support.SVG2VectorExtension
 import com.android.svg.support.SVGExtension
 import org.gradle.api.DefaultTask
 
 public class SVGBaseTask extends DefaultTask {
 
     def SVGExtension configuration
+    def SVG2VectorExtension[] svg2vectorConfigurations;
 
     public void run() {
         configuration = project.svg
@@ -16,6 +18,13 @@ public class SVGBaseTask extends DefaultTask {
                 vectorDirs.add(vectorDir)
             }
             configuration.vectorDirs = vectorDirs
+        }
+
+        svg2vectorConfigurations = project.extensions.svg2vector
+        svg2vectorConfigurations.each { svg2vectorConfiguration->
+            if(!configuration.vectorDirs.contains(svg2vectorConfiguration.vectorDir)) {
+                configuration.vectorDirs.add(svg2vectorConfiguration.vectorDir)
+            }
         }
     }
 

@@ -1,6 +1,7 @@
 package com.android.svg.support
 
 import com.android.svg.support.task.*
+import com.android.svg.support.utils.Holder
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
@@ -25,6 +26,8 @@ public class SVGPlugin implements Plugin<Project> {
         cleanShape.setGroup(SVG_TASK_GROUP)
         def cleanJava = project.tasks.create("svgCleanJava", SVGJavaCleanTask)
         cleanJava.setGroup(SVG_TASK_GROUP)
+        def cleanVector = project.tasks.create("svgCleanVector", SVGVectorCleanTask)
+        cleanVector.setGroup(SVG_TASK_GROUP)
         def loadAppColor = project.tasks.create("svgLoadAppColor", SVGAppColorLoadTask)
         loadAppColor.setGroup(SVG_TASK_GROUP)
 
@@ -35,6 +38,7 @@ public class SVGPlugin implements Plugin<Project> {
         project.extensions.svg2vector = svg2vectorExtensions
 
         project.afterEvaluate {
+            Holder.SVG_HOLDER.clear()
             if(!svg2vectorExtensions.isEmpty()) {
                 def svg2vectorTask = project.tasks.create("svg2vector")
                 svg2vectorTask.setGroup(SVG_TASK_GROUP)
@@ -49,8 +53,9 @@ public class SVGPlugin implements Plugin<Project> {
 
             cleanTask.dependsOn cleanShape
             cleanTask.dependsOn cleanJava
+            cleanTask.dependsOn cleanVector
 
-            if (!svgExtension.uncleanMode) {
+            if (svgExtension.cleanMode) {
                 assemble.dependsOn cleanTask
             }
             assemble.dependsOn loadAppColor

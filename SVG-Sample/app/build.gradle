@@ -17,10 +17,10 @@ buildscript {
 }
 
 svg {
-    // 可以配置多个vector资源目录
-    vectorDirs = ["src/main/svg_debug/drawable"]
+    // 配置Vector目录，可以配置多个(如果直接使用svg格式图片，可以不配置此项)
+    vectorDirs = ["src/main/res_vector/drawable"]
     // 配置生成空shape文件目录
-    shapeDir = "src/main/svg_release/drawable"
+    shapeDir = "src/main/res_shape/drawable"
     // 配置生成java文件目录
     javaDir = "src/main/java/com/github/megatron/svg/sample/drawables"
     // 配置应用包名(R文件包名)
@@ -28,16 +28,16 @@ svg {
 
     // 定义svg生成vector的配置，可以配置多个目录，方便图片分类
     svg2vector {
-        a {
+        svg_a {
             svgDir = "${rootDir}/svg_a"
-            vectorDir = "src/main/svg_debug/drawable"
+            vectorDir = "src/main/res_svg/drawable"
             // 配置生成的vector尺寸，默认不设置是24
             height = 48
             width = 48
         }
-        b {
+        svg_b {
             svgDir = "${rootDir}/svg_b"
-            vectorDir = "src/main/svg_debug/drawable"
+            vectorDir = "src/main/res_svg/drawable"
             height = 48
             width = 48
         }
@@ -66,11 +66,11 @@ android {
         // 为了开发时能引用vector文件方便预览，将存放vector文件目录添加到资源文件目录中
         debug {
             java.srcDirs = ['src/main/java']
-            res.srcDirs = ['src/main/res', 'src/main/svg_debug']
+            res.srcDirs = ['src/main/res', 'src/main/res_vector', 'src/main/res_svg']
         }
         release {
             java.srcDirs = ['src/main/java']
-            res.srcDirs = ['src/main/res', "src/main/svg_release"]
+            res.srcDirs = ['src/main/res', "src/main/res_shape"]
         }
     }
 }

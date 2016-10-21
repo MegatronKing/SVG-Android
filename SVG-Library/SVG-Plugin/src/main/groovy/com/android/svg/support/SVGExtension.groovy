@@ -1,7 +1,4 @@
-package com.android.svg.support;
-
-import java.util.Map;
-
+package com.android.svg.support
 /**
  * <p>svg {
  *      vectorDirs = "${projectDir}\vector-resources1"
@@ -15,12 +12,14 @@ import java.util.Map;
  */
 public class SVGExtension {
 
-    public def vectorDirs;
+    public def vectorDirs = [];
     public def shapeDir;
     public def javaDir;
 
     public def packageName;
     public def appColors;
 
-    public def uncleanMode;
+    public def cleanMode;
+
+    public def debugMode;
 }
