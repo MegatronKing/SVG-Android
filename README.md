@@ -39,7 +39,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.0.1'
+        classpath 'com.github.megatronking:svg-plugin:1.0.3'
     }
 }
 
@@ -52,6 +52,16 @@ svg {
     javaDir = "src/main/java/com/github/megatron/svg/sample/drawables"
     // app(module) package name
     packageName = "com.github.megatron.svg.sample"
+
+    svg2vector {
+        test {
+            svgDir = "${rootDir}/test"
+            vectorDir = "src/main/svg_debug/drawable"
+             // size default 24
+             height = 48
+             width = 48
+        }
+     }
 }
 
 ```

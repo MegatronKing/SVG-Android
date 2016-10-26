@@ -12,7 +12,7 @@ buildscript {
         // ** 本地测试maven地址，真实项目中请删除 end
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.0.2'
+        classpath 'com.github.megatronking:svg-plugin:1.0.3'
     }
 }
 

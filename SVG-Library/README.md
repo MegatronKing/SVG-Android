@@ -6,19 +6,23 @@ support svg images for android 2.3+
 
 ##SVG-Generator
 
-负责解析Vector文件，计算Path路径并自动生成SVGRenderer Java代码，同时会生成空内容的shape
+负责解析SVG或者Vector文件，计算Path路径并自动生成SVGRenderer Java代码，同时会生成空内容的shape
 资源文件（用于创建资源ID），另外会创建SVGLoader，用于预先加载所有SVGRenderer资源。<br>
 
-另外，由于Android只支持部分规范的SVG文件，所以我们还是按照官方的思路，必须先生成合法的Vector文件，
-这样还有个好处就是可以引用dimen和color，方面以后统一修改尺寸和颜色。<br>
-SVG图片转换成Vector文件有两种方式：<br>
-1、使用svg2android网站转换 http://inloop.github.io/svg2android/ <br>
-2、使用Android Studio 右键 -> New -> Vector Asset -> Local SVG File<br>
+为了兼容Android官方的Vector文件以及利用其相关特性，SVG-Generator支持将SVG格式文件自动生成Vector文件。
 
 
 ##SVG-Plugin
 
-Gradle插件，支持SVG-Generator调用，配置参数如下：
+Gradle插件，方便开发者一键化处理SVG图片到SVGRenderer代码的自动生成。
+
+支持功能如下：
+
+- 直接处理SVG格式文件，并生成vector资源文件，并支持多个目录及多种配置
+- 将vector资源文件生成SVG-Android框架支持的SVGRenderer等相关文件，支持多个目录
+
+
+配置参数如下：
 ```gradle
 svg {
     vectorDirs = ["src/main/svg_debug/drawable"]
@@ -26,6 +30,18 @@ svg {
     javaDir = "src/main/java/com/github/megatron/svg/sample/drawables"
     packageName = "com.github.megatron.svg.sample"
     appColors = ['black':0xFF000000, 'white':0xFFFFFFFF]
+
+    svg2vector {
+        svg_a {
+            svgDir = "${rootDir}/svg_a"
+            vectorDir = "src/main/svg_debug/drawable"
+            width = 48
+            height = 48
+        }
+        svg_b {
+            ...
+        }
+     }
 }
 ```
 config：
@@ -34,6 +50,15 @@ config：
 - javaDir     生成SVGRenderer Java代码的目录
 - packageName 应用包名，用于R文件的引用
 - appColors   定义色值，如果vector文件中有@color/xxx的引用，需要配置
+- svg2vector  svg格式文件生成vector文件的相关配置
+
+svg2vector：
+- svg_a       命名无特殊意义，可随意，建议使用svg图片文件目录名称
+- svgDir      svg图片文件目录路径
+- vectorDir   svg生成vector的文件目录，必须包含在vectorDirs数组中
+- width       svg生成vector的文件的图片宽度，可以不配置，默认为24，对应其android:width属性，单位为dp。
+- height      svg生成vector的文件的图片高度，可以不配置，默认为24，对应其android:height属性，单位为dp。
+
 
 task：
 - svgAssemble     任务执行，主Task
