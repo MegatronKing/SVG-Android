@@ -5,11 +5,11 @@ buildscript {
     repositories {
         jcenter()
 
-        // ** 本地测试maven地址，真实项目中必须删除 start
+        // ** 本地测试maven地址，真实项目中请删除 start
         maven {
             url uri("${rootDir.getParent()}\\SVG-Library/maven")
         }
-        // ** 本地测试maven地址，真实项目中必须删除 end
+        // ** 本地测试maven地址，真实项目中请删除 end
     }
     dependencies {
         classpath 'com.github.megatronking:svg-plugin:1.0.2'
@@ -17,7 +17,7 @@ buildscript {
 }
 
 svg {
-    // 配置Vector目录，可以配置多个(如果直接使用svg格式图片，可以不配置此项)
+    // 配置vector目录，可以配置多个(如果直接使用svg格式图片，可以不配置此项)
     vectorDirs = ["src/main/res_vector/drawable"]
     // 配置生成空shape文件目录
     shapeDir = "src/main/res_shape/drawable"

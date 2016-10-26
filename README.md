@@ -2,6 +2,7 @@
 support svg images for android 4.0+
 
 ### Blog：http://blog.csdn.net/megatronkings
+### Contact Me：king20091305035 (wechat)
 
 
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample1.png)
