@@ -45,22 +45,22 @@ svg {
 }
 ```
 config：
-- vectorDirs  vectors资源目录，支持多个目录，debug包可作为资源打进apk，但release包不可
-- shapeDir    shape资源目录，需要打到apk包内
-- javaDir     生成SVGRenderer Java代码的目录
-- packageName 应用包名，用于R文件的引用
-- appColors   定义色值，如果vector文件中有@color/xxx的引用，需要配置
-- svg2vector  svg格式文件生成vector文件的相关配置
+- [vectorDirs]  vectors资源目录，支持多个目录，debug包可作为资源打进apk，但release包不可
+- [shapeDir]    shape资源目录，需要打到apk包内
+- [javaDir]     生成SVGRenderer Java代码的目录
+- [packageName] 应用包名，用于R文件的引用
+- [appColors]   定义色值，如果vector文件中有@color/xxx的引用，需要配置
+- [svg2vector]  svg格式文件生成vector文件的相关配置
 
 svg2vector：
-- svg_a       命名无特殊意义，可随意，建议使用svg图片文件目录名称
-- svgDir      svg图片文件目录路径
-- vectorDir   svg生成vector的文件目录，必须包含在vectorDirs数组中
-- width       svg生成vector的文件的图片宽度，可以不配置，默认为24，对应其android:width属性，单位为dp。
-- height      svg生成vector的文件的图片高度，可以不配置，默认为24，对应其android:height属性，单位为dp。
+- [svg_a]       命名无特殊意义，可随意，建议使用svg图片文件目录名称，可以配置多个。
+- [svgDir]      svg图片文件目录路径
+- [vectorDir]   svg生成vector的文件目录，必须包含在vectorDirs数组中
+- [width]       svg生成vector的文件的图片宽度，可以不配置，默认为24，对应其android:width属性，单位为dp。
+- [height]      svg生成vector的文件的图片高度，可以不配置，默认为24，对应其android:height属性，单位为dp。
 
 
-task：
+主要task：
 - svgAssemble     任务执行，主Task
 - svgCleanShape   清除生成的空shape资源文件
 - svgCleanJava    清除生成的SVGRenderer Java代码
