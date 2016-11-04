@@ -33,6 +33,7 @@ SVG-Android is a support library for showing svg images in android 2.3+ .
 
 ## add plugin dependencies in app build.gradle
 ```gradle
+apply plugin: 'svg'
 
 buildscript {
     repositories {
