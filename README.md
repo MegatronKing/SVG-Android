@@ -39,7 +39,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.0.3'
+        classpath 'com.github.megatronking:svg-plugin:1.1.0'
     }
 }
 
