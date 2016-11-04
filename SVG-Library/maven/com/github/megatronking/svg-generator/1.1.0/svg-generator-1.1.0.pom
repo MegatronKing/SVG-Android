@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.megatronking</groupId>
   <artifactId>svg-generator</artifactId>
-  <version>1.0.1</version>
+  <version>1.1.0</version>
   <dependencies>
     <dependency>
       <groupId>dom4j</groupId>
@@ -16,6 +16,12 @@
       <groupId>jaxen</groupId>
       <artifactId>jaxen</artifactId>
       <version>1.1.6</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.android.tools</groupId>
+      <artifactId>common</artifactId>
+      <version>24.3.1</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
