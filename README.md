@@ -1,5 +1,10 @@
 # SVG-Android
-support svg images for android 4.0+
+support svg images for android 4.0+ <br> <br>
+The library provides a generator to convert verctor or svg images to java classes. 
+We can use those java classes to render images directly when drawn, it would be 
+much faster than vectors， and it avoids compatibility issues. On the other hand,
+the support library has some powerful functions such as tinting, ajusting size, 
+changing alpha both in java codes or xml files.
 
 ### Blog：http://blog.csdn.net/megatronkings
 
@@ -22,12 +27,12 @@ SVG-Android is a support library for showing svg images in android 2.3+ .
 - shrink the apk size, it can reduce the image size obviously.
 
 
-  \\              | speed  | memory | compatible | scaleType | expression | unlimited | shrink
-  ----------------|--------|--------|------------|-----------|------------|-----------|--------
-   SVG-Android    | √      | √      | √          | √         | √          | √         | √
-   Vector         | ×      | √      | x          | √         | √          | √         | ×
-   Png            | √      | ×      | √          | √         | ×          | √         | ×
-   Iconfont       | ×      | √      | √          | ×         | √          | ×         | √
+  \\              | speed  | memory | compatible | scaleType | expression | multi-colors | shrink
+  ----------------|--------|--------|------------|-----------|------------|--------------|--------
+   SVG-Android    | √      | √      | √          | √         | √          | √            | √
+   Vector         | ×      | √      | x          | √         | √          | √            | ×
+   Png            | √      | ×      | √          | √         | ×          | √            | ×
+   Iconfont       | ×      | √      | √          | ×         | √          | ×            | √
 
 #How to Use
 
@@ -58,9 +63,9 @@ svg {
         test {
             svgDir = "${rootDir}/test"
             vectorDir = "src/main/svg_debug/drawable"
-             // size default 24
-             height = 48
-             width = 48
+            // size default 24
+            height = 48
+            width = 48
         }
      }
 }
@@ -80,6 +85,9 @@ dependencies {
 ```
 gradlew svgAssemble
 ```
+With this command, we convert svg to vector and generate java classes from vector.<br>
+We will see some generated classes in dir 'src/main/java/com/github/megatron/svg/sample/drawables'.
+
 
 ## install SVGLoader in Application class
 ```java
