@@ -20,7 +20,7 @@ changing alpha both in java codes or xml files.
 
 
 #About 
-SVG-Android is a support library for showing svg images in android 2.3+ .
+SVG-Android is a support library for showing svg images in android 4.0+ .
 - faster than png, vector and iconfont, the decoding stage costs less time.
 - better performance and expression than png even using a huge image.
 - support tint, alpha, size, selector whether in java code or xml code.
