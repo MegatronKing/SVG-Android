@@ -2,7 +2,7 @@
 support svg images for android 4.0+ <br> <br>
 The library provides a generator to convert verctor or svg images to java classes. 
 We can use those java classes to render images directly when drawn, it would be 
-much faster than vectors， and it avoids compatibility issues. On the other hand,
+much faster than vectors, and it avoids compatibility issues. On the other hand,
 the support library has some powerful functions such as tinting, ajusting size, 
 changing alpha both in java codes or xml files.
 
@@ -86,7 +86,7 @@ dependencies {
 gradlew svgAssemble
 ```
 With this command, we convert svg to vector and generate java classes from vector.<br>
-We will see some generated classes in dir 'src/main/java/com/github/megatron/svg/sample/drawables'.
+After that, we will see some generated classes in dir 'src/main/java/com/github/megatron/svg/sample/drawables'.
 
 
 ## install SVGLoader in Application class
