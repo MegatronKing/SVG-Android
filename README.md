@@ -7,7 +7,7 @@ the support library has some powerful functions such as tinting, ajusting size,
 changing alpha both in java codes or xml files.
 
 ### Blog：http://blog.csdn.net/megatronkings
-### Wechat：King20091305035
+#### Wechat：King20091305035
 
 
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample1.png)
