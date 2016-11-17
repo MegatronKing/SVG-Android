@@ -16,7 +16,11 @@ public class SVGImageButtonAlphaSampleActivity extends AppCompatActivity {
         setTitle(getIntent().getStringExtra("title"));
 
         // set in code
-        SVGImageButton view = (SVGImageButton) findViewById(R.id.extend_imagebutton);
-        view.setSvgAlpha(0.5f);
+        SVGImageButton view1 = (SVGImageButton) findViewById(R.id.extend_imagebutton1);
+        view1.setSvgAlpha(0.5f);
+
+        SVGImageButton view2 = (SVGImageButton) findViewById(R.id.extend_imagebutton2);
+        view2.setSvgAlpha(0.5f);
+        view2.setImageResource(R.drawable.ic_android_red);
     }
 }

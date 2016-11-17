@@ -5,5 +5,28 @@
         <attr name="svgAlpha" format="float"/>
         <attr name="svgWidth" format="dimension"/>
         <attr name="svgHeight" format="dimension"/>
+        <attr name="svgRotation" format="float"/>
+    </declare-styleable>
+    <declare-styleable name="SVGCompoundView">
+        <attr name="leftSvgColor" format="color"/>
+        <attr name="topSvgColor" format="color"/>
+        <attr name="rightSvgColor" format="color"/>
+        <attr name="bottomSvgColor" format="color"/>
+        <attr name="leftSvgAlpha" format="float"/>
+        <attr name="topSvgAlpha" format="float"/>
+        <attr name="rightSvgAlpha" format="float"/>
+        <attr name="bottomSvgAlpha" format="float"/>
+        <attr name="leftSvgWidth" format="dimension"/>
+        <attr name="topSvgWidth" format="dimension"/>
+        <attr name="rightSvgWidth" format="dimension"/>
+        <attr name="bottomSvgWidth" format="dimension"/>
+        <attr name="leftSvgHeight" format="dimension"/>
+        <attr name="topSvgHeight" format="dimension"/>
+        <attr name="rightSvgHeight" format="dimension"/>
+        <attr name="bottomSvgHeight" format="dimension"/>
+        <attr name="leftSvgRotation" format="float"/>
+        <attr name="topSvgRotation" format="float"/>
+        <attr name="rightSvgRotation" format="float"/>
+        <attr name="bottomSvgRotation" format="float"/>
     </declare-styleable>
 </resources>

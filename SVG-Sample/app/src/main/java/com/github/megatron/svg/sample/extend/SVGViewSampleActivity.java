@@ -15,6 +15,7 @@ public class SVGViewSampleActivity extends ListSampleActivity {
         final List<SampleData> sampleData = new ArrayList<>();
         sampleData.add(new SampleData("Color", SVGViewColorSampleActivity.class.getName()));
         sampleData.add(new SampleData("Alpha", SVGViewAlphaSampleActivity.class.getName()));
+        sampleData.add(new SampleData("Rotation", SVGViewRotationSampleActivity.class.getName()));
         return sampleData;
     }
 

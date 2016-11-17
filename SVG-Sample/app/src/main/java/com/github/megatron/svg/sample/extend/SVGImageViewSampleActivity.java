@@ -16,6 +16,7 @@ public class SVGImageViewSampleActivity extends ListSampleActivity {
         sampleData.add(new SampleData("Size", SVGImageViewSizeSampleActivity.class.getName()));
         sampleData.add(new SampleData("Color", SVGImageViewColorSampleActivity.class.getName()));
         sampleData.add(new SampleData("Alpha", SVGImageViewAlphaSampleActivity.class.getName()));
+        sampleData.add(new SampleData("Rotation", SVGImageViewRotationSampleActivity.class.getName()));
         return sampleData;
     }
 

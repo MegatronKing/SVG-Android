@@ -15,7 +15,6 @@
  */
 package com.android.svg.support.svg;
 
-import com.android.annotations.Nullable;
 import com.google.common.collect.ImmutableMap;
 
 import org.w3c.dom.Node;
@@ -78,7 +77,6 @@ class SvgLeafNode extends SvgNode {
      * @param svgValue in either "(int, int, int)" or "(float%, float%, float%)"
      * @return #RRGGBB in hex format, or null, if an error is found.
      */
-    @Nullable
     private String convertRGBToHex(String svgValue) {
         // We don't support color keyword yet.
         // http://www.w3.org/TR/SVG11/types.html#ColorKeywords

@@ -6,31 +6,23 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.android.svg.support.extend.SVGImageButton
+    <com.android.svg.support.extend.SVGImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_android_red"
-        svg:svgColor="#ffff00" />
+        svg:svgRotation="90"/>
 
-    <!--使用selector-->
-    <com.android.svg.support.extend.SVGImageButton
+    <com.android.svg.support.extend.SVGImageView
+        android:id="@+id/extend_imageview1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dip"
-        android:src="@drawable/ic_android_red"
-        android:clickable="true"
-        svg:svgColor="@color/selector_image_color" />
+        android:src="@drawable/ic_android_red"/>
 
-    <com.android.svg.support.extend.SVGImageButton
-        android:id="@+id/extend_imagebutton"
+    <com.android.svg.support.extend.SVGImageView
+        android:id="@+id/extend_imageview2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dip"
-        android:src="@drawable/ic_android_red"
-        android:clickable="true"
-        svg:svgColor="@color/selector_image_color"
-        svg:svgWidth="24dip"
-        svg:svgHeight="24dip"
-        svg:svgAlpha="0.8"/>
+        android:layout_marginTop="50dip" />
 
 </LinearLayout>

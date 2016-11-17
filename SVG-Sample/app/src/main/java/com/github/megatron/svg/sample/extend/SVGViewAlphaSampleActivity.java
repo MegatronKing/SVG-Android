@@ -16,7 +16,11 @@ public class SVGViewAlphaSampleActivity extends AppCompatActivity {
         setTitle(getIntent().getStringExtra("title"));
 
         // set in code
-        SVGView view = (SVGView) findViewById(R.id.extend_view);
-        view.setSvgAlpha(0.5f);
+        SVGView view1 = (SVGView) findViewById(R.id.extend_view1);
+        view1.setSvgAlpha(0.5f);
+
+        SVGView view2 = (SVGView) findViewById(R.id.extend_view2);
+        view2.setSvgAlpha(0.5f);
+        view2.setBackgroundResource(R.drawable.ic_android_red);
     }
 }

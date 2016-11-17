@@ -1,4 +1,4 @@
-package com.android.svg.support.extend;
+package com.android.svg.support.util;
 
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;

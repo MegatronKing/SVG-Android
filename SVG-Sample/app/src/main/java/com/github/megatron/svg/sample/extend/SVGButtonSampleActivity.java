@@ -16,6 +16,7 @@ public class SVGButtonSampleActivity extends ListSampleActivity {
         sampleData.add(new SampleData("Size", SVGButtonSizeSampleActivity.class.getName()));
         sampleData.add(new SampleData("Color", SVGButtonColorSampleActivity.class.getName()));
         sampleData.add(new SampleData("Alpha", SVGButtonAlphaSampleActivity.class.getName()));
+        sampleData.add(new SampleData("Rotation", SVGButtonRotationSampleActivity.class.getName()));
         return sampleData;
     }
 

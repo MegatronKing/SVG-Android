@@ -1,5 +1,6 @@
 package com.github.megatron.svg.sample.extend;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +17,21 @@ public class SVGEditTextColorSampleActivity extends AppCompatActivity {
         setTitle(getIntent().getStringExtra("title"));
 
         // set in code
-        SVGEditText view = (SVGEditText) findViewById(R.id.extend_edittext);
-        view.setSvgColor(getResources().getColorStateList(R.color.selector_image_color));
+        SVGEditText view1 = (SVGEditText) findViewById(R.id.extend_edittext1);
+        view1.setLeftSvgColor(getResources().getColorStateList(R.color.selector_image_color));
+        view1.setTopSvgColor(Color.GREEN);
+        view1.setRightSvgColor(Color.CYAN);
+        view1.setBottomSvgColor(Color.BLUE);
+
+        SVGEditText view2 = (SVGEditText) findViewById(R.id.extend_edittext2);
+        view2.setLeftSvgColor(getResources().getColorStateList(R.color.selector_image_color));
+        view2.setTopSvgColor(Color.GREEN);
+        view2.setRightSvgColor(Color.CYAN);
+        view2.setBottomSvgColor(Color.BLUE);
+        view2.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_android_red,
+                R.drawable.ic_android_red, R.drawable.ic_android_red, R.drawable.ic_android_red);
+
+        // influence all compound drawables
+        // view.setSvgColor(Color.BLACK);
     }
 }

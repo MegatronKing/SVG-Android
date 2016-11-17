@@ -12,7 +12,7 @@ import com.android.svg.support.R;
 import com.android.svg.support.SVGDrawable;
 
 /**
- * Support width, height, alpha, tint color for svg images.<br>
+ * Support alpha, tint color for svg images.<br>
  *
  * @author Megatron King
  * @since 2016/10/10 19:11
@@ -23,6 +23,7 @@ public class SVGView extends View {
     private float mSvgAlpha;
     private int mSvgWidth;
     private int mSvgHeight;
+    private float mSvgRotation;
 
     public SVGView(Context context) {
         this(context, null);
@@ -39,38 +40,69 @@ public class SVGView extends View {
         mSvgAlpha = a.getFloat(R.styleable.SVGView_svgAlpha, 1.0f);
         mSvgWidth = a.getDimensionPixelSize(R.styleable.SVGView_svgWidth, -1);
         mSvgHeight = a.getDimensionPixelSize(R.styleable.SVGView_svgHeight, -1);
+        mSvgRotation = a.getFloat(R.styleable.SVGView_svgRotation, 0) % 360;
         a.recycle();
-        resetDrawable(getBackground());
+        resetBackgroundDrawable();
     }
 
     public void setSvgColor(ColorStateList svgColor) {
         this.mSvgColor = svgColor;
-        resetDrawable(getBackground());
+        resetBackgroundDrawable();
     }
 
     public void setSvgColor(int color) {
         setSvgColor(ColorStateList.valueOf(color));
     }
 
+    public ColorStateList getSvgColor() {
+        return mSvgColor;
+    }
+
     public void setSvgWidth(int width) {
         this.mSvgWidth = width;
-        resetDrawable(getBackground());
+        resetBackgroundDrawable();
+    }
+
+    public int getSvgWidth() {
+        return mSvgWidth;
     }
 
     public void setSvgHeight(int height) {
         this.mSvgHeight = height;
-        resetDrawable(getBackground());
+        resetBackgroundDrawable();
+    }
+
+    public int getSvgHeight() {
+        return mSvgHeight;
     }
 
     public void setSvgSize(int width, int height) {
         this.mSvgWidth = width;
         this.mSvgHeight = height;
-        resetDrawable(getBackground());
+        resetBackgroundDrawable();
     }
 
     public void setSvgAlpha(float alpha) {
         this.mSvgAlpha = alpha;
+        resetBackgroundDrawable();
+    }
+
+    public float getSvgAlpha() {
+        return mSvgAlpha;
+    }
+
+    public void setSvgRotation(float rotation) {
+        this.mSvgRotation = rotation;
+        resetBackgroundDrawable();
+    }
+
+    public float getSvgRotation() {
+        return mSvgRotation;
+    }
+
+    private void resetBackgroundDrawable() {
         resetDrawable(getBackground());
+        invalidate();
     }
 
     private void resetDrawable(Drawable drawable) {
@@ -86,12 +118,21 @@ public class SVGView extends View {
             if (mSvgHeight > 0) {
                 ((SVGDrawable)drawable).setHeight(mSvgHeight);
             }
+            if (mSvgRotation != 0) {
+                ((SVGDrawable)drawable).setRotation(mSvgRotation);
+            }
         }
-        super.setBackground(drawable);
     }
 
     @Override
     public void setBackground(Drawable background) {
-        resetDrawable(background);
+        super.setBackground(background);
+        resetBackgroundDrawable();
+    }
+
+    @Override
+    public void setBackgroundResource(int resid) {
+        super.setBackgroundResource(resid);
+        resetBackgroundDrawable();
     }
 }

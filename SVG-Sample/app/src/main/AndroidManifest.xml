@@ -31,6 +31,8 @@
         <!--animation-->
         <activity android:name=".animation.AnimationSampleActivity" />
         <activity android:name=".animation.AnimationDrawableSampleActivity" />
+        <activity android:name=".animation.AnimationSVGImageViewSampleActivity" />
+        <activity android:name=".animation.AnimationSVGDrawableSampleActivity" />
 
         <!--matrix-->
         <activity android:name=".matrix.MatrixSampleActivity" />
@@ -43,26 +45,31 @@
         <activity android:name=".extend.SVGViewSampleActivity" />
         <activity android:name=".extend.SVGViewColorSampleActivity" />
         <activity android:name=".extend.SVGViewAlphaSampleActivity" />
+        <activity android:name=".extend.SVGViewRotationSampleActivity" />
         <!--SVGImageView-->
         <activity android:name=".extend.SVGImageViewSampleActivity" />
         <activity android:name=".extend.SVGImageViewSizeSampleActivity" />
         <activity android:name=".extend.SVGImageViewColorSampleActivity" />
         <activity android:name=".extend.SVGImageViewAlphaSampleActivity" />
+        <activity android:name=".extend.SVGImageViewRotationSampleActivity" />
         <!--SVGTextView-->
         <activity android:name=".extend.SVGTextViewSampleActivity" />
         <activity android:name=".extend.SVGTextViewSizeSampleActivity" />
         <activity android:name=".extend.SVGTextViewColorSampleActivity" />
         <activity android:name=".extend.SVGTextViewAlphaSampleActivity" />
+        <activity android:name=".extend.SVGTextViewRotationSampleActivity" />
         <!--SVGImageButton-->
         <activity android:name=".extend.SVGImageButtonSampleActivity" />
         <activity android:name=".extend.SVGImageButtonSizeSampleActivity" />
         <activity android:name=".extend.SVGImageButtonColorSampleActivity" />
         <activity android:name=".extend.SVGImageButtonAlphaSampleActivity" />
+        <activity android:name=".extend.SVGImageButtonRotationSampleActivity" />
         <!--SVGButton-->
         <activity android:name=".extend.SVGButtonSampleActivity" />
         <activity android:name=".extend.SVGButtonSizeSampleActivity" />
         <activity android:name=".extend.SVGButtonColorSampleActivity" />
         <activity android:name=".extend.SVGButtonAlphaSampleActivity" />
+        <activity android:name=".extend.SVGButtonRotationSampleActivity" />
         <!--SVGEditText-->
         <activity
             android:name=".extend.SVGEditTextSampleActivity"
@@ -75,6 +82,9 @@
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".extend.SVGEditTextAlphaSampleActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".extend.SVGEditTextRotationSampleActivity"
             android:windowSoftInputMode="adjustPan" />
     </application>
 

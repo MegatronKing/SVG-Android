@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/animation_drawable_sample_image"
+        android:id="@+id/animation_drawable_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/animation_ic_android"/>

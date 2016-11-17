@@ -72,6 +72,83 @@ public class SVGDrawable extends Drawable {
         }
     }
 
+    public void setRotation(float rotation) {
+        if (getRotation() != rotation) {
+            mState.mRenderer.mRotation = rotation;
+            invalidateSelf();
+        }
+    }
+
+    public float getRotation() {
+        return mState.mRenderer.mRotation;
+    }
+
+    public void setPivotX(float pivotX) {
+        if (getPivotX() != pivotX) {
+            mState.mRenderer.mPivotX = pivotX;
+            invalidateSelf();
+        }
+    }
+
+    public float getPivotX() {
+        return mState.mRenderer.mPivotX;
+    }
+
+    public void setPivotY(float pivotY) {
+        if (getPivotY() != pivotY) {
+            mState.mRenderer.mPivotY = pivotY;
+            invalidateSelf();
+        }
+    }
+
+    public float getPivotY() {
+        return mState.mRenderer.mPivotY;
+    }
+
+    public void setScaleX(float scaleX) {
+        if (getScaleX() != scaleX) {
+            mState.mRenderer.mScaleX = scaleX;
+            invalidateSelf();
+        }
+    }
+
+    public float getScaleX() {
+        return mState.mRenderer.mScaleX;
+    }
+
+    public void setScaleY(float scaleY) {
+        if (getScaleY() != scaleY) {
+            mState.mRenderer.mScaleY = scaleY;
+            invalidateSelf();
+        }
+    }
+
+    public float getScaleY() {
+        return mState.mRenderer.mScaleY;
+    }
+
+    public void setTranslationX(float translationX) {
+        if (getTranslationX() != translationX) {
+            mState.mRenderer.mTranslationX = translationX;
+            invalidateSelf();
+        }
+    }
+
+    public float getTranslationX() {
+        return mState.mRenderer.mTranslationX;
+    }
+
+    public void setTranslationY(float translationY) {
+        if (getTranslationY() != translationY) {
+            mState.mRenderer.mTranslationY = translationY;
+            invalidateSelf();
+        }
+    }
+
+    public float getTranslationY() {
+        return mState.mRenderer.mTranslationY;
+    }
+
     @Override
     public int getAlpha() {
         return (int) (mState.mRenderer.mAlpha * 0xFF);

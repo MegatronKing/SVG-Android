@@ -6,7 +6,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.1.0'
+        classpath 'com.github.megatronking:svg-plugin:1.1.1'
     }
 }
 
@@ -58,11 +58,11 @@ android {
     }
     sourceSets {
         // 为了开发时能引用vector文件方便预览，将存放vector文件目录添加到资源文件目录中
+//        debug {
+//            java.srcDirs = ['src/main/java']
+//            res.srcDirs = ['src/main/res', 'src/main/res_vector', 'src/main/res_svg']
+//        }
         debug {
-            java.srcDirs = ['src/main/java']
-            res.srcDirs = ['src/main/res', 'src/main/res_vector', 'src/main/res_svg']
-        }
-        release {
             java.srcDirs = ['src/main/java']
             res.srcDirs = ['src/main/res', "src/main/res_shape"]
         }
@@ -73,5 +73,5 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.2.0'
     testCompile 'junit:junit:4.12'
-    compile 'com.github.megatronking:svg-support:1.0.1'
+    compile 'com.github.megatronking:svg-support:1.1.0'
 }

@@ -16,6 +16,7 @@ public class SVGEditTextSampleActivity extends ListSampleActivity {
         sampleData.add(new SampleData("Size", SVGEditTextSizeSampleActivity.class.getName()));
         sampleData.add(new SampleData("Color", SVGEditTextColorSampleActivity.class.getName()));
         sampleData.add(new SampleData("Alpha", SVGEditTextAlphaSampleActivity.class.getName()));
+        sampleData.add(new SampleData("Rotation", SVGEditTextRotationSampleActivity.class.getName()));
         return sampleData;
     }
 

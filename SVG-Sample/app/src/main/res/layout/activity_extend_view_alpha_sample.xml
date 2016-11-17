@@ -13,11 +13,17 @@
         svg:svgAlpha="0.5"/>
 
     <com.android.svg.support.extend.SVGView
-        android:id="@+id/extend_view"
+        android:id="@+id/extend_view1"
         android:layout_width="48dip"
         android:layout_height="48dip"
         android:layout_marginTop="50dip"
         android:background="@drawable/ic_android_red"
         android:clickable="true"/>
 
+    <com.android.svg.support.extend.SVGView
+        android:id="@+id/extend_view2"
+        android:layout_width="48dip"
+        android:layout_height="48dip"
+        android:layout_marginTop="50dip"
+        android:clickable="true"/>
 </LinearLayout>

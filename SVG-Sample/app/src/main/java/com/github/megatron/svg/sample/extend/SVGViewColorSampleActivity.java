@@ -16,7 +16,11 @@ public class SVGViewColorSampleActivity extends AppCompatActivity {
         setTitle(getIntent().getStringExtra("title"));
 
         // set in code
-        SVGView view = (SVGView) findViewById(R.id.extend_view);
-        view.setSvgColor(getResources().getColorStateList(R.color.selector_image_color));
+        SVGView view1 = (SVGView) findViewById(R.id.extend_view1);
+        view1.setSvgColor(getResources().getColorStateList(R.color.selector_image_color));
+
+        SVGView view2 = (SVGView) findViewById(R.id.extend_view2);
+        view2.setSvgColor(getResources().getColorStateList(R.color.selector_image_color));
+        view2.setBackgroundResource(R.drawable.ic_android_red);
     }
 }

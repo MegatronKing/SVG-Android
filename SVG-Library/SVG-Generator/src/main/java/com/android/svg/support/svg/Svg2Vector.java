@@ -15,7 +15,6 @@
  */
 package com.android.svg.support.svg;
 
-import com.android.annotations.NonNull;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
 
@@ -99,7 +98,6 @@ public class Svg2Vector {
             // Uncategorized elements
             "clipPath", "color-profile", "cursor", "filter", "foreignObject", "script", "view");
 
-    @NonNull
     private static SvgTree parse(File f) throws Exception {
         SvgTree svgTree = new SvgTree();
         Document doc = svgTree.parse(f);
@@ -191,10 +189,6 @@ public class Svg2Vector {
                         avg.matrix[j] = Float.parseFloat(sp[j]);
                     }
                 }
-            } else if (name.equals("y")) {
-                Float.parseFloat(value);
-            } else if (name.equals("x")) {
-                Float.parseFloat(value);
             }
         }
     }

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/animation_svgdrawable_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_rect_border"
+            android:padding="100dip"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dip"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/animation_translationX"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dip"
+                android:text="translationX"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_text_selected" />
+
+            <Button
+                android:id="@+id/animation_scaleX"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dip"
+                android:text="scaleX"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_text_selected" />
+
+            <Button
+                android:id="@+id/animation_pivotX"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dip"
+                android:text="pivotX"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_text_selected" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/animation_translationY"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dip"
+                android:text="translationY"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_text_selected" />
+
+            <Button
+                android:id="@+id/animation_scaleY"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dip"
+                android:text="scaleY"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_text_selected" />
+
+            <Button
+                android:id="@+id/animation_pivotY"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dip"
+                android:text="pivotY"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_text_selected" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/animation_rotation"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dip"
+                android:text="rotation"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_text_selected" />
+
+            <Button
+                android:id="@+id/animation_alpha"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dip"
+                android:text="alpha"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_text_selected" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

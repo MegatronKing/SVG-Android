@@ -14,11 +14,17 @@
         svg:svgColor="@color/selector_image_color"/>
 
     <com.android.svg.support.extend.SVGImageButton
-        android:id="@+id/extend_imagebutton"
+        android:id="@+id/extend_imagebutton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dip"
         android:src="@drawable/ic_android_red"
         android:clickable="true"/>
 
+    <com.android.svg.support.extend.SVGImageButton
+        android:id="@+id/extend_imagebutton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dip"
+        android:clickable="true"/>
 </LinearLayout>

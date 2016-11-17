@@ -26,6 +26,15 @@ public abstract class SVGRenderer implements Cloneable {
     protected int mWidth;
     protected int mHeight;
 
+    // matrix
+    protected float mRotation = 0;
+    protected float mPivotX = 0.5f;
+    protected float mPivotY = 0.5f;
+    protected float mScaleX = 1;
+    protected float mScaleY = 1;
+    protected float mTranslationX = 0;
+    protected float mTranslationY = 0;
+
     protected final Matrix mFinalPathMatrix = new Matrix();
 
     protected final Path mPath;
@@ -71,6 +80,9 @@ public abstract class SVGRenderer implements Cloneable {
     }
 
     public void draw(Canvas canvas, int width, int height, ColorFilter filter, Rect dst) {
+        canvas.rotate(mRotation, mWidth * mPivotX, mHeight * mPivotY);
+        canvas.translate(mTranslationX, mTranslationY);
+        canvas.scale(mScaleX, mScaleY, mPivotX * mWidth, mHeight * mPivotY);
         if (mRendererStrategy == null) {
             mRendererStrategy = RendererStrategyFactory.create(this, canvas);
         }

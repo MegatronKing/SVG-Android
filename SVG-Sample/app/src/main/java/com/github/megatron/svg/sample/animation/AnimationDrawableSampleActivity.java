@@ -16,7 +16,7 @@ public class AnimationDrawableSampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_animation_drawable_sample);
         setTitle(getIntent().getStringExtra("title"));
 
-        ImageView imageView = (ImageView) findViewById(R.id.animation_drawable_sample_image);
+        ImageView imageView = (ImageView) findViewById(R.id.animation_drawable_image);
         AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getDrawable();
         animationDrawable.start();
     }

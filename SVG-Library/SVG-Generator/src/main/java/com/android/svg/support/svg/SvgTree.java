@@ -15,10 +15,6 @@
  */
 package com.android.svg.support.svg;
 
-import com.android.annotations.NonNull;
-import com.android.annotations.Nullable;
-import com.android.ide.common.blame.SourcePosition;
-import com.android.utils.PositionXmlParser;
 import com.google.common.base.Strings;
 
 import org.w3c.dom.Document;
@@ -52,8 +48,7 @@ class SvgTree {
 
     public Document parse(File f) throws Exception {
         mFileName = f.getName();
-        Document doc = PositionXmlParser.parse(new FileInputStream(f));
-        return doc;
+        return PositionXmlParser.parse(new FileInputStream(f));
     }
 
     public void normalize() {
@@ -79,7 +74,6 @@ class SvgTree {
         mRoot = root;
     }
 
-    @Nullable
     public SvgGroupNode getRoot() {
         return mRoot;
     }
@@ -99,7 +93,6 @@ class SvgTree {
     /**
      * @return Error log. Empty string if there are no errors.
      */
-    @NonNull
     public String getErrorLog() {
         StringBuilder errorBuilder = new StringBuilder();
         if (!mErrorLines.isEmpty()) {
