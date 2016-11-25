@@ -7,7 +7,9 @@ the support library has some powerful functions such as tinting, ajusting size,
 changing alpha both in java codes or xml files.
 
 ### Blog：http://blog.csdn.net/megatronkings
+#### Wechat：King20091305035
 
+###
 
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample1.png)
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample2.png)
@@ -25,6 +27,7 @@ SVG-Android is a support library for showing svg images in android 4.0+ .
 - better performance and expression than png even using a huge image.
 - support tint, alpha, size, selector whether in java code or xml code.
 - shrink the apk size, it can reduce the image size obviously.
+- support drawable animtions with some assigned animators.
 
 
   \\              | speed  | memory | compatible | scaleType | expression | multi-colors | shrink
@@ -45,7 +48,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.1.0'
+        classpath 'com.github.megatronking:svg-plugin:1.1.1'
     }
 }
 
@@ -76,7 +79,7 @@ svg {
 ```gradle
 
 dependencies {
-    compile 'com.github.megatronking:svg-support:1.0.1'
+    compile 'com.github.megatronking:svg-support:1.1.0'
 }
 
 ```
