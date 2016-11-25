@@ -50,8 +50,7 @@ public class SVG2VectorTask extends SVGBaseTask {
             return
         }
         Holder.SVG_HOLDER.add(vectorFile.name)
-        OutputStream outStream = new FileOutputStream(vectorFile)
-        String error = Svg2Vector.parseSvgToXml(svgFile, outStream, width, height)
+        String error = Svg2Vector.parseSvgToXml(svgFile, vectorFile, width, height)
         outStream.flush()
         outStream.close()
         if (!error.isEmpty()) {

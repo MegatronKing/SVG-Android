@@ -1,8 +1,8 @@
 package com.android.svg.support.writer.impl;
 
-import com.android.svg.support.svgnew.model.G;
-import com.android.svg.support.svgnew.model.Svg;
-import com.android.svg.support.svgnew.model.SvgNode;
+import com.android.svg.support.svg.model.G;
+import com.android.svg.support.svg.model.Svg;
+import com.android.svg.support.svg.model.SvgNode;
 import com.android.svg.support.writer.IBufferWriter;
 
 import java.io.BufferedWriter;
