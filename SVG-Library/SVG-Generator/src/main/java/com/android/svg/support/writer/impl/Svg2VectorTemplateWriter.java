@@ -36,6 +36,9 @@ public class Svg2VectorTemplateWriter implements IBufferWriter {
             writeSvgNodes(bw, svgNode , 1);
         }
         bw.write("</vector>");
+        // The end.
+        bw.flush();
+        bw.close();
     }
 
     private void writeSvgNodes(BufferedWriter bw, SvgNode svgNode, int indentCount) throws IOException {

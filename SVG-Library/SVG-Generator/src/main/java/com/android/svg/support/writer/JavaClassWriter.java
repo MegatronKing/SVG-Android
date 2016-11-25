@@ -52,6 +52,9 @@ public abstract class JavaClassWriter implements IBufferWriter {
         writeMethods(bw);
         writeInnerClasses(bw);
         writeEnd(bw);
+        // The end.
+        bw.flush();
+        bw.close();
     }
 
     protected void writePackage(BufferedWriter bw) throws IOException {

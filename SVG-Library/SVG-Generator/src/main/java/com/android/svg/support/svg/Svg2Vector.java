@@ -50,8 +50,6 @@ public class Svg2Vector {
             Svg2VectorTemplateWriter writer = new Svg2VectorTemplateWriter(svg);
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(outputVector));
             writer.write(bufferedWriter);
-            bufferedWriter.flush();
-            bufferedWriter.close();
         } catch (IOException | DocumentException e) {
             return "EXCEPTION in parsing " + inputSVG.getName() + ":\n" + e.getMessage();
         }

@@ -4,9 +4,12 @@ apply plugin: 'svg'
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url uri("D:\\git_tc\\SVG-Android\\SVG-Library\\maven")
+        }
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.1.1'
+        classpath 'com.github.megatronking:svg-plugin:1.2.0'
     }
 }
 
@@ -25,7 +28,7 @@ svg {
         svg_a {
             svgDir = "${rootDir}/svg_a"
             vectorDir = "src/main/res_svg/drawable"
-            // 配置生成的vector尺寸，默认不设置是24
+            // 配置生成的vector尺寸，不设置将按照图片尺寸大小
             height = 48
             width = 48
         }
