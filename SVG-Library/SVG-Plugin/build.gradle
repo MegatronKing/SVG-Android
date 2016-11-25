@@ -4,7 +4,8 @@ apply plugin: 'groovy'
 dependencies {
     compile gradleApi()
     compile localGroovy()
-    compile 'com.github.megatronking:svg-generator:1.1.1'
+//    compile 'com.github.megatronking:svg-generator:1.2.0'
+    com
 }
 
 group=GROUP
