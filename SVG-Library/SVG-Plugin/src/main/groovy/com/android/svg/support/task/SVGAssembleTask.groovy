@@ -88,8 +88,6 @@ public class SVGAssembleTask extends SVGBaseTask {
             writer.setPackage(javaClassPackage)
             writer.setClassSimpleName(vectorModel.name)
             writer.write(bw)
-            bw.flush()
-            bw.close()
         }
     }
 
@@ -101,8 +99,6 @@ public class SVGAssembleTask extends SVGBaseTask {
         }
         BufferedWriter bw = new BufferedWriter(new FileWriter(file(configuration.javaDir, "SVGLoader.java")))
         svgLoaderWriter.write(bw)
-        bw.flush()
-        bw.close()
     }
 
     private void writeShapeXml(def vectorModels) {
@@ -110,8 +106,6 @@ public class SVGAssembleTask extends SVGBaseTask {
         vectorModels.each { vectorModel->
             BufferedWriter bw = new BufferedWriter(new FileWriter(file(configuration.shapeDir, vectorModel.name + ".xml")))
             shapeXmlWriter.write(bw)
-            bw.flush()
-            bw.close()
         }
     }
 }

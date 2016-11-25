@@ -12,5 +12,8 @@ public class SVGShapeXmlTemplateWriter implements IBufferWriter {
         bw.write("<!-- AUTO-GENERATED FILE.  DO NOT MODIFY. -->");
         bw.newLine();
         bw.write("<shape xmlns:android=\"http://schemas.android.com/apk/res/android\" />");
+        // The end.
+        bw.flush();
+        bw.close();
     }
 }

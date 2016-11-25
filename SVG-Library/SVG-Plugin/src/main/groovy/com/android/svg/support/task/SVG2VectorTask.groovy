@@ -51,9 +51,7 @@ public class SVG2VectorTask extends SVGBaseTask {
         }
         Holder.SVG_HOLDER.add(vectorFile.name)
         String error = Svg2Vector.parseSvgToXml(svgFile, vectorFile, width, height)
-        outStream.flush()
-        outStream.close()
-        if (!error.isEmpty()) {
+        if (error != null && !error.isEmpty()) {
             errorSvgs.add(svgFile.path)
             vectorFile.delete()
             if (configuration.debugMode) {
