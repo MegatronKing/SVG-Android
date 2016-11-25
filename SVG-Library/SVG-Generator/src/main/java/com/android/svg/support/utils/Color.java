@@ -1,5 +1,6 @@
 package com.android.svg.support.utils;
 
+import java.lang.reflect.Field;
 import java.util.HashMap;
 
 /**
@@ -22,6 +23,7 @@ public class Color {
     public static final int YELLOW      = 0xFFFFFF00;
     public static final int CYAN        = 0xFF00FFFF;
     public static final int MAGENTA     = 0xFFFF00FF;
+    public static final int SHADOW     = 0xCC222222;
     public static final int TRANSPARENT = 0;
 
     private static final int DEFAULT_COLOR = TRANSPARENT;
@@ -30,9 +32,11 @@ public class Color {
 
     private static final String REFERENCE_SYSTEM = "@android:color/";
     private static final String REFERENCE_APP = "@color/";
+    private static final String REFERENCE_RGB = "rgb";
 
     public static HashMap<String, Integer> appColorMaps = new HashMap<>();
     public static HashMap<String, Integer> systemColorMaps = new HashMap<>();
+    public static HashMap<String, Integer> keywordColorMaps = new HashMap<>();
 
     // define system colors used in the vector xml ( @android:color/xxx ).
     static {
@@ -48,7 +52,22 @@ public class Color {
         systemColorMaps.put("cyan", CYAN);
         systemColorMaps.put("magenta", MAGENTA);
         systemColorMaps.put("transparent", TRANSPARENT);
-        systemColorMaps.put("shadow", 0xCC222222);
+        systemColorMaps.put("shadow", SHADOW);
+        systemColorMaps.put("none", TRANSPARENT);
+    }
+
+    // Define keyword colors used in the svg xml.
+    // See https://www.w3.org/TR/SVG11/types.html#ColorKeywords
+    static {
+        try {
+            Field[] fields = KeywordColors.class.getDeclaredFields();
+            for (Field field : fields) {
+                field.setAccessible(true);
+                keywordColorMaps.put(field.getName(), (Integer) field.get(null));
+            }
+        } catch (Exception e) {
+            // ignore
+        }
     }
 
     public static int convert(String color) {
@@ -68,6 +87,12 @@ public class Color {
         if (color.startsWith(REFERENCE_APP)) {
             return referenceApp(color);
         }
+        if (color.startsWith(REFERENCE_RGB)) {
+            return convertRGBToInteger(color);
+        }
+        if (keywordColorMaps.containsKey(color)) {
+            return keywordColorMaps.get(color);
+        }
         return defaultColor;
     }
 
@@ -86,9 +111,49 @@ public class Color {
         if (colorString.length() == 7) {
             // Set the alpha value
             color |= 0x00000000ff000000;
+        } else if (colorString.length() == 4) {
+            String newColorString = "0xff";
+            for (int i = 0; i < colorString.length() - 1; i++) {
+                newColorString += colorString.charAt(i);
+                newColorString += colorString.charAt(i);
+            }
+            color = Long.parseLong(newColorString, 16);
         } else if (colorString.length() != 9) {
             return defaultColor;
         }
         return (int)color;
+    }
+
+    private static int convertRGBToInteger(String svgValue) {
+        String result;
+        String functionValue = svgValue.trim();
+        functionValue = svgValue.substring(1, functionValue.length() - 1);
+        // After we cut the "(", ")", we can deal with the numbers.
+        String[] numbers = functionValue.split(",");
+        if (numbers.length != 3) {
+            return BLACK;
+        }
+        int[] color = new int[3];
+        for (int i = 0; i < 3; i++) {
+            String number = numbers[i];
+            number = number.trim();
+            if (number.endsWith("%")) {
+                float value = Float.parseFloat(number.substring(0, number.length() - 1));
+                color[i] = clamp((int) (value * 255.0f / 100.0f), 0, 255);
+            } else {
+                int value = Integer.parseInt(number);
+                color[i] = clamp(value, 0, 255);
+            }
+        }
+        StringBuilder builder = new StringBuilder("FF");
+        for (int i = 0; i < 3; i++) {
+            builder.append(String.format("%02X", color[i]));
+        }
+        result = builder.toString();
+        return Integer.parseInt(result);
+    }
+
+    private static int clamp(int val, int min, int max) {
+        return Math.max(min, Math.min(max, val));
     }
 }

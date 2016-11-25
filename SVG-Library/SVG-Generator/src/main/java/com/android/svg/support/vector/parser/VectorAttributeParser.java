@@ -1,8 +1,9 @@
 package com.android.svg.support.vector.parser;
 
 
-import com.android.svg.support.model.Vector;
-import com.android.svg.support.model.VectorConstants;
+import com.android.svg.support.vector.model.Vector;
+import com.android.svg.support.vector.model.VectorConstants;
+import com.android.svg.support.xml.CommonAbstractAttributeParser;
 
 import org.dom4j.Element;
 
@@ -13,7 +14,7 @@ import org.dom4j.Element;
  * @since 2016/9/1 9:39
  */
 
-public class VectorAttributeParser extends BaseVectorAttributeParser<Vector> {
+public class VectorAttributeParser extends CommonAbstractAttributeParser<Vector> {
 
     @Override
     public void parse(Element element, Vector vector) {

@@ -1,7 +1,7 @@
 package com.android.svg.support.writer.impl;
 
 
-import com.android.svg.support.model.Vector;
+import com.android.svg.support.vector.model.Vector;
 import com.android.svg.support.render.VectorRenderer;
 import com.android.svg.support.utils.Dimen;
 import com.android.svg.support.writer.JavaClassWriter;

@@ -1,11 +1,13 @@
 package com.android.svg.support.vector.parser;
 
 
-import com.android.svg.support.model.Group;
-import com.android.svg.support.model.Path;
-import com.android.svg.support.model.Vector;
-import com.android.svg.support.model.VectorConstants;
+import com.android.svg.support.vector.model.Group;
+import com.android.svg.support.vector.model.Path;
+import com.android.svg.support.vector.model.Vector;
+import com.android.svg.support.vector.model.VectorConstants;
+import com.android.svg.support.xml.ChildrenElementParser;
 
+import org.dom4j.DocumentException;
 import org.dom4j.Element;
 
 /**
@@ -18,26 +20,26 @@ import org.dom4j.Element;
 public class VectorElementParser extends ChildrenElementParser<Vector> {
 
     public VectorElementParser() {
-        super(ParserImpl.VECTOR_ATTRIBUTE_PARSER);
+        super(VectorParserImpl.VECTOR_ATTRIBUTE_PARSER);
     }
 
     @Override
-    protected void parseChild(Element childElement, Vector vector) {
+    protected void parseChild(Element childElement, Vector vector) throws DocumentException {
         Group rootGroup = new Group(null);
         if (VectorConstants.TAG_GROUP.equals(childElement.getName())) {
             Group childGroup = new Group(rootGroup);
             vector.children.add(childGroup);
-            ParserImpl.GROUP_ELEMENT_PARSER.parse(childElement, childGroup);
+            VectorParserImpl.GROUP_ELEMENT_PARSER.parse(childElement, childGroup);
         }
         if (VectorConstants.TAG_PATH.equals(childElement.getName())) {
             Path childPath = new Path(rootGroup);
             vector.children.add(childPath);
-            ParserImpl.PATH_ATTRIBUTE_PARSER.parse(childElement, childPath);
+            VectorParserImpl.PATH_ATTRIBUTE_PARSER.parse(childElement, childPath);
         }
         if (VectorConstants.TAG_CLIP_PATH.equals(childElement.getName())) {
             Path childPath = new Path(rootGroup);
             vector.children.add(childPath);
-            ParserImpl.CLIP_PATH_ATTRIBUTE_PARSER.parse(childElement, childPath);
+            VectorParserImpl.CLIP_PATH_ATTRIBUTE_PARSER.parse(childElement, childPath);
         }
     }
 }

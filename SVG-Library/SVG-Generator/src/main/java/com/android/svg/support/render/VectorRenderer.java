@@ -1,9 +1,9 @@
 package com.android.svg.support.render;
 
 
-import com.android.svg.support.model.Group;
-import com.android.svg.support.model.Path;
-import com.android.svg.support.model.Vector;
+import com.android.svg.support.vector.model.Group;
+import com.android.svg.support.vector.model.Path;
+import com.android.svg.support.vector.model.Vector;
 
 public class VectorRenderer implements IVectorRenderer<Vector>, NotifyVectorRenderer.VectorRendererListener {
 

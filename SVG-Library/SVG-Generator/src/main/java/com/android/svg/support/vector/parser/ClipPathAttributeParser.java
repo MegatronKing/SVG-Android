@@ -1,7 +1,7 @@
 package com.android.svg.support.vector.parser;
 
 
-import com.android.svg.support.model.Path;
+import com.android.svg.support.vector.model.Path;
 
 import org.dom4j.Element;
 

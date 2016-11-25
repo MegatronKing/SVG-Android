@@ -1,8 +1,9 @@
 package com.android.svg.support.vector.parser;
 
 
-import com.android.svg.support.model.Group;
-import com.android.svg.support.model.VectorConstants;
+import com.android.svg.support.vector.model.Group;
+import com.android.svg.support.vector.model.VectorConstants;
+import com.android.svg.support.xml.CommonAbstractAttributeParser;
 
 import org.dom4j.Element;
 
@@ -13,7 +14,7 @@ import org.dom4j.Element;
  * @since 2016/9/1 10:04
  */
 
-public class GroupAttributeParser extends BaseVectorAttributeParser<Group> {
+public class GroupAttributeParser extends CommonAbstractAttributeParser<Group> {
 
     @Override
     public void parse(Element element, Group group) {

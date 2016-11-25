@@ -18,8 +18,8 @@ public class AnimationSVGImageViewSampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_animation_svg_imageview_sample);
         setTitle(getIntent().getStringExtra("title"));
 
-        SVGImageView imageView1 = (SVGImageView) findViewById(R.id.animation_svgimageview_image1);
-        ObjectAnimator animatorRotation = ObjectAnimator.ofInt(imageView1, "svgRotation", 0, 360);
+        final SVGImageView imageView1 = (SVGImageView) findViewById(R.id.animation_svgimageview_image1);
+        ObjectAnimator animatorRotation = ObjectAnimator.ofFloat(imageView1, "svgRotation", 0, 360);
         animatorRotation.setDuration(2000);
         animatorRotation.setRepeatCount(ValueAnimator.INFINITE);
         animatorRotation.setInterpolator(new LinearInterpolator());

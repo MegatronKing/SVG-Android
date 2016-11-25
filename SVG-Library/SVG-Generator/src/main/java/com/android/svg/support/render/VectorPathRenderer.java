@@ -1,7 +1,8 @@
 package com.android.svg.support.render;
 
-import com.android.svg.support.model.ClipPath;
-import com.android.svg.support.model.Path;
+import com.android.svg.support.utils.PathDataNode;
+import com.android.svg.support.vector.model.ClipPath;
+import com.android.svg.support.vector.model.Path;
 import com.android.svg.support.utils.Matrix;
 
 public class VectorPathRenderer extends NotifyVectorRenderer<Path> {
@@ -156,7 +157,7 @@ public class VectorPathRenderer extends NotifyVectorRenderer<Path> {
         for (int k = 0; k < val.length; k += incr) {
             switch (cmd) {
                 case 'm': // moveto - Start a new sub-path (relative)
-                    currentX += val[k + 0];
+                    currentX += val[k];
                     currentY += val[k + 1];
                     if (k > 0) {
                         // According to the spec, if a moveto is followed by multiple
@@ -170,7 +171,7 @@ public class VectorPathRenderer extends NotifyVectorRenderer<Path> {
                     }
                     break;
                 case 'M': // moveto - Start a new sub-path
-                    currentX = val[k + 0];
+                    currentX = val[k];
                     currentY = val[k + 1];
                     if (k > 0) {
                         // According to the spec, if a moveto is followed by multiple
