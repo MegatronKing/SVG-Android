@@ -3,8 +3,10 @@ support svg images for android 4.0+
 
 ### 博客：http://blog.csdn.net/megatronkings
 
+----
+
 ## 更新日志
-[点我](https://github.com/MegatronKing/SVG-Android/tree/master/SVG-Library/VersionLog.md)
+[点击查看](https://github.com/MegatronKing/SVG-Android/tree/master/SVG-Library/VersionLog.md)
 
 ##SVG-Generator
 
