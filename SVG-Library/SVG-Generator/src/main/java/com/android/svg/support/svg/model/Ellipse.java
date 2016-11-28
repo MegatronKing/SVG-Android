@@ -1,5 +1,7 @@
 package com.android.svg.support.svg.model;
 
+import com.android.svg.support.svg.utils.PathBuilder;
+
 /**
  * The ellipse element model in the svg xml.
  *
@@ -20,7 +22,7 @@ public class Ellipse extends SvgNode {
             return;
         }
         // "M cx cy m -rx, 0 a rx,ry 0 1,1 (rx * 2),0 a rx,ry 0 1,1 -(rx * 2),0"
-        com.android.svg.support.svg.utils.PathBuilder builder = new com.android.svg.support.svg.utils.PathBuilder();
+        PathBuilder builder = new PathBuilder();
         builder.absoluteMoveTo(cx, cy);
         builder.relativeMoveTo(-rx, 0);
         builder.relativeArcTo(rx, ry, false, true, true, 2 * rx, 0);

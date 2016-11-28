@@ -2,7 +2,9 @@ package com.android.svg.support.svg.model;
 
 import com.android.svg.support.utils.Color;
 import com.android.svg.support.utils.Dimen;
+import com.android.svg.support.utils.FloatUtils;
 import com.android.svg.support.utils.PathDataNode;
+import com.android.svg.support.utils.SCU;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,6 +21,13 @@ public abstract class SvgNode {
     protected String pathData;
 
     public Map<String, String> styleMaps;
+
+    /**
+     *   a c e
+     * ( b d f )
+     *   0 0 1
+     */
+    public float[] matrix;
 
     public abstract void toPath();
 
@@ -63,6 +72,9 @@ public abstract class SvgNode {
         if ("0".equals(styleMaps.get("opacity"))) {
             return false;
         }
+        if ("none".equals(styleMaps.get(SvgConstants.ATTR_DISPLAY))) {
+            return false;
+        }
         // Fill or stroke color must be seen.
         int fillColor = styleMaps.containsKey(SvgConstants.ATTR_FILL) ? Color.convert(styleMaps.get(SvgConstants.ATTR_FILL))
                 : Color.BLACK;
@@ -92,7 +104,23 @@ public abstract class SvgNode {
                     strokeWidth = 1.0f;
                 }
                 sb.append(indent).append("    android:strokeColor=\"#").append(Integer.toHexString(strokeColor)).append("\"\n");
-                sb.append(indent).append("    android:strokeWidth=\"").append(strokeWidth).append("\"\n");
+                sb.append(indent).append("    android:strokeWidth=\"").append(FloatUtils.format2String(strokeWidth)).append("\"\n");
+            }
+            // lineJoin, lineCap and strokeMiterLimit not support 'inherit'
+            String strokeLineJoin = styleMaps.get(SvgConstants.ATTR_STROKE_LINEJOINE);
+            if (strokeLineJoin != null && !"inherit".equals(strokeLineJoin)) {
+                sb.append(indent).append("    android:strokeLineJoin=\"").append(strokeLineJoin).append("\"\n");
+            }
+            String strokeLineCap = styleMaps.get(SvgConstants.ATTR_STROKE_LINECAP);
+            if (strokeLineCap != null && !"inherit".equals(strokeLineCap)) {
+                sb.append(indent).append("    android:strokeLineCap=\"").append(strokeLineCap).append("\"\n");
+            }
+            String strokeMiterLimit = styleMaps.get(SvgConstants.ATTR_STROKE_MITERLIMIT);
+            if (strokeMiterLimit != null) {
+                float strokeMiterLimitAsFloat = SCU.parseFloat(strokeMiterLimit, 4f);
+                if (!"inherit".equals(strokeMiterLimit) && strokeMiterLimitAsFloat >= 1) {
+                    sb.append(indent).append("    android:strokeMiterLimit=\"").append(strokeMiterLimitAsFloat).append("\"\n");
+                }
             }
         }
         sb.append(indent).append("    android:pathData=\"").append(pathData).append("\"/>\n");

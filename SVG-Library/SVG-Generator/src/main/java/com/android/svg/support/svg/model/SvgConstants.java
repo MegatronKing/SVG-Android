@@ -16,6 +16,7 @@ public class SvgConstants {
     public static final String TAG_ELLIPSE = "ellipse";
     public static final String TAG_LINE = "line";
     public static final String TAG_POLYGON = "polygon";
+    public static final String TAG_POLYLINE = "polyline";
     public static final String TAG_GROUP = "g";
     public static final String TAG_PATH = "path";
 
@@ -26,11 +27,20 @@ public class SvgConstants {
     public static final String ATTR_VIEW_BOX2 = "viewbox";
     public static final String ATTR_VIEW_PORT1 = "viewPort";
     public static final String ATTR_VIEW_PORT2 = "viewport";
+    // common attributes
     public static final String ATTR_TRANSFORM = "transform";
+    public static final String ATTR_STYLE = "style";
+    public static final String ATTR_DISPLAY = "display";
+    public static final String ATTR_STROKE = "stroke";
+    public static final String ATTR_STROKE_WIDTH = "stroke-width";
+    public static final String ATTR_STROKE_OPACITY = "stroke-opacity";
+    public static final String ATTR_STROKE_LINEJOINE = "stroke-linejoin";
+    public static final String ATTR_STROKE_LINECAP = "stroke-linecap";
+    public static final String ATTR_STROKE_MITERLIMIT = "stroke-miterlimit";
+
     // rect attributes
     public static final String ATTR_X = "x";
     public static final String ATTR_Y = "y";
-    public static final String ATTR_STYLE = "style";
     // circle attributes
     public static final String ATTR_CX = "cx";
     public static final String ATTR_CY = "cy";
@@ -43,8 +53,6 @@ public class SvgConstants {
     public static final String ATTR_Y1 = "y1";
     public static final String ATTR_X2 = "x2";
     public static final String ATTR_Y2 = "y2";
-    public static final String ATTR_STROKE_WIDTH = "stroke-width";
-    public static final String ATTR_STROKE = "stroke";
     // polygon attributes
     public static final String ATTR_POINTS = "points";
     // group attributes

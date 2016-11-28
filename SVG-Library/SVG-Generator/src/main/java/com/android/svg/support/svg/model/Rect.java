@@ -1,5 +1,7 @@
 package com.android.svg.support.svg.model;
 
+import com.android.svg.support.svg.utils.PathBuilder;
+
 /**
  * The rect element model in the svg xml.
  *
@@ -20,7 +22,7 @@ public class Rect extends SvgNode {
             return;
         }
         // "M x, y h width v height h -width z"
-        com.android.svg.support.svg.utils.PathBuilder builder = new com.android.svg.support.svg.utils.PathBuilder();
+        PathBuilder builder = new PathBuilder();
         builder.absoluteMoveTo(x, y);
         builder.relativeHorizontalTo(width);
         builder.relativeVerticalTo(height);

@@ -3,13 +3,13 @@ package com.android.svg.support.svg.model;
 import com.android.svg.support.svg.utils.PathBuilder;
 
 /**
- * The polygon element model in the svg xml.
+ * The polyline element model in the svg xml.
  *
  * @author Megatron King
- * @since 2016/11/23 9:47
+ * @since 2016/11/25 15:11
  */
 
-public class Polygon extends SvgNode {
+public class Polyline extends SvgNode {
 
     public String points;
 
@@ -30,7 +30,6 @@ public class Polygon extends SvgNode {
             baseX = x;
             baseY = y;
         }
-        builder.relativeClose();
         pathData = builder.toString();
     }
 
