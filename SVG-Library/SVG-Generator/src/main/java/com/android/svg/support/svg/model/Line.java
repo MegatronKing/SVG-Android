@@ -1,6 +1,8 @@
 package com.android.svg.support.svg.model;
 
 
+import com.android.svg.support.svg.utils.PathBuilder;
+
 /**
  * The line element model in the svg xml.
  *
@@ -21,7 +23,7 @@ public class Line extends SvgNode {
             return;
         }
         // "M x1, y1 L x2, y2"
-        com.android.svg.support.svg.utils.PathBuilder builder = new com.android.svg.support.svg.utils.PathBuilder();
+        PathBuilder builder = new PathBuilder();
         builder.absoluteMoveTo(x1, y1);
         builder.absoluteLineTo(x2, y2);
         pathData =  builder.toString();

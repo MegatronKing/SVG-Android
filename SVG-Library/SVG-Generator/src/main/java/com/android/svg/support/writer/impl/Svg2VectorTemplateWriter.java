@@ -3,6 +3,7 @@ package com.android.svg.support.writer.impl;
 import com.android.svg.support.svg.model.G;
 import com.android.svg.support.svg.model.Svg;
 import com.android.svg.support.svg.model.SvgNode;
+import com.android.svg.support.utils.FloatUtils;
 import com.android.svg.support.writer.IBufferWriter;
 
 import java.io.BufferedWriter;
@@ -24,13 +25,13 @@ public class Svg2VectorTemplateWriter implements IBufferWriter {
         bw.newLine();
         bw.write("<vector xmlns:android=\"http://schemas.android.com/apk/res/android\"");
         bw.newLine();
-        bw.write(HEAD_INDENT + "android:width=\"" + mSvg.w + "dp\"");
+        bw.write(HEAD_INDENT + "android:width=\"" + FloatUtils.format2String(mSvg.w) + "dp\"");
         bw.newLine();
-        bw.write(HEAD_INDENT + "android:height=\"" + mSvg.h + "dp\"");
+        bw.write(HEAD_INDENT + "android:height=\"" + FloatUtils.format2String(mSvg.h) + "dp\"");
         bw.newLine();
-        bw.write(HEAD_INDENT + "android:viewportHeight=\"" + mSvg.viewBox[3] + "\"");
+        bw.write(HEAD_INDENT + "android:viewportHeight=\"" + FloatUtils.format2String(mSvg.viewBox[3]) + "\"");
         bw.newLine();
-        bw.write(HEAD_INDENT + "android:viewportWidth=\"" + mSvg.viewBox[2] + "\">");
+        bw.write(HEAD_INDENT + "android:viewportWidth=\"" + FloatUtils.format2String(mSvg.viewBox[2]) + "\">");
         bw.newLine();
         for (SvgNode svgNode : mSvg.children) {
             writeSvgNodes(bw, svgNode , 1);

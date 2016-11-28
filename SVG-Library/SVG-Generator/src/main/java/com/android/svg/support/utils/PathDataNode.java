@@ -246,13 +246,7 @@ public class PathDataNode {
                 if (i > 0) {
                     s += ((i & 1) == 1) ? "," : " ";
                 }
-                // To avoid trailing zeros like 17.0, use this trick
-                float value = node.params[i];
-                if (value == (long) value) {
-                    s += String.valueOf((long) value);
-                } else {
-                    s += String.valueOf(value);
-                }
+                s += FloatUtils.format2String(node.params[i]);
             }
         }
         return s;

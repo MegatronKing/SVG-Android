@@ -1,5 +1,9 @@
 package com.android.svg.support.svg.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Represent a SVG file's group element.
  *
@@ -9,11 +13,20 @@ package com.android.svg.support.svg.model;
 
 public abstract class SvgGroupNode extends SvgNode {
 
-    /**
-     *   a c e
-     * ( b d f )
-     *   0 0 1
-     */
-    public float[] matrix;
+    public List<SvgNode> children = new ArrayList<>();
+
+    @Override
+    public void toPath() {
+        // The group node has nothing to path
+    }
+
+    @Override
+    public void applyStyles(Map<String, String> inheritStyles) {
+        super.applyStyles(inheritStyles);
+        // Apply all styles to its children.
+        for (SvgNode svgNode : children) {
+            svgNode.applyStyles(styleMaps);
+        }
+    }
 
 }

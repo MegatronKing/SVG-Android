@@ -4,9 +4,6 @@ apply plugin: 'svg'
 buildscript {
     repositories {
         jcenter()
-        maven {
-            url uri("D:\\git_tc\\SVG-Android\\SVG-Library\\maven")
-        }
     }
     dependencies {
         classpath 'com.github.megatronking:svg-plugin:1.2.0'
