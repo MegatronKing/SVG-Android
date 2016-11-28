@@ -89,5 +89,5 @@ public abstract class SVGRenderer implements Cloneable {
         mRendererStrategy.draw(canvas, width, height, filter, dst);
     }
 
-    protected abstract void render(Canvas canvas, int width, int height, ColorFilter filter);
+    public abstract void render(Canvas canvas, int width, int height, ColorFilter filter);
 }

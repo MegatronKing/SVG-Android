@@ -2,6 +2,9 @@ package com.android.svg.support;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.LongSparseArray;
@@ -82,4 +85,52 @@ public class SVGHelper {
         return null;
     }
 
+    /**
+     * Convert a svg renderer to a Bitmap.
+     *
+     * @param renderer The SVGRenderer.
+     * @return A Bitmap.
+     */
+    public static Bitmap createBitmap(SVGRenderer renderer) {
+        return createBitmap(renderer, null);
+    }
+
+    /**
+     * Convert a svg renderer to a Bitmap.
+     *
+     * @param renderer The SVGRenderer.
+     * @param filter Assign the filter of Bitmap, can be null.
+     * @return A Bitmap.
+     */
+    public static Bitmap createBitmap(SVGRenderer renderer, ColorFilter filter) {
+        return createBitmap(renderer, renderer.mWidth, renderer.mHeight, filter);
+    }
+
+    /**
+     * Convert a svg renderer to a Bitmap.
+     *
+     * @param renderer The SVGRenderer.
+     * @param width Assign the width of Bitmap.
+     * @param height Assign the height of Bitmap.
+     * @return A Bitmap.
+     */
+    public static Bitmap createBitmap(SVGRenderer renderer, int width, int height) {
+        return createBitmap(renderer, width, height, null);
+    }
+
+    /**
+     * Convert a svg renderer to a Bitmap.
+     *
+     * @param renderer The SVGRenderer.
+     * @param width Assign the width of Bitmap.
+     * @param height Assign the height of Bitmap.
+     * @param filter Assign the filter of Bitmap, can be null.
+     * @return A Bitmap.
+     */
+    public static Bitmap createBitmap(SVGRenderer renderer, int width, int height, ColorFilter filter) {
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        renderer.render(canvas, width, height, filter);
+        return bitmap;
+    }
 }
