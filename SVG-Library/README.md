@@ -3,6 +3,8 @@ support svg images for android 4.0+
 
 ### 博客：http://blog.csdn.net/megatronkings
 
+## 更新日志
+[点我](https://github.com/MegatronKing/SVG-Android/tree/master/SVG-Library/VersionLog.md)
 
 ##SVG-Generator
 
@@ -56,8 +58,8 @@ svg2vector：
 - [svg_a]       命名无特殊意义，可随意，建议使用svg图片文件目录名称，可以配置多个。
 - [svgDir]      svg图片文件目录路径
 - [vectorDir]   svg生成vector的文件目录，必须包含在vectorDirs数组中
-- [width]       svg生成vector的文件的图片宽度，可以不配置，默认为24，对应其android:width属性，单位为dp。
-- [height]      svg生成vector的文件的图片高度，可以不配置，默认为24，对应其android:height属性，单位为dp。
+- [width]       svg生成vector的文件的图片宽度，可以不配置，默认使用原始宽度，对应其android:width属性，单位为dp。
+- [height]      svg生成vector的文件的图片高度，可以不配置，默认使用原始高度，对应其android:height属性，单位为dp。
 
 
 主要task：
