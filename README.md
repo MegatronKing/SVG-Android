@@ -17,8 +17,8 @@ changing alpha both in java codes or xml files.
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample4.png)
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample5.png)
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/sample6.png)
-![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/animation1.png)
-![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/animation2.png)
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/animation1.gif)
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/animation2.gif)
 
 ### Sample Download: https://github.com/MegatronKing/SVG-Android/raw/master/SVG-Sample.apk
 
