@@ -5,7 +5,7 @@ support svg images for android 4.0+
 
 ----
 
-## 更新日志
+## 版本日志
 [点击查看](https://github.com/MegatronKing/SVG-Android/tree/master/SVG-Library/VersionLog.md)
 
 ##SVG-Generator
@@ -66,8 +66,11 @@ svg2vector：
 
 主要task：
 - svgAssemble     任务执行，主Task
-- svgCleanShape   清除生成的空shape资源文件
-- svgCleanJava    清除生成的SVGRenderer Java代码
+- svg2vector      svg图片生成vector文件
+- svgClean        清除所有svg衍生文件，包括shape,java,vector
+- svgCleanShape   清除生成的空shape资源文件
+- svgCleanJava    清除生成的SVGRenderer Java代码
+- svgCleanVector  清除生成的vector资源文件
 - svgLoadAppColor 加载色值定义，对应配置参数appColors
 
 
