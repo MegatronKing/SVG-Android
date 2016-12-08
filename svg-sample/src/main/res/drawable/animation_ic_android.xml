@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+    <item android:drawable="@drawable/ic_android_red_01" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_02" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_03" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_04" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_05" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_06" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_07" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_08" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_09" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_10" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_11" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_12" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_13" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_14" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_15" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_16" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_17" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_18" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_19" android:duration="100"/>
+    <item android:drawable="@drawable/ic_android_red_20" android:duration="100"/>
+</animation-list>

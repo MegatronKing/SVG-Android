@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:svg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="50dip">
+
+        <com.android.svg.support.extend.SVGEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:drawableBottom="@drawable/ic_android_red"
+            android:drawableLeft="@drawable/ic_android_red"
+            android:drawablePadding="10dip"
+            android:drawableRight="@drawable/ic_android_red"
+            android:drawableTop="@drawable/ic_android_red"
+            android:gravity="center"
+            android:text="EditText"
+            svg:svgHeight="24dip"
+            svg:svgWidth="24dip" />
+
+        <com.android.svg.support.extend.SVGEditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:layout_marginTop="50dip"
+            android:drawableBottom="@drawable/ic_android_red"
+            android:drawableLeft="@drawable/ic_android_red"
+            android:drawablePadding="10dip"
+            android:drawableRight="@drawable/ic_android_red"
+            android:drawableTop="@drawable/ic_android_red"
+            android:gravity="center"
+            android:text="EditText"
+            svg:leftSvgWidth="24dip"
+            svg:leftSvgHeight="24dip"
+            svg:topSvgWidth="48dip"
+            svg:topSvgHeight="48dip"
+            svg:rightSvgWidth="24dip"
+            svg:rightSvgHeight="24dip"
+            svg:bottomSvgWidth="48dip"
+            svg:bottomSvgHeight="48dip"/>
+
+        <com.android.svg.support.extend.SVGEditText
+            android:id="@+id/extend_edittext1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dip"
+            android:clickable="true"
+            android:drawableBottom="@drawable/ic_android_red"
+            android:drawableLeft="@drawable/ic_android_red"
+            android:drawablePadding="10dip"
+            android:drawableRight="@drawable/ic_android_red"
+            android:drawableTop="@drawable/ic_android_red"
+            android:gravity="center"
+            android:text="EditText" />
+
+        <com.android.svg.support.extend.SVGEditText
+            android:id="@+id/extend_edittext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dip"
+            android:clickable="true"
+            android:drawablePadding="10dip"
+            android:gravity="center"
+            android:text="EditText" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="2000"
+    android:propertyName="alpha"
+    android:valueFrom="255"
+    android:valueTo="50"
+    android:valueType="intType" />

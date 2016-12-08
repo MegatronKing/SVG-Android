@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:svg="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.android.svg.support.extend.SVGImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_android_red"
+        android:background="@drawable/shape_rect_border"
+        svg:svgWidth="96dip"
+        svg:svgHeight="24dip"/>
+
+    <com.android.svg.support.extend.SVGImageView
+        android:id="@+id/extend_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dip"
+        android:src="@drawable/ic_android_red"
+        android:background="@drawable/shape_rect_border"
+        android:clickable="true"/>
+
+</LinearLayout>
