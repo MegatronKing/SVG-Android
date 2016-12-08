@@ -53,7 +53,9 @@ public class SVGAssembleTask extends SVGBaseTask {
         // write renderer
         writeJavaRendererClass(vectorModels, javaClassPackage)
         // write loader
-        writeJavaLoaderClass(vectorModels, javaClassPackage)
+        if (configuration.generateLoader) {
+            writeJavaLoaderClass(vectorModels, javaClassPackage)
+        }
         // write shape xml
         writeShapeXml(vectorModels)
     }

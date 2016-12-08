@@ -3,8 +3,8 @@ package com.github.megatronking.svg.plugin
  * <p>svg {
  *      vectorDirs = "${projectDir}\vector-resources1"
  *      shapeDir = "src\main\res\drawables"
- *      javaDir = "src\main\java\com\android\svg\sample\drawables"
- *      packageName="com.android.svg.sample"
+ *      javaDir = "src\main\java\com\github\megatronking\svg\sample\drawables"
+ *      packageName="com.github.megatronking.svg.sample"
  * }</p>
  *
  * @author Megatron King
@@ -22,4 +22,6 @@ public class SVGExtension {
     public def cleanMode;
 
     public def debugMode;
+
+    public def generateLoader = true;
 }

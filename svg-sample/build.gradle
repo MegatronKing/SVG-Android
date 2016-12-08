@@ -61,11 +61,11 @@ android {
     }
     sourceSets {
         // 为了开发时能引用vector文件方便预览，将存放vector文件目录添加到资源文件目录中
+//        debug {
+//            java.srcDirs = ['src/main/java']
+//            res.srcDirs = ['src/main/res', 'src/main/res_vector', 'src/main/res_svg']
+//        }
         debug {
-            java.srcDirs = ['src/main/java']
-            res.srcDirs = ['src/main/res', 'src/main/res_vector', 'src/main/res_svg']
-        }
-        release {
             java.srcDirs = ['src/main/java']
             res.srcDirs = ['src/main/res', "src/main/res_shape"]
         }

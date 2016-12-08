@@ -3,8 +3,9 @@ apply plugin: 'svg'
 svg {
     vectorDirs = ["src/main/res_vector/drawable"]
     shapeDir = "src/main/res_shape/drawable"
-    javaDir = "src/main/java/com/android/svg/iconlibs"
-    packageName = "com.android.svg.iconlibs"
+    javaDir = "src/main/java/com/github/megatronking/svg/iconlibs"
+    packageName = "com.github.megatronking.svg.iconlibs"
+    generateLoader = false
 
     svg2vector {
         icon {

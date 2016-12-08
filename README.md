@@ -59,9 +59,9 @@ svg {
     // shape resources
     shapeDir = "src/main/svg_release/drawable"
     // java classpath
-    javaDir = "src/main/java/com/github/megatron/svg/sample/drawables"
+    javaDir = "src/main/java/com/github/megatronking/svg/sample/drawables"
     // app(module) package name
-    packageName = "com.github.megatron.svg.sample"
+    packageName = "com.github.megatronking.svg.sample"
 
     svg2vector {
         test {
@@ -89,7 +89,7 @@ dependencies {
 gradlew svgAssemble
 ```
 With this command, we convert svg to vector and generate java classes from vector.<br>
-After that, we will see some generated classes in dir 'src/main/java/com/github/megatron/svg/sample/drawables'.
+After that, we will see some generated classes in dir 'src/main/java/com/github/megatronking/svg/sample/drawables'.
 
 
 ## install SVGLoader in Application class
