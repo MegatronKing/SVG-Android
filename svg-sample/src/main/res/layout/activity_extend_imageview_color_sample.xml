@@ -6,14 +6,14 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.android.svg.support.extend.SVGImageView
+    <com.github.megatronking.svg.support.extend.SVGImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_android_red"
         android:clickable="true"
         svg:svgColor="@color/selector_image_color"/>
 
-    <com.android.svg.support.extend.SVGImageView
+    <com.github.megatronking.svg.support.extend.SVGImageView
         android:id="@+id/extend_imageview1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         android:src="@drawable/ic_android_red"
         android:clickable="true"/>
 
-    <com.android.svg.support.extend.SVGImageView
+    <com.github.megatronking.svg.support.extend.SVGImageView
         android:id="@+id/extend_imageview2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

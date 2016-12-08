@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:padding="50dip">
 
-        <com.android.svg.support.extend.SVGButton
+        <com.github.megatronking.svg.support.extend.SVGButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -25,7 +25,7 @@
             svg:svgHeight="24dip"
             svg:svgWidth="24dip" />
 
-        <com.android.svg.support.extend.SVGButton
+        <com.github.megatronking.svg.support.extend.SVGButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -46,7 +46,7 @@
             svg:bottomSvgWidth="48dip"
             svg:bottomSvgHeight="48dip"/>
 
-        <com.android.svg.support.extend.SVGButton
+        <com.github.megatronking.svg.support.extend.SVGButton
             android:id="@+id/extend_button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
             android:gravity="center"
             android:text="Button" />
 
-        <com.android.svg.support.extend.SVGButton
+        <com.github.megatronking.svg.support.extend.SVGButton
             android:id="@+id/extend_button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

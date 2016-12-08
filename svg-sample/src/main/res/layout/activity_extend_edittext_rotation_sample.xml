@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:padding="50dip">
 
-        <com.android.svg.support.extend.SVGEditText
+        <com.github.megatronking.svg.support.extend.SVGEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -24,7 +24,7 @@
             android:text="EditText"
             svg:svgRotation="90" />
 
-        <com.android.svg.support.extend.SVGEditText
+        <com.github.megatronking.svg.support.extend.SVGEditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dip"
@@ -41,7 +41,7 @@
             svg:rightSvgRotation="270"
             svg:topSvgRotation="180" />
 
-        <com.android.svg.support.extend.SVGEditText
+        <com.github.megatronking.svg.support.extend.SVGEditText
             android:id="@+id/extend_edittext1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             android:gravity="center"
             android:text="EditText" />
 
-        <com.android.svg.support.extend.SVGEditText
+        <com.github.megatronking.svg.support.extend.SVGEditText
             android:id="@+id/extend_edittext2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

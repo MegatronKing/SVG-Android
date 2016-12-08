@@ -6,13 +6,13 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.android.svg.support.extend.SVGView
+    <com.github.megatronking.svg.support.extend.SVGView
         android:layout_width="48dip"
         android:layout_height="48dip"
         android:background="@drawable/ic_android_red"
         svg:svgRotation="90"/>
 
-    <com.android.svg.support.extend.SVGView
+    <com.github.megatronking.svg.support.extend.SVGView
         android:id="@+id/extend_view1"
         android:layout_width="48dip"
         android:layout_height="48dip"
@@ -20,7 +20,7 @@
         android:background="@drawable/ic_android_red"
         android:clickable="true"/>
 
-    <com.android.svg.support.extend.SVGView
+    <com.github.megatronking.svg.support.extend.SVGView
         android:id="@+id/extend_view2"
         android:layout_width="48dip"
         android:layout_height="48dip"
