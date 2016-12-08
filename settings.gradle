@@ -1,0 +1,8 @@
+include ':svg-generator', ':svg-support', ':svg-plugin', ':svg-sample'
+
+def iconlibsDir = new File(rootDir, 'svg-iconlibs')
+iconlibsDir.listFiles().each { childFile ->
+    if (childFile.isDirectory()) {
+        include ":svg-iconlibs:${childFile.name}"
+    }
+}

@@ -1,0 +1,16 @@
+apply plugin: 'svg'
+
+svg {
+    vectorDirs = ["src/main/res_vector/drawable"]
+    shapeDir = "src/main/res_shape/drawable"
+    javaDir = "src/main/java/com/android/svg/iconlibs"
+    packageName = "com.android.svg.iconlibs"
+
+    svg2vector {
+        icon {
+            svgDir = "${projectDir}/icon"
+            vectorDir = "src/main/res_vector/drawable"
+        }
+    }
+
+}
