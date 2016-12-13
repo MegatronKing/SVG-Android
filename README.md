@@ -1,13 +1,11 @@
-![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/core.png)
-
 # SVG-Android
 
-[![Jcenter Status](https://github.com/MegatronKing/SVG-Android/blob/master/version.svg)](http://jcenter.bintray.com/com/github/megatronking)
+[![Jcenter Status](https://github.com/MegatronKing/SVG-Android/raw/master/version.svg)](http://jcenter.bintray.com/com/github/megatronking)
 [![license](http://img.shields.io/badge/license-apache_2.0-red.svg?style=flat)](https://github.com/MegatronKing/SVG-Android/raw/master/LICENSE)
 
-*languages: [简体中文](README.zh-cn.md).*
+*switch languages: [简体中文](README.zh-cn.md).*
 
-support svg images for android 4.0+ <br> <br>
+support svg images for android 4.0+ <br>
 
 The library provides a generator to convert vector or svg images to java classes.
 We can use those java classes to render images directly when drawn, it would be 
@@ -46,6 +44,10 @@ SVG-Android is a support library for showing svg images in android 4.0+ .
    Vector         | ×      | √      | x          | √         | √          | √            | ×
    Png            | √      | ×      | √          | √         | ×          | √            | ×
    Iconfont       | ×      | √      | √          | ×         | √          | ×            | √
+
+#How it works
+
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/core.png)
 
 #How to Use
 
