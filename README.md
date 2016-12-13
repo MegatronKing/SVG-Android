@@ -1,6 +1,15 @@
 # SVG-Android
+
+[![Jcenter Status](https://github.com/MegatronKing/SVG-Android/blob/master/version.svg)](http://jcenter.bintray.com/com/github/megatronking)
+[![license](http://img.shields.io/badge/license-apache_2.0-red.svg?style=flat)](https://github.com/MegatronKing/SVG-Android/raw/master/LICENSE)
+
+*Read this in other languages: [English](README.md), [简体中文](README.zh-cn.md).*
+
 support svg images for android 4.0+ <br> <br>
-The library provides a generator to convert verctor or svg images to java classes. 
+
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/core.png)
+
+The library provides a generator to convert vector or svg images to java classes.
 We can use those java classes to render images directly when drawn, it would be 
 much faster than vectors, and it avoids compatibility issues. On the other hand,
 the support library has some powerful functions such as tinting, ajusting size, 
@@ -75,7 +84,7 @@ svg {
 
 ```
 
-## add app dependencies in app build.gradle
+## add dependencies in app build.gradle
 ```gradle
 
 dependencies {
