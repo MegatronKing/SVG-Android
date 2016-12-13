@@ -1,6 +1,6 @@
 # 简介
 
-[![Jcenter Status](https://github.com/MegatronKing/SVG-Android/raw/master/version.svg)](http://jcenter.bintray.com/com/github/megatronking)
+[![Jcenter Status](https://img.shields.io/badge/download-1.3.0-brightgreen.svg)](http://jcenter.bintray.com/com/github/megatronking)
 [![license](http://img.shields.io/badge/license-apache_2.0-red.svg?style=flat)](https://github.com/MegatronKing/SVG-Android/raw/master/LICENSE)
 
 *切换语言: [English](README.md)*
@@ -120,6 +120,11 @@ public void onCreate() {
 }
 
 ```
+# 更多文档
 
+[原理](http://blog.csdn.net/megatronkings/article/details/52454927)
+[接入步骤](http://blog.csdn.net/megatronkings/article/details/52826456)
+[图片处理](http://blog.csdn.net/megatronkings/article/details/52878466)
+[动画使用](http://blog.csdn.net/megatronkings/article/details/53286958)
 
 
