@@ -120,7 +120,14 @@ public void onCreate() {
 }
 
 ```
-# 更多文档
+# 图片库
+
+SVG-Android提供了一套material-design风格的图片库，是基于google谷歌官方的svg文件生成。在svg-iconlibs目录下面，除了
+可以直接使用的vector资源文件外，还有已经生成好的Java图片类文件。如果你的项目缺少UI设计师，那么可以直接通过iconlibs找到大量常用的
+图片。
+
+
+# 文档
 
 - [原理](http://blog.csdn.net/megatronkings/article/details/52454927)
 - [接入步骤](http://blog.csdn.net/megatronkings/article/details/52826456)
