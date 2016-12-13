@@ -122,9 +122,9 @@ public void onCreate() {
 ```
 # 更多文档
 
-[原理](http://blog.csdn.net/megatronkings/article/details/52454927)
-[接入步骤](http://blog.csdn.net/megatronkings/article/details/52826456)
-[图片处理](http://blog.csdn.net/megatronkings/article/details/52878466)
-[动画使用](http://blog.csdn.net/megatronkings/article/details/53286958)
+- [原理](http://blog.csdn.net/megatronkings/article/details/52454927)
+- [接入步骤](http://blog.csdn.net/megatronkings/article/details/52826456)
+- [图片处理](http://blog.csdn.net/megatronkings/article/details/52878466)
+- [动画使用](http://blog.csdn.net/megatronkings/article/details/53286958)
 
 
