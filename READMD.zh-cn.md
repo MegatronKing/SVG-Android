@@ -1,13 +1,13 @@
+![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/core.png)
+
 # 简介
 
-[![Jcenter Status](https://github.com/MegatronKing/SVG-Android/blob/master/version.svg)](http://jcenter.bintray.com/com/github/megatronking)
+[![Jcenter Status](https://github.com/MegatronKing/SVG-Android/raw/master/version.svg)](http://jcenter.bintray.com/com/github/megatronking)
 [![license](http://img.shields.io/badge/license-apache_2.0-red.svg?style=flat)](https://github.com/MegatronKing/SVG-Android/raw/master/LICENSE)
 
-*Read this in other languages: [English](README.md), [简体中文](README.zh-cn.md).*
+*languages: [English](README.md)*
 
 SVG-Android是一款支持在Android 4.0+系统上显示SVG图片的开源库。<br> <br>
-
-![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/core.png)
 
 SVG-Android库可以将svg格式图片自动转化成vector文件(VectorDrawable对应的资源文件)，并且支持将vector文件一键
 转化成java图片类文件，这些java图片类可以直接用来绘制在View的画布上。java图片类的绘制渲染速度比使用vector
