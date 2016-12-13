@@ -91,6 +91,11 @@ gradlew svgAssemble
 With this command, we convert svg to vector and generate java classes from vector.<br>
 After that, we will see some generated classes in dir 'src/main/java/com/github/megatronking/svg/sample/drawables'.
 
+```
+gradlew svg2vector
+```
+With this command, a batch of svgs will be converted to vector files. No matter whether you need java render classes, just run this task, it is more convenient than converted them one by one.
+
 
 ## install SVGLoader in Application class
 ```java
