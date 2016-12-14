@@ -74,7 +74,7 @@ public class ic_battery_20 extends SVGRenderer {
         mPath.moveTo(17.0f, 5.33f);
         
         mRenderPath.addPath(mPath, mFinalPathMatrix);
-        mFillPaint.setColor(applyAlpha(-16777216, 1.0f));
+        mFillPaint.setColor(applyAlpha(-16777216, 0.3f));
         mFillPaint.setColorFilter(filter);
         canvas.drawPath(mRenderPath, mFillPaint);
 

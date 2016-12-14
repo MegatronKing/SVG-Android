@@ -84,6 +84,7 @@ svg {
             // 生成vector资源文件的存放目录
             vectorDir = "src/main/svg_debug/drawable"
             // 宽高参数指定生成vector文件的宽高，如果省略将默认使用图片原始宽高
+            // 注意此处宽高比要与图片宽高比一致，否则图片会变形
             height = 48
             width = 48
         }

@@ -84,7 +84,7 @@ public class ic_battery_charging_50 extends SVGRenderer {
         mPath.moveTo(15.67f, 4.0f);
         
         mRenderPath.addPath(mPath, mFinalPathMatrix);
-        mFillPaint.setColor(applyAlpha(-16777216, 1.0f));
+        mFillPaint.setColor(applyAlpha(-16777216, 0.3f));
         mFillPaint.setColorFilter(filter);
         canvas.drawPath(mRenderPath, mFillPaint);
 

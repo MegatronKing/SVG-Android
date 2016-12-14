@@ -50,7 +50,7 @@ public class ic_signal_wifi_2_bar extends SVGRenderer {
             mFillPaint.setStyle(Paint.Style.FILL);
             mFillPaint.setAntiAlias(true);
         }
-        mFillPaint.setColor(applyAlpha(-16777216, 1.0f));
+        mFillPaint.setColor(applyAlpha(-16777216, 0.3f));
         mFillPaint.setColorFilter(filter);
         canvas.drawPath(mRenderPath, mFillPaint);
         mPath.reset();
