@@ -4,12 +4,9 @@ apply plugin: 'svg'
 buildscript {
     repositories {
         jcenter()
-        maven {
-            url uri("../maven")
-        }
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.3.1'
+        classpath 'com.github.megatronking:svg-plugin:1.3.0'
     }
 }
 
