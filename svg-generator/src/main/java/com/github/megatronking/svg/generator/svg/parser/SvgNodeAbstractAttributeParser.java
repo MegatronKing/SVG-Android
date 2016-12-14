@@ -45,6 +45,10 @@ public abstract class SvgNodeAbstractAttributeParser<T extends SvgNode> extends 
         if (node.styleMaps == null) {
             node.styleMaps = new HashMap<>();
         }
+        String display = parseString(element, SvgConstants.ATTR_DISPLAY);
+        if (display != null) {
+            node.styleMaps.put(SvgConstants.ATTR_DISPLAY, display.trim());
+        }
         String strokeWidth = parseString(element, SvgConstants.ATTR_STROKE_WIDTH);
         if (strokeWidth != null) {
             node.styleMaps.put(SvgConstants.ATTR_STROKE_WIDTH, strokeWidth);
@@ -52,14 +56,6 @@ public abstract class SvgNodeAbstractAttributeParser<T extends SvgNode> extends 
         String strokeColor = parseString(element, SvgConstants.ATTR_STROKE);
         if (strokeColor != null) {
             node.styleMaps.put(SvgConstants.ATTR_STROKE, strokeColor);
-        }
-        String fillColor = parseString(element, SvgConstants.ATTR_FILL);
-        if (fillColor != null) {
-            node.styleMaps.put(SvgConstants.ATTR_FILL, fillColor);
-        }
-        String display = parseString(element, SvgConstants.ATTR_DISPLAY);
-        if (display != null) {
-            node.styleMaps.put(SvgConstants.ATTR_DISPLAY, display.trim());
         }
         String strokeLineJoin = parseString(element, SvgConstants.ATTR_STROKE_LINEJOINE);
         if (strokeLineJoin != null) {
@@ -72,6 +68,22 @@ public abstract class SvgNodeAbstractAttributeParser<T extends SvgNode> extends 
         String strokeMiterLimit = parseString(element, SvgConstants.ATTR_STROKE_MITERLIMIT);
         if (strokeMiterLimit != null) {
             node.styleMaps.put(SvgConstants.ATTR_STROKE_MITERLIMIT, strokeMiterLimit);
+        }
+        String strokeOpacity = parseString(element, SvgConstants.ATTR_STROKE_OPACITY);
+        if (strokeOpacity != null) {
+            node.styleMaps.put(SvgConstants.ATTR_STROKE_OPACITY, strokeOpacity);
+        }
+        String fillColor = parseString(element, SvgConstants.ATTR_FILL);
+        if (fillColor != null) {
+            node.styleMaps.put(SvgConstants.ATTR_FILL, fillColor);
+        }
+        String fillOpacity = parseString(element, SvgConstants.ATTR_FILL_OPACITY);
+        if (fillOpacity != null) {
+            node.styleMaps.put(SvgConstants.ATTR_FILL_OPACITY, fillOpacity);
+        }
+        String fillRule = parseString(element, SvgConstants.ATTR_FILL_RULE);
+        if (fillRule != null) {
+            node.styleMaps.put(SvgConstants.ATTR_FILL_RULE, fillRule.trim());
         }
     }
 

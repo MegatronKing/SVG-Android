@@ -17,6 +17,7 @@ public class Path {
 
     public int fillColor;
     public float fillAlpha;
+    public String fillType;
     public String strokeLineCap;
     public String strokeLineJoin;
     public float strokeMiterLimit;

@@ -30,6 +30,7 @@ public class VectorConstants {
     public static final String ATTR_PATH_DATA = "pathData";
     public static final String ATTR_FILL_COLOR = "fillColor";
     public static final String ATTR_FILL_ALPHA = "fillAlpha";
+    public static final String ATTR_FILL_TYPE = "fillType";
     public static final String ATTR_STROKE_LINE_CAP = "strokeLineCap";
     public static final String ATTR_STROKE_LINE_JOIN = "strokeLineJoin";
     public static final String ATTR_STROKE_MITER_LIMIT = "strokeMiterLimit";

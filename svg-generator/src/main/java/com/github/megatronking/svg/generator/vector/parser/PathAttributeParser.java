@@ -22,6 +22,7 @@ public class PathAttributeParser extends CommonAbstractAttributeParser<Path> {
         path.fillColor = parseColor(element, VectorConstants.ATTR_FILL_COLOR);
         path.pathData = parseString(element, VectorConstants.ATTR_PATH_DATA);
         path.fillAlpha = parseFloat(element, VectorConstants.ATTR_FILL_ALPHA, 1.0f);
+        path.fillType = parseString(element, VectorConstants.ATTR_FILL_TYPE);
         path.strokeLineCap = parseString(element, VectorConstants.ATTR_STROKE_LINE_CAP, "butt");
         path.strokeLineJoin = parseString(element, VectorConstants.ATTR_STROKE_LINE_JOIN, "miter");
         path.strokeMiterLimit = parseFloat(element, VectorConstants.ATTR_STROKE_MITER_LIMIT, 4);

@@ -78,10 +78,14 @@ public abstract class SvgNode {
         // Fill or stroke color must be seen.
         int fillColor = styleMaps.containsKey(SvgConstants.ATTR_FILL) ? Color.convert(styleMaps.get(SvgConstants.ATTR_FILL))
                 : Color.BLACK;
-        boolean emptyFill = fillColor == Color.TRANSPARENT;
+        float fillOpacity = styleMaps.containsKey(SvgConstants.ATTR_FILL_OPACITY) ? SCU.parseFloat(styleMaps.get(SvgConstants.ATTR_FILL_OPACITY), 1.0f)
+                : 1.0f;
+        boolean emptyFill = fillColor == Color.TRANSPARENT || fillOpacity == 0;
         int strokeColor = Color.convert(styleMaps.get(SvgConstants.ATTR_STROKE));
         float strokeWidth = Dimen.convert(styleMaps.get(SvgConstants.ATTR_STROKE_WIDTH));
-        boolean emptyStroke = strokeColor == Color.TRANSPARENT || strokeWidth <= 0.0f;
+        float strokeOpacity = styleMaps.containsKey(SvgConstants.ATTR_STROKE_OPACITY) ? SCU.parseFloat(styleMaps.get(SvgConstants.ATTR_STROKE_OPACITY), 1.0f)
+                : 1.0f;
+        boolean emptyStroke = strokeColor == Color.TRANSPARENT || strokeWidth <= 0.0f || strokeOpacity == 0;
         return !emptyFill || !emptyStroke;
     }
 
@@ -93,6 +97,24 @@ public abstract class SvgNode {
                 Color.convert(styleMaps.get(SvgConstants.ATTR_FILL)) : Color.BLACK;
         if (fillColor != Color.TRANSPARENT) {
             sb.append(indent).append("    android:fillColor=\"#").append(Integer.toHexString(fillColor)).append("\"\n");
+        }
+        String fillOpacity = styleMaps.get(SvgConstants.ATTR_FILL_OPACITY);
+        if (fillOpacity != null) {
+            float fillOpacityAsFloat = SCU.parseFloat(fillOpacity, 1.0f);
+            if (fillOpacityAsFloat != 0) {
+                sb.append(indent).append("    android:fillAlpha=\"").append(fillOpacityAsFloat).append("\"\n");
+            }
+        }
+        // fillType used in API 24, and value 'evenodd' or 'nonzero' needs a conversation
+        String fillRule = styleMaps.get(SvgConstants.ATTR_FILL_RULE);
+        if (fillRule != null && !"inherit".equals(fillRule)) {
+            if ("evenodd".equals(fillRule)) {
+                fillRule = "evenOdd";
+            }
+            if ("nonzero".equals(fillRule)) {
+                fillRule = "nonZero";
+            }
+            sb.append(indent).append("    android:fillType=\"").append(fillRule).append("\"\n");
         }
         // Stroke color and width must be valid.
         if (styleMaps != null) {
@@ -120,6 +142,13 @@ public abstract class SvgNode {
                 float strokeMiterLimitAsFloat = SCU.parseFloat(strokeMiterLimit, 4f);
                 if (!"inherit".equals(strokeMiterLimit) && strokeMiterLimitAsFloat >= 1) {
                     sb.append(indent).append("    android:strokeMiterLimit=\"").append(strokeMiterLimitAsFloat).append("\"\n");
+                }
+            }
+            String strokeOpacity = styleMaps.get(SvgConstants.ATTR_STROKE_OPACITY);
+            if (strokeOpacity != null) {
+                float strokeOpacityAsFloat = SCU.parseFloat(strokeOpacity, 1.0f);
+                if (strokeOpacityAsFloat != 0) {
+                    sb.append(indent).append("    android:strokeAlpha=\"").append(strokeOpacityAsFloat).append("\"\n");
                 }
             }
         }

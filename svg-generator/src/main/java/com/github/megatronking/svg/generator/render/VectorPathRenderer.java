@@ -503,6 +503,15 @@ public class VectorPathRenderer extends NotifyVectorRenderer<Path> {
             notifyResult("mPath.rLineTo(0, 0);");
         }
         notifyResult("mRenderPath.addPath(mPath, mFinalPathMatrix);");
+        String fillType = null;
+        if ("evenOdd".equals(path.fillType)) {
+            fillType = "android.graphics.Path.FillType.EVEN_ODD";
+        } else if("nonZero".equals(path.fillType)) {
+            fillType = "android.graphics.Path.FillType.WINDING";
+        }
+        if (fillType != null) {
+            notifyResult("mRenderPath.setFillType(" + fillType +");");
+        }
         if (path.fillColor != 0) {
             if (!isFillPaintInited) {
                 isFillPaintInited = true;

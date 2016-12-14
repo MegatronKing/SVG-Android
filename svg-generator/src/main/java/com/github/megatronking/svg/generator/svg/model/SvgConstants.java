@@ -37,6 +37,8 @@ public class SvgConstants {
     public static final String ATTR_STROKE_LINEJOINE = "stroke-linejoin";
     public static final String ATTR_STROKE_LINECAP = "stroke-linecap";
     public static final String ATTR_STROKE_MITERLIMIT = "stroke-miterlimit";
+    public static final String ATTR_FILL_OPACITY = "fill-opacity";
+    public static final String ATTR_FILL_RULE = "fill-rule";
 
     // rect attributes
     public static final String ATTR_X = "x";
