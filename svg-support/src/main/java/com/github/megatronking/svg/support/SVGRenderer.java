@@ -79,7 +79,7 @@ public abstract class SVGRenderer implements Cloneable {
         return (int) (dipValue * scale + 0.5f);
     }
 
-    public void draw(Canvas canvas, int width, int height, ColorFilter filter, Rect dst) {
+    void draw(Canvas canvas, int width, int height, ColorFilter filter, Rect dst) {
         canvas.rotate(mRotation, mWidth * mPivotX, mHeight * mPivotY);
         canvas.translate(mTranslationX, mTranslationY);
         canvas.scale(mScaleX, mScaleY, mPivotX * mWidth, mHeight * mPivotY);

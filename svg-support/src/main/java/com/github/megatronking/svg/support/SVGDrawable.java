@@ -11,7 +11,9 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.view.View;
 
 /**
  * A svg path drawable used in android projects.
@@ -286,12 +288,38 @@ public class SVGDrawable extends Drawable {
             return;
         }
 
+        // Handle RTL mirroring.
+        final boolean needMirroring = needMirroring();
+        if (needMirroring) {
+            canvas.translate(mTmpBounds.width(), 0);
+            canvas.scale(-1.0f, 1.0f);
+        }
+
+        // At this point, canvas has been translated to the right position.
+        // And we use this bound for the destination rect for the drawBitmap, so
+        // we offset to (0, 0);
+        mTmpBounds.offsetTo(0, 0);
+
         final int saveCount = canvas.save();
         canvas.translate(mTmpBounds.left, mTmpBounds.top);
         // Use the renderer to draw.
         mState.mRenderer.draw(canvas, scaledWidth, scaledHeight, colorFilter, mTmpBounds);
 
         canvas.restoreToCount(saveCount);
+    }
+
+    private boolean needMirroring() {
+        return isAutoMirrored() &&
+                Build.VERSION.SDK_INT >= 17 &&
+                !(Build.VERSION.SDK_INT >= 23 && getLayoutDirection() != View.LAYOUT_DIRECTION_RTL);
+    }
+
+    public boolean isAutoMirrored() {
+        return mState.mAutoMirrored;
+    }
+
+    public void setAutoMirrored(boolean mirrored) {
+        mState.mAutoMirrored = mirrored;
     }
 
     /**
