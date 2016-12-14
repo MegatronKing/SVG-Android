@@ -3,7 +3,7 @@
 [![Jcenter Status](https://img.shields.io/badge/download-1.3.0-brightgreen.svg)](http://jcenter.bintray.com/com/github/megatronking)
 [![license](http://img.shields.io/badge/license-apache_2.0-red.svg?style=flat)](https://github.com/MegatronKing/SVG-Android/raw/master/LICENSE)
 
-*切换语言: [English](README.md)*
+*switch languages: [English](README.md)*
 
 SVG-Android是一款支持在Android 4.0+系统上显示SVG图片的开源库。<br>
 
