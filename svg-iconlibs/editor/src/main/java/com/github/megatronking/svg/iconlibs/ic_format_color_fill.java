@@ -84,7 +84,7 @@ public class ic_format_color_fill extends SVGRenderer {
         mPath.moveTo(0.0f, 20.0f);
         
         mRenderPath.addPath(mPath, mFinalPathMatrix);
-        mFillPaint.setColor(applyAlpha(-16777216, 1.0f));
+        mFillPaint.setColor(applyAlpha(-16777216, 0.36f));
         mFillPaint.setColorFilter(filter);
         canvas.drawPath(mRenderPath, mFillPaint);
 

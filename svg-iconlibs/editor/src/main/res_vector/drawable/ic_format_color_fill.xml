@@ -10,6 +10,7 @@
 
     <path
         android:fillColor="#ff000000"
+        android:fillAlpha="0.36"
         android:pathData="M0,20h24v4H0z"/>
 
 </vector>
