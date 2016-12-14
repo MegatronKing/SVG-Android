@@ -11,9 +11,13 @@ public class SVGBaseTask extends DefaultTask {
 
     public void run() {
         configuration = project.svg
-        configuration.javaDir = resolveProjectDir(configuration.javaDir)
-        configuration.shapeDir = resolveProjectDir(configuration.shapeDir)
-        if (configuration.vectorDirs != null) {
+        if (configuration.javaDir) {
+            configuration.javaDir = resolveProjectDir(configuration.javaDir)
+        }
+        if (configuration.shapeDir) {
+            configuration.shapeDir = resolveProjectDir(configuration.shapeDir)
+        }
+        if (configuration.vectorDirs) {
             def vectorDirs = []
             configuration.vectorDirs.each { vectorDir->
                 vectorDir = resolveProjectDir(vectorDir);
@@ -23,9 +27,11 @@ public class SVGBaseTask extends DefaultTask {
         }
 
         svg2vectorConfigurations = project.extensions.svg2vector
-        svg2vectorConfigurations.each { svg2vectorConfiguration->
-            if(!configuration.vectorDirs.contains(svg2vectorConfiguration.vectorDir)) {
-                configuration.vectorDirs.add(svg2vectorConfiguration.vectorDir)
+        if (svg2vectorConfigurations) {
+            svg2vectorConfigurations.each { svg2vectorConfiguration->
+                if(!configuration.vectorDirs.contains(svg2vectorConfiguration.vectorDir)) {
+                    configuration.vectorDirs.add(svg2vectorConfiguration.vectorDir)
+                }
             }
         }
     }

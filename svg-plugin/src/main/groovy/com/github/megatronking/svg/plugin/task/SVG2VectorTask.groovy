@@ -1,8 +1,10 @@
 package com.github.megatronking.svg.plugin.task
 
+import com.github.megatronking.svg.generator.svg.Svg2Vector
 import com.github.megatronking.svg.plugin.utils.Holder
-import org.gradle.api.tasks.TaskAction;
-import com.github.megatronking.svg.generator.svg.Svg2Vector;
+import org.gradle.api.tasks.TaskAction
+
+import java.util.zip.GZIPInputStream
 
 public class SVG2VectorTask extends SVGBaseTask {
 
@@ -35,6 +37,11 @@ public class SVG2VectorTask extends SVGBaseTask {
             dir.listFiles().each { svgFile->
                 if(!svgFile.isDirectory() && svgFile.length() > 0 && (svgFile.name.endsWith(".svg") || svgFile.name.endsWith(".svgz"))) {
                     def svgName = svgFile.name.substring(0, svgFile.name.lastIndexOf(".svg"))
+                    if (svgFile.name.endsWith(".svgz")) {
+                        def upzipFile = file(project.buildDir.path + "/upzip_svgz", svgName + ".svg")
+                        upzipSvgz(svgFile, upzipFile)
+                        svgFile = upzipFile
+                    }
                     svg2vector(svgFile, file(vectorDir, svgName + ".xml"), width, height)
                 }
             }
@@ -57,6 +64,23 @@ public class SVG2VectorTask extends SVGBaseTask {
             if (configuration.debugMode) {
                 logger.error(error)
             }
+        }
+    }
+
+    void upzipSvgz(File source, File destination) {
+        if (destination.parentFile.exists() || destination.parentFile.mkdirs()) {
+            FileInputStream fis = new FileInputStream(source)
+            FileOutputStream fos = new FileOutputStream(destination)
+            GZIPInputStream gis = new GZIPInputStream(fis)
+            def count
+            def data = new byte[1024]
+            while ((count = gis.read(data, 0, 1024)) != -1) {
+                fos.write(data, 0, count)
+            }
+            gis.close()
+            fis.close()
+            fos.flush()
+            fos.close()
         }
     }
 }
