@@ -74,5 +74,9 @@ svg2vector：
 ### V1.3.0
 - 修改为正式包名
 
+### V1.3.1 (未发布)
+- 新增对svgz格式文件的处理
+- 新增支持fill-rule、fill-opacity、stroke-opacity三个属性的解析
+- 修复在特殊场景下执行svg2vector任务报错的bug
 
 

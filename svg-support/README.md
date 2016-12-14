@@ -24,3 +24,8 @@ SVG渲染支持库和组件库，提供对SVG功能的支持，包括tint、alph
 ### V1.3.0
 - 修改为正式包名
 
+### V1.3.1 (未发布)
+- 新增支持对PathType(即svg的fill-rule)的处理
+- 新增支持autoMirror属性
+- 删除不必要的依赖配置，主要是support-v4包
+- 升级targetSdkVersion到24
