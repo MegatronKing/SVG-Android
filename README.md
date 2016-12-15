@@ -3,7 +3,7 @@
 [![Jcenter Status](https://img.shields.io/badge/download-1.3.0-brightgreen.svg)](https://bintray.com/megatronking/maven)
 [![license](http://img.shields.io/badge/license-apache_2.0-red.svg?style=flat)](https://github.com/MegatronKing/SVG-Android/raw/master/LICENSE)
 
-*switch languages: [简体中文](README.zh-cn.md).*
+*switch language: [简体中文](README.zh-cn.md).*
 
 support svg images for android 4.0+ <br>
 
