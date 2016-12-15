@@ -22,6 +22,12 @@ android {
         abortOnError false
     }
 
+    sourceSets {
+        debug {
+            res.srcDirs = ['src/main/res', "src/main/res_vector"]
+        }
+    }
+
 }
 
 dependencies {

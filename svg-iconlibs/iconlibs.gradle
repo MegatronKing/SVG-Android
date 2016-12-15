@@ -9,7 +9,7 @@ svg {
 
     svg2vector {
         icon {
-            svgDir = "${projectDir}/icon"
+            svgDir = "${projectDir}/svg"
             vectorDir = "src/main/res_vector/drawable"
         }
     }
