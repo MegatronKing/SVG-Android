@@ -130,7 +130,6 @@ SVG-Android提供了一套material-design风格的图片库，是基于google谷
 
 # 文档
 - [问题指引](issues_guide.md)
--
 - [机制原理](http://blog.csdn.net/megatronkings/article/details/52454927)
 - [接入步骤](http://blog.csdn.net/megatronkings/article/details/52826456)
 - [图片处理](http://blog.csdn.net/megatronkings/article/details/52878466)
