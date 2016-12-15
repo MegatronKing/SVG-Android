@@ -19,7 +19,6 @@ svg {
     javaDir = "src/main/java/com/github/megatronking/svg/sample/drawables"
     // 配置应用包名(R文件包名)
     packageName = "com.github.megatronking.svg.sample"
-    debugMode = true
 
     // 定义svg生成vector的配置，可以配置多个目录，方便图片分类
     svg2vector {
