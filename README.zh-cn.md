@@ -64,7 +64,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.3.1'
+        classpath 'com.github.megatronking:svg-plugin:1.3.2'
     }
 }
 
@@ -102,7 +102,7 @@ svg {
 ```gradle
 
 dependencies {
-    compile 'com.github.megatronking:svg-support:1.3.2'
+    compile 'com.github.megatronking:svg-support:1.3.1'
 }
 
 ```
