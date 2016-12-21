@@ -1,6 +1,6 @@
 # SVG-Android
 
-[![Jcenter Status](https://img.shields.io/badge/download-1.3.1-brightgreen.svg)](https://bintray.com/megatronking/maven)
+[![Jcenter Status](https://img.shields.io/badge/download-1.3.2-brightgreen.svg)](https://bintray.com/megatronking/maven)
 [![license](http://img.shields.io/badge/license-apache_2.0-red.svg?style=flat)](https://github.com/MegatronKing/SVG-Android/raw/master/LICENSE)
 
 *switch language: [简体中文](README.zh-cn.md).*
