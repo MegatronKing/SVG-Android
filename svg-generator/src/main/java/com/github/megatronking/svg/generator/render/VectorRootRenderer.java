@@ -11,14 +11,13 @@ public class VectorRootRenderer extends NotifyVectorRenderer<Vector> {
 
     @Override
     public void render(Vector vector) {
-        notifyResult("");
         notifyResult("final float scaleX = w / " + vector.viewportWidth + "f;");
         notifyResult("final float scaleY = h / " + vector.viewportHeight + "f;");
         // if no path needs to draw stroke, there is no need to define 'minScale'
         if (hasPathNeedMinScale(vector.children)) {
             notifyResult("final float minScale = Math.min(scaleX, scaleY);");
         }
-        notifyResult("");
+        writeNewLine();
     }
 
     @Override

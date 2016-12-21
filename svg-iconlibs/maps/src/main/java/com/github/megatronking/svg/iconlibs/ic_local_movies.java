@@ -24,7 +24,6 @@ public class ic_local_movies extends SVGRenderer {
 
     @Override
     public void render(Canvas canvas, int w, int h, ColorFilter filter) {
-        
         final float scaleX = w / 24.0f;
         final float scaleY = h / 24.0f;
         

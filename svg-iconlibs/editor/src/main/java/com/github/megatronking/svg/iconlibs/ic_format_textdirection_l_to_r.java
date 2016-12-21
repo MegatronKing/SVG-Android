@@ -24,7 +24,6 @@ public class ic_format_textdirection_l_to_r extends SVGRenderer {
 
     @Override
     public void render(Canvas canvas, int w, int h, ColorFilter filter) {
-        
         final float scaleX = w / 24.0f;
         final float scaleY = h / 24.0f;
         

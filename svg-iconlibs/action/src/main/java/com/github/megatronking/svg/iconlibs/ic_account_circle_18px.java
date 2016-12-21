@@ -24,7 +24,6 @@ public class ic_account_circle_18px extends SVGRenderer {
 
     @Override
     public void render(Canvas canvas, int w, int h, ColorFilter filter) {
-        
         final float scaleX = w / 18.0f;
         final float scaleY = h / 18.0f;
         

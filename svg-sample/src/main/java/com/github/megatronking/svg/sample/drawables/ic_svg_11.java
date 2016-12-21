@@ -18,8 +18,8 @@ public class ic_svg_11 extends SVGRenderer {
     public ic_svg_11(Context context) {
         super(context);
         mAlpha = 1.0f;
-        mWidth = dip2px(48.0f);
-        mHeight = dip2px(48.0f);
+        mWidth = dip2px(455.731f);
+        mHeight = dip2px(455.731f);
     }
 
     @Override

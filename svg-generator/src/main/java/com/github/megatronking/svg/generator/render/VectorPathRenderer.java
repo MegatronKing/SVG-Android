@@ -27,13 +27,13 @@ public class VectorPathRenderer extends NotifyVectorRenderer<Path> {
         }
 
         resetPaths();
-        drawNewLine();
+        writeNewLine();
 
         initFinalPathMatrix(matrixValues);
-        drawNewLine();
+        writeNewLine();
 
         drawPathData(path.pathData);
-        drawNewLine();
+        writeNewLine();
 
         if (path instanceof ClipPath) {
             drawClipPath();

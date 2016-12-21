@@ -1,6 +1,6 @@
 # SVG-Android
 
-[![Jcenter Status](https://img.shields.io/badge/download-1.3.0-brightgreen.svg)](https://bintray.com/megatronking/maven)
+[![Jcenter Status](https://img.shields.io/badge/download-1.3.1-brightgreen.svg)](https://bintray.com/megatronking/maven)
 [![license](http://img.shields.io/badge/license-apache_2.0-red.svg?style=flat)](https://github.com/MegatronKing/SVG-Android/raw/master/LICENSE)
 
 *switch language: [简体中文](README.zh-cn.md).*
@@ -60,7 +60,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.3.0'
+        classpath 'com.github.megatronking:svg-plugin:1.3.2'
     }
 }
 
@@ -90,7 +90,7 @@ svg {
 ```gradle
 
 dependencies {
-    compile 'com.github.megatronking:svg-support:1.3.0'
+    compile 'com.github.megatronking:svg-support:1.3.1'
 }
 
 ```
@@ -116,6 +116,22 @@ public void onCreate() {
 }
 
 ```
+
+## use svg image
+```
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_android_red"/>
+```
+
+or
+
+```
+Drawable drawable = new SVGDrawable(new ic_android_red(context));
+imageView.setImageDrawable(drawable);
+```
+
 
 --------
 

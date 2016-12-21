@@ -1,11 +1,12 @@
 package com.github.megatronking.svg.sample.drawables;
 
 
+import com.github.megatronking.svg.sample.R;
+
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.LongSparseArray;
 
-import com.github.megatronking.svg.sample.R;
 import com.github.megatronking.svg.support.SVGDrawable;
 import com.github.megatronking.svg.support.SVGHelper;
 
