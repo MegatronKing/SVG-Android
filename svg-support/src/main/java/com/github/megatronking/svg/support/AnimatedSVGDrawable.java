@@ -7,7 +7,6 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
-import android.graphics.Outline;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
@@ -16,6 +15,14 @@ import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 
+/**
+ * This class uses {@link android.animation.ObjectAnimator} and
+ * {@link android.animation.AnimatorSet} to animate the properties of a
+ * {@link SVGDrawable} to create an animated drawable.
+ *
+ * @author Megatron King
+ * @since 2016/12/08 15:28
+ */
 public class AnimatedSVGDrawable extends Drawable implements Animatable {
 
     private AnimatedSVGDrawableState mAnimatedSVGState;
@@ -96,16 +103,6 @@ public class AnimatedSVGDrawable extends Drawable implements Animatable {
     }
 
     @Override
-    public void setHotspot(float x, float y) {
-        mAnimatedSVGState.mSVGDrawable.setHotspot(x, y);
-    }
-
-    @Override
-    public void setHotspotBounds(int left, int top, int right, int bottom) {
-        mAnimatedSVGState.mSVGDrawable.setHotspotBounds(left, top, right, bottom);
-    }
-
-    @Override
     public void setTintMode(@NonNull PorterDuff.Mode tintMode) {
         mAnimatedSVGState.mSVGDrawable.setTintMode(tintMode);
     }
@@ -134,11 +131,6 @@ public class AnimatedSVGDrawable extends Drawable implements Animatable {
     @Override
     public int getIntrinsicHeight() {
         return mAnimatedSVGState.mSVGDrawable.getIntrinsicHeight();
-    }
-
-    @Override
-    public void getOutline(@NonNull Outline outline) {
-        mAnimatedSVGState.mSVGDrawable.getOutline(outline);
     }
 
     private static class AnimatedSVGDrawableState extends ConstantState {

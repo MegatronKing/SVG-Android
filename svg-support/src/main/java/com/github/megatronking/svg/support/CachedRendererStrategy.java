@@ -10,7 +10,6 @@ package com.github.megatronking.svg.support;
 public abstract class CachedRendererStrategy extends RendererStrategy {
 
     protected float mCachedAlpha;
-    protected boolean mCachedAutoMirrored;
     protected boolean mCacheDirty;
 
     public CachedRendererStrategy(SVGRenderer renderer) {

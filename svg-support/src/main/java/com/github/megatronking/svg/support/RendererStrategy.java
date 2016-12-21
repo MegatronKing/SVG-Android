@@ -6,6 +6,7 @@ import android.graphics.Rect;
 
 /**
  * Define three strategy about svg rendering.
+ *
  * @see NormalRendererStrategy
  * @see BitmapRendererStrategy
  * @see PictureRendererStrategy

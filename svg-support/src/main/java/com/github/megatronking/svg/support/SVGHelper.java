@@ -15,7 +15,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * Helper for accessing sPreloadedDrawables in {@link Resources}.
+ * A helper class for some svg operations.
  *
  * @author Megatron King
  * @since 2016/9/4 14:52
