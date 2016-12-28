@@ -6,7 +6,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.3.2'
+        classpath 'com.github.megatronking:svg-plugin:1.3.3'
     }
 }
 
@@ -17,8 +17,9 @@ svg {
     shapeDir = "src/main/res_shape/drawable"
     // 配置生成java文件目录
     javaDir = "src/main/java/com/github/megatronking/svg/sample/drawables"
-    // 配置应用包名(R文件包名)
-    packageName = "com.github.megatronking.svg.sample"
+
+    // 自动将vector和shape资源文件添加到SourceSet，此项默认是true，可以不设置
+    autoSourceSet = true
 
     // 定义svg生成vector的配置，可以配置多个目录，方便图片分类
     svg2vector {
@@ -33,6 +34,8 @@ svg {
         svg_b {
             svgDir = "${projectDir}/svg_b"
             vectorDir = "src/main/res_svg/drawable"
+            height = 48
+            width = 48
         }
     }
 
@@ -53,17 +56,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    sourceSets {
-        // 为了开发时能引用vector文件方便预览，将存放vector文件目录添加到资源文件目录中
-        debug {
-            java.srcDirs = ['src/main/java']
-            res.srcDirs = ['src/main/res', 'src/main/res_vector', 'src/main/res_svg']
-        }
-        release {
-            java.srcDirs = ['src/main/java']
-            res.srcDirs = ['src/main/res', "src/main/res_shape"]
         }
     }
 }

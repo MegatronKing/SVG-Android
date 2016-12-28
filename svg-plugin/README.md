@@ -16,7 +16,6 @@ svg {
     vectorDirs = ["src/main/svg_debug/drawable"]
     shapeDir = "src/main/svg_release/drawable"
     javaDir = "src/main/java/com/github/megatron/svg/sample/drawables"
-    packageName = "com.github.megatron.svg.sample"
     appColors = ['black':0xFF000000, 'white':0xFFFFFFFF]
 
     svg2vector {
@@ -36,9 +35,11 @@ config：
 - [vectorDirs]  vectors资源目录，支持多个目录，debug包可作为资源打进apk，但release包不可
 - [shapeDir]    shape资源目录，需要打到apk包内
 - [javaDir]     生成SVGRenderer Java代码的目录
-- [packageName] 应用包名，用于R文件的引用
+- [packageName] 应用包名，用于R文件的引用，如果不配置默认使用applicationId
 - [appColors]   定义色值，如果vector文件中有@color/xxx的引用，需要配置
 - [svg2vector]  svg格式文件生成vector文件的相关配置
+- [autoSourceSet]  是否自动添加vector和shape资源文件目录到SourceSet，默认true
+- [generateLoader] 是否自动生成SVGLoader文件，默认true
 
 svg2vector：
 - [svg_a]       命名无特殊意义，可随意，建议使用svg图片文件目录名称，可以配置多个。
@@ -79,4 +80,7 @@ svg2vector：
 - 新增支持fill-rule、fill-opacity、stroke-opacity三个属性的解析
 - 修复在特殊场景下执行svg2vector任务报错的bug
 
+### V1.3.3
+- 新增可以不需要配置packageName，默认使用applicationId
+- 自动添加vector和shape目录到sourceSet，如果想禁用此功能可以使用配置autoSourceSet=false
 

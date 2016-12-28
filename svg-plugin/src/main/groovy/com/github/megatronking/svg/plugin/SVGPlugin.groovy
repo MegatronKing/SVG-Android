@@ -1,22 +1,17 @@
 package com.github.megatronking.svg.plugin
 
+import com.github.megatronking.svg.plugin.task.*
 import com.github.megatronking.svg.plugin.utils.Holder
-import com.github.megatronking.svg.plugin.task.SVG2VectorTask
-import com.github.megatronking.svg.plugin.task.SVGAppColorLoadTask
-import com.github.megatronking.svg.plugin.task.SVGAssembleTask
-import com.github.megatronking.svg.plugin.task.SVGJavaCleanTask
-import com.github.megatronking.svg.plugin.task.SVGShapeCleanTask
-import com.github.megatronking.svg.plugin.task.SVGVectorCleanTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.Task
+
 /**
  * <p>apply plugin: "svg"</p>
  *
  * @author Megatron King
  * @since 2016/10/12 17:11
  */
-
 public class SVGPlugin implements Plugin<Project> {
 
     private static final String SVG_TASK_GROUP = "svg"
@@ -44,6 +39,59 @@ public class SVGPlugin implements Plugin<Project> {
 
         project.afterEvaluate {
             Holder.SVG_HOLDER.clear()
+
+            // get package name from android plugin
+            def androidPlugin = project.android;
+            if (androidPlugin && svgExtension && svgExtension.packageName) {
+                svgExtension.packageName = androidPlugin.defaultConfig.applicationId
+            }
+
+            // add vector and shape dirs to sourceSets
+            if (androidPlugin && svgExtension && svgExtension.autoSourceSet) {
+                def shapeDir = svgExtension.shapeDir
+                def vectorDirs = svgExtension.vectorDirs ? svgExtension.vectorDirs : []
+                if (svg2vectorExtensions) {
+                    svg2vectorExtensions.each { svg2vectorConfiguration->
+                        if (svg2vectorConfiguration.vectorDir && !vectorDirs.contains(svg2vectorConfiguration.vectorDir)) {
+                            vectorDirs.add(svg2vectorConfiguration.vectorDir)
+                        }
+                    }
+                }
+                androidPlugin.sourceSets.each { sourceSet->
+                    if (sourceSet.name.equals('debug')) {
+                        vectorDirs.each {
+                            it = splitResDir(project, it)
+                            def hasDir = false
+                            for (dir in sourceSet.res.srcDirs) {
+                                if (dir.absolutePath.equals(it)) {
+                                    hasDir = true
+                                    break
+                                }
+                            }
+                            if (!hasDir) {
+                                println "add debug res dir to sourceSet : ${it}"
+                                sourceSet.res.srcDir(new File(it))
+                            }
+                        }
+                    }
+                    if (shapeDir && sourceSet.name.equals('release')) {
+                        shapeDir = splitResDir(project, shapeDir)
+                        def hasDir = false
+                        for (dir in sourceSet.res.srcDirs) {
+                            if (dir.absolutePath.equals(shapeDir)) {
+                                hasDir = true
+                                break
+                            }
+                        }
+                        if (!hasDir) {
+                            println "add release res dir to sourceSet : ${shapeDir}"
+                            sourceSet.res.srcDir(new File(shapeDir))
+                        }
+                    }
+                }
+            }
+
+            // resolve dependencies
             if(!svg2vectorExtensions.isEmpty()) {
                 def svg2vectorTask = project.tasks.create("svg2vector")
                 svg2vectorTask.setGroup(SVG_TASK_GROUP)
@@ -69,5 +117,11 @@ public class SVGPlugin implements Plugin<Project> {
 
     private def firstLettertoUpperCase(def text) {
         text.getAt(0).toString().toUpperCase() + text.substring(1)
+    }
+
+    private def splitResDir(Project project, def dir) {
+        dir = project.file(dir).absolutePath
+        dir = dir.split("drawable")[0]
+        dir.subSequence(0, dir.length() - 1)
     }
 }

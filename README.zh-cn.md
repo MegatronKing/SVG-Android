@@ -1,6 +1,6 @@
 ## 简介
 
-[![Jcenter Status](https://img.shields.io/badge/download-1.3.2-brightgreen.svg)](http://jcenter.bintray.com/com/github/megatronking)
+[![Jcenter Status](https://img.shields.io/badge/download-1.3.3-brightgreen.svg)](http://jcenter.bintray.com/com/github/megatronking)
 [![license](http://img.shields.io/badge/license-apache_2.0-red.svg?style=flat)](https://github.com/MegatronKing/SVG-Android/raw/master/LICENSE)
 
 *switch language: [English](README.md)*
@@ -64,21 +64,18 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.3.2'
+        classpath 'com.github.megatronking:svg-plugin:1.3.3'
     }
 }
 
 svg {
     // 下面四个参数是vector文件生成java渲染类文件的相关配置
-    // 由于涉及到自定义资源文件目录，需要在sourceSets中提前配置好这些目录，否则编译时会找不到资源文件引用
     // vector资源文件目录，支持多个目录
     vectorDirs = ["src/main/svg_debug/drawable"]
     // shape资源文件目录
     shapeDir = "src/main/svg_release/drawable"
     // 生成java渲染类的存放包目录
     javaDir = "src/main/java/com/github/megatronking/svg/sample/drawables"
-    // 应用包名(必须与R文件包名对应)
-    packageName = "com.github.megatronking.svg.sample"
 
     // 下面参数是svg格式文件生成vector资源文件的配置
     svg2vector {

@@ -23,5 +23,7 @@ public class SVGExtension {
 
     public def debugMode;
 
+    public def autoSourceSet = true;
+
     public def generateLoader = true;
 }

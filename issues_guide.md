@@ -14,4 +14,5 @@
 ### Q4：执行svgAssemble后，SVGLoader中资源文件引用报错或者xml中无法引用@drawable/xxx图片
 检查build.gradle中的sourceSets配置，需要在debug配置的res.srcDirs添加vector资源目录，这样可以方便开发时预览图片，
 而release正式包配置则需要添加shape资源目录（注意，release不能添加vector资源目录，否则apk包中会多出很多冗余无用的
-资源文件导致体积增大）。
+资源文件导致体积增大）。但从svg-plugin:1.3.3版本开始，不再需要手动配置sourceSets，插件会默认将vector资源目录和shape资源目录
+添加到sourceSets中，不过如果你不希望插件自动添加，可以配置autoSourceSet=false来禁用此功能。
