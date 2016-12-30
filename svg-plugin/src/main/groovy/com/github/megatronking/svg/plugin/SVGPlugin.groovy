@@ -42,17 +42,17 @@ public class SVGPlugin implements Plugin<Project> {
 
             // get package name from android plugin
             def androidPlugin = project.android;
-            if (androidPlugin && svgExtension && svgExtension.packageName) {
+            if (androidPlugin  != null && svgExtension != null && svgExtension.packageName == null) {
                 svgExtension.packageName = androidPlugin.defaultConfig.applicationId
             }
 
             // add vector and shape dirs to sourceSets
-            if (androidPlugin && svgExtension && svgExtension.autoSourceSet) {
+            if (androidPlugin != null && svgExtension != null && svgExtension.autoSourceSet != null) {
                 def shapeDir = svgExtension.shapeDir
-                def vectorDirs = svgExtension.vectorDirs ? svgExtension.vectorDirs : []
-                if (svg2vectorExtensions) {
+                def vectorDirs = svgExtension.vectorDirs  != null ? svgExtension.vectorDirs : []
+                if (svg2vectorExtensions != null) {
                     svg2vectorExtensions.each { svg2vectorConfiguration->
-                        if (svg2vectorConfiguration.vectorDir && !vectorDirs.contains(svg2vectorConfiguration.vectorDir)) {
+                        if (svg2vectorConfiguration.vectorDir != null && !vectorDirs.contains(svg2vectorConfiguration.vectorDir)) {
                             vectorDirs.add(svg2vectorConfiguration.vectorDir)
                         }
                     }
@@ -74,7 +74,7 @@ public class SVGPlugin implements Plugin<Project> {
                             }
                         }
                     }
-                    if (shapeDir && sourceSet.name.equals('release')) {
+                    if (shapeDir != null && sourceSet.name.equals('release')) {
                         shapeDir = splitResDir(project, shapeDir)
                         def hasDir = false
                         for (dir in sourceSet.res.srcDirs) {

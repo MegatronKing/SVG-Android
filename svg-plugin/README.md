@@ -81,6 +81,8 @@ svg2vector：
 - 修复在特殊场景下执行svg2vector任务报错的bug
 
 ### V1.3.3
-- 新增可以不需要配置packageName，默认使用applicationId
+- 新增可以不需要配置packageName，默认使用applicationId (此功能有bug，必须配置packageName)
 - 自动添加vector和shape目录到sourceSet，如果想禁用此功能可以使用配置autoSourceSet=false
 
+### V1.3.4
+- 紧急修复1.3.3版本自动配置packageName的bug
