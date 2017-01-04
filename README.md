@@ -104,7 +104,7 @@ After that, we will see some generated classes in dir 'src/main/java/com/github/
 gradlew svg2vector
 ```
 With this command, a batch of svgs will be converted to vector files. No matter whether you need java render classes, just run this task, it is more convenient than converted them one by one.
-[See svg support doc](svg_doc.md)
+[See svg support doc](support_doc.md)
 
 ## install SVGLoader in Application class
 ```java
