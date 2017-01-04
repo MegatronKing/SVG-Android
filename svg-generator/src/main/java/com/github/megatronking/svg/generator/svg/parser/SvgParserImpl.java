@@ -9,6 +9,7 @@ import com.github.megatronking.svg.generator.svg.parser.attribute.PolygonAttribu
 import com.github.megatronking.svg.generator.svg.parser.attribute.PolylineAttributeParser;
 import com.github.megatronking.svg.generator.svg.parser.attribute.RectAttributeParser;
 import com.github.megatronking.svg.generator.svg.parser.attribute.SvgAttributeParser;
+import com.github.megatronking.svg.generator.svg.parser.element.DefsElementParser;
 import com.github.megatronking.svg.generator.svg.parser.element.GElementParser;
 import com.github.megatronking.svg.generator.svg.parser.element.SvgElementParser;
 
@@ -35,5 +36,6 @@ public interface SvgParserImpl {
     // elements
     SvgElementParser SVG_ELEMENT_PARSER = new SvgElementParser();
     GElementParser G_ELEMENT_PARSER = new GElementParser();
+    DefsElementParser DEFS_ELEMENT_PARSER = new DefsElementParser();
 
 }

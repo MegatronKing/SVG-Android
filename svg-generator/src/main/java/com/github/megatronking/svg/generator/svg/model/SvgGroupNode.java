@@ -1,6 +1,7 @@
 package com.github.megatronking.svg.generator.svg.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,12 +22,31 @@ public abstract class SvgGroupNode extends SvgNode {
     }
 
     @Override
-    public void applyStyles(Map<String, String> inheritStyles) {
-        super.applyStyles(inheritStyles);
+    public void applyStyles(Map<String, String> inheritStyles, Map<String, Map<String, String>> defineStyles) {
+        super.applyStyles(inheritStyles, defineStyles);
+        if (defineStyles == null) {
+            defineStyles = new HashMap<>();
+        }
+        for (SvgNode svgNode : children) {
+            if (svgNode instanceof Style) {
+                applyStyleFromNode((Style) svgNode, defineStyles);
+            } else if (svgNode instanceof Defs) {
+                for (SvgNode svgNodeInDefs : ((Defs) svgNode).children) {
+                    if (svgNodeInDefs instanceof Style) {
+                        applyStyleFromNode((Style) svgNodeInDefs, defineStyles);
+                    }
+                }
+            }
+        }
         // Apply all styles to its children.
         for (SvgNode svgNode : children) {
-            svgNode.applyStyles(styleMaps);
+            svgNode.applyStyles(styleMaps, defineStyles);
         }
+    }
+
+    private void applyStyleFromNode(Style style, Map<String, Map<String, String>> defineStyles) {
+        Map<String, Map<String, String>> defineStylesTemp = style.toStyle();
+        defineStyles.putAll(defineStylesTemp);
     }
 
 }

@@ -27,7 +27,7 @@ public class SVG2VectorTask extends SVGBaseTask {
             }
         }
         errorSvgs.each { errorSvg ->
-            logger.error(errorSvg + " 失败！")
+            logger.error(errorSvg + " error！")
         }
     }
 
@@ -45,6 +45,8 @@ public class SVG2VectorTask extends SVGBaseTask {
                     svg2vector(svgFile, file(vectorDir, svgName + ".xml"), width, height)
                 }
             }
+        } else {
+            logger.error("None of svg file was found! Please check " + svgDir + "!")
         }
     }
 

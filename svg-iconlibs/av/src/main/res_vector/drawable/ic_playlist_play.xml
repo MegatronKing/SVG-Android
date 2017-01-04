@@ -5,18 +5,22 @@
     android:viewportHeight="24"
     android:viewportWidth="24">
     <path
+        android:name="XMLID_3_"
         android:fillColor="#ff000000"
         android:pathData="M4,10h12v2h-12z"/>
 
     <path
+        android:name="XMLID_4_"
         android:fillColor="#ff000000"
         android:pathData="M4,6h12v2h-12z"/>
 
     <path
+        android:name="XMLID_5_"
         android:fillColor="#ff000000"
         android:pathData="M4,14h8v2h-8z"/>
 
     <path
+        android:name="XMLID_6_"
         android:fillColor="#ff000000"
         android:pathData="M14,14l0,6l5,-3z"/>
 

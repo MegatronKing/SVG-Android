@@ -18,13 +18,12 @@ public class ic_svg_11 extends SVGRenderer {
     public ic_svg_11(Context context) {
         super(context);
         mAlpha = 1.0f;
-        mWidth = dip2px(455.731f);
-        mHeight = dip2px(455.731f);
+        mWidth = dip2px(48.0f);
+        mHeight = dip2px(48.0f);
     }
 
     @Override
     public void render(Canvas canvas, int w, int h, ColorFilter filter) {
-        
         final float scaleX = w / 455.731f;
         final float scaleY = h / 455.731f;
         

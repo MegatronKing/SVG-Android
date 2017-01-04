@@ -87,6 +87,7 @@ public class SVGLoader  {
         add(context, R.drawable.ic_sample_18, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_18(context)));
         add(context, R.drawable.ic_sample_19, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_19(context)));
         add(context, R.drawable.ic_sample_20, SVGDrawable.SVGDrawableConstantState.create(new ic_sample_20(context)));
+        add(context, R.drawable.ic_look_more, SVGDrawable.SVGDrawableConstantState.create(new ic_look_more(context)));
         add(context, R.drawable.ic_svg_01, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_01(context)));
         add(context, R.drawable.ic_svg_02, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_02(context)));
         add(context, R.drawable.ic_svg_03, SVGDrawable.SVGDrawableConstantState.create(new ic_svg_03(context)));

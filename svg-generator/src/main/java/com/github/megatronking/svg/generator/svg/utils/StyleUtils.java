@@ -1,12 +1,16 @@
 package com.github.megatronking.svg.generator.svg.utils;
 
+import com.github.megatronking.svg.generator.svg.css.CSSParser;
+import com.github.megatronking.svg.generator.svg.css.CSSParserCallback;
+import com.github.megatronking.svg.generator.utils.TextUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class StyleUtils {
 
     public static Map<String, String> convertStyleString2Map(String style) {
-        if (style == null || style.length() == 0) {
+        if (TextUtils.isEmpty(style)) {
             return null;
         }
         Map<String, String> styleMaps = new HashMap<>();
@@ -18,6 +22,76 @@ public class StyleUtils {
             }
         }
         return styleMaps;
+    }
+
+    public static void fill2Map(String cssStyle, Map<String, Map<String, String>> map) {
+        if (TextUtils.isEmpty(cssStyle) || map == null) {
+            return;
+        }
+        CSSParser cssParser = new CSSParser();
+        try {
+            cssParser.parse(cssStyle, new CSSParserCallbackImpl(map), false);
+        } catch (Exception e) {
+            // unexpected exception
+        }
+    }
+
+    private static class CSSParserCallbackImpl implements CSSParserCallback {
+
+        private Map<String, Map<String, String>> map;
+
+        private Map<String, String> styleMap;
+
+        private boolean isInRule;
+        private String propertySave;
+
+        private CSSParserCallbackImpl(Map<String, Map<String, String>> map) {
+            this.map = map;
+        }
+
+        @Override
+        public void handleImport(String importString) {
+            // do not handle this
+        }
+
+        @Override
+        public void handleSelector(String selector) {
+            if (!TextUtils.isEmpty(selector) && !isInRule) {
+                styleMap = new HashMap<>();
+                map.put(selector, styleMap);
+            } else {
+                styleMap = null;
+            }
+            propertySave = null;
+        }
+
+        @Override
+        public void startRule() {
+            isInRule = true;
+            propertySave = null;
+        }
+
+        @Override
+        public void handleProperty(String property) {
+            if (!TextUtils.isEmpty(property) && isInRule && styleMap != null && propertySave == null) {
+                propertySave = property.trim();
+            }
+        }
+
+        @Override
+        public void handleValue(String value) {
+            if (!TextUtils.isEmpty(value) && isInRule && styleMap != null && propertySave != null) {
+                styleMap.put(propertySave, value.trim());
+                propertySave = null;
+            }
+        }
+
+        @Override
+        public void endRule() {
+            isInRule = false;
+            styleMap = null;
+            propertySave = null;
+        }
     }
 
 }

@@ -1,10 +1,10 @@
 package com.github.megatronking.svg.generator.svg.parser.attribute;
 
-import com.github.megatronking.svg.generator.svg.SvgParseException;
 import com.github.megatronking.svg.generator.svg.model.Svg;
 import com.github.megatronking.svg.generator.svg.model.SvgConstants;
 import com.github.megatronking.svg.generator.svg.parser.SvgNodeAbstractAttributeParser;
 import com.github.megatronking.svg.generator.utils.SCU;
+import com.github.megatronking.svg.generator.utils.TextUtils;
 
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -35,23 +35,24 @@ public class SvgAttributeParser extends SvgNodeAbstractAttributeParser<Svg> {
             viewBox = parseString(element, SvgConstants.ATTR_VIEW_PORT2, null);
         }
         if (viewBox != null) {
-            String[] viewBoxValues = viewBox.split(" ");
+            viewBox = TextUtils.removeMultiSpace(viewBox);
+            String[] viewBoxValues = viewBox.trim().split(" ");
             svg.viewBox = new float[4];
             for(int i = 0; i < viewBoxValues.length; i++) {
                 svg.viewBox[i] = SCU.parseFloat(viewBoxValues[i], 0.0f);
             }
-        }
-        if (svg.viewBox == null && svg.w != 0 && svg.h != 0) {
+        } else {
             svg.viewBox = new float[4];
+        }
+        if (svg.w != 0) {
             svg.viewBox[2] = svg.w;
-            svg.viewBox[3] = svg.h;
-        }
-        if ((svg.w == 0 || svg.h == 0) && svg.viewBox != null && svg.viewBox[2] > 0 && svg.viewBox[3] > 0) {
+        } else {
             svg.w = svg.viewBox[2];
-            svg.h = svg.viewBox[3];
         }
-        if (svg.viewBox == null) {
-            throw new SvgParseException("No viewBox attribute found in svg file.");
+        if (svg.h != 0) {
+            svg.viewBox[3] = svg.h;
+        } else {
+            svg.h = svg.viewBox[3];
         }
     }
 }

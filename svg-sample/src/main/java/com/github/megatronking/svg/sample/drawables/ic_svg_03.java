@@ -24,7 +24,6 @@ public class ic_svg_03 extends SVGRenderer {
 
     @Override
     public void render(Canvas canvas, int w, int h, ColorFilter filter) {
-        
         final float scaleX = w / 455.731f;
         final float scaleY = h / 455.731f;
         

@@ -19,6 +19,8 @@ public class SvgConstants {
     public static final String TAG_POLYLINE = "polyline";
     public static final String TAG_GROUP = "g";
     public static final String TAG_PATH = "path";
+    public static final String TAG_DEFS = "defs";
+    public static final String TAG_STYLE = "style";
 
     // svg attributes
     public static final String ATTR_WIDTH = "width";
@@ -27,7 +29,10 @@ public class SvgConstants {
     public static final String ATTR_VIEW_BOX2 = "viewbox";
     public static final String ATTR_VIEW_PORT1 = "viewPort";
     public static final String ATTR_VIEW_PORT2 = "viewport";
+
     // common attributes
+    public static final String ATTR_ID = "id";
+    public static final String ATTR_CLASS = "class";
     public static final String ATTR_TRANSFORM = "transform";
     public static final String ATTR_STYLE = "style";
     public static final String ATTR_DISPLAY = "display";

@@ -8,6 +8,7 @@ import com.github.megatronking.svg.generator.svg.model.Path;
 import com.github.megatronking.svg.generator.svg.model.Polygon;
 import com.github.megatronking.svg.generator.svg.model.Polyline;
 import com.github.megatronking.svg.generator.svg.model.Rect;
+import com.github.megatronking.svg.generator.svg.model.Style;
 import com.github.megatronking.svg.generator.svg.model.SvgConstants;
 import com.github.megatronking.svg.generator.svg.model.SvgGroupNode;
 import com.github.megatronking.svg.generator.xml.ChildrenElementParser;
@@ -71,6 +72,14 @@ public abstract class SvgGroupNodeAbstractElementParser<T extends SvgGroupNode> 
             Path path = new Path();
             groupNode.children.add(path);
             SvgParserImpl.PATH_ATTRIBUTE_PARSER.parse(childElement, path);
+        }
+        if (SvgConstants.TAG_STYLE.equals(childElement.getName())) {
+            String styleText = childElement.getText();
+            if (styleText != null && styleText.length() > 0) {
+                Style style = new Style();
+                style.cssStyle = styleText;
+                groupNode.children.add(style);
+            }
         }
     }
 }

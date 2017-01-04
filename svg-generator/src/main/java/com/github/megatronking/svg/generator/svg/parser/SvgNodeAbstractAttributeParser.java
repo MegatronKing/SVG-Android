@@ -27,6 +27,8 @@ public abstract class SvgNodeAbstractAttributeParser<T extends SvgNode> extends 
     }
 
     private void handleCommonAttributes(Element element, SvgNode node) {
+        node.id = parseString(element, SvgConstants.ATTR_ID);
+        node.clazz = parseString(element, SvgConstants.ATTR_CLASS);
         String matrix = parseString(element, SvgConstants.ATTR_TRANSFORM);
         if (matrix != null) {
             if (matrix.startsWith("matrix")) {

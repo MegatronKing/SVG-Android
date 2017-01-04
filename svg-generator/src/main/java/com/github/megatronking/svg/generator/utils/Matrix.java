@@ -121,6 +121,30 @@ public class Matrix {
         return true;
     }
 
+    public boolean setTranslate(float dx, float dy) {
+        Matrix matrix = new Matrix();
+        matrix.setValues(new float[] {1, 0, dx, 0, 1, dy, 0, 0, 1});
+        matrix.getValues(MATRIX);
+        return true;
+    }
+
+    public boolean setRotate(float degrees, float px, float py) {
+        Matrix matrix = new Matrix();
+        double radians = Math.toRadians(degrees);
+        float sin = (float) Math.sin(radians);
+        float cos = (float) Math.cos(radians);
+        matrix.setValues(new float[] {cos, -sin, - px * cos + py * sin + px, sin, cos, - px * sin - py * cos + py, 0, 0, 1});
+        matrix.getValues(MATRIX);
+        return true;
+    }
+
+    public boolean setScale(float sx, float sy) {
+        Matrix matrix = new Matrix();
+        matrix.setValues(new float[] {sx, 0, 0, 0, sy, 0, 0, 0, 1});
+        matrix.getValues(MATRIX);
+        return true;
+    }
+
     /**
      * Apply this matrix to the array of 2D vectors, and write the transformed
      * vectors back into the array.

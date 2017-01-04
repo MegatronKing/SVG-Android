@@ -1,5 +1,6 @@
 package com.github.megatronking.svg.generator.svg.model;
 
+import com.github.megatronking.svg.generator.svg.utils.TransformUtils;
 import com.github.megatronking.svg.generator.utils.Color;
 import com.github.megatronking.svg.generator.utils.Dimen;
 import com.github.megatronking.svg.generator.utils.FloatUtils;
@@ -18,6 +19,9 @@ import java.util.Map;
 
 public abstract class SvgNode {
 
+    public String id;
+    public String clazz;
+
     protected String pathData;
 
     public Map<String, String> styleMaps;
@@ -31,15 +35,32 @@ public abstract class SvgNode {
 
     public abstract void toPath();
 
-    public void applyStyles(Map<String, String> inheritStyles) {
+    public void applyStyles(Map<String, String> inheritStyles, Map<String, Map<String, String>> defineStyles) {
+        if (styleMaps == null) {
+            styleMaps = new HashMap<>();
+        }
+        // Query for defined styles.
+        applyDefineStylesByClass("." + clazz, defineStyles);
+        applyDefineStylesByClass(getClass().getSimpleName().toLowerCase() + "." + clazz, defineStyles);
+
         // Apply the styles of parent group node to it.
         if (inheritStyles != null && !inheritStyles.isEmpty()) {
-            if (styleMaps == null) {
-                styleMaps = new HashMap<>();
-            }
             for (String key : inheritStyles.keySet()) {
                 if (!styleMaps.containsKey(key)) {
                     styleMaps.put(key, inheritStyles.get(key));
+                }
+            }
+        }
+    }
+
+    private void applyDefineStylesByClass(String className, Map<String, Map<String, String>> defineStyles) {
+        if (defineStyles != null && !defineStyles.isEmpty() && defineStyles.containsKey(className)) {
+            Map<String, String> defineStylesByClassName = defineStyles.get(className);
+            if (defineStylesByClassName != null && !defineStylesByClassName.isEmpty()) {
+                for (String styleName : defineStylesByClassName.keySet()) {
+                    if (!styleMaps.containsKey(styleName)) {
+                        styleMaps.put(styleName, defineStylesByClassName.get(styleName));
+                    }
                 }
             }
         }
@@ -50,11 +71,12 @@ public abstract class SvgNode {
         if (!isValid()) {
             return;
         }
+        matrix = TransformUtils.preConcat(matrix, new float[]{a, b, c, d, e ,f});
         // It is not a good choice to transform the node one by one, this will cause distortion
         // in some condition such as transform the line, but the group cannot support matrix.
         PathDataNode[] node = PathDataNode.createNodesFromPathData(pathData);
-        if (!(a == 1.0f && b == 0.0f && c == 0.0f && d == 1.0f && e == 0.0f && f == 0.0f)) {
-            PathDataNode.transform(a, b, c, d, e, f, node);
+        if (!(matrix[0] == 1.0f && matrix[1] == 0.0f && matrix[2] == 0.0f && matrix[3] == 1.0f && matrix[4] == 0.0f && matrix[5] == 0.0f)) {
+            PathDataNode.transform(matrix[0], matrix[1], matrix[2], matrix[3], matrix[4], matrix[5], node);
         }
         pathData = PathDataNode.nodeListToString(node);
     }
@@ -92,6 +114,9 @@ public abstract class SvgNode {
     public String convert2VectorXml(String indent) {
         StringBuilder sb = new StringBuilder();
         sb.append("<path\n");
+        if (id != null && id.length() != 0) {
+            sb.append(indent).append("    android:name=\"").append(id).append("\"\n");
+        }
         // Use black fill color as default.
         int fillColor = styleMaps != null && styleMaps.containsKey(SvgConstants.ATTR_FILL) ?
                 Color.convert(styleMaps.get(SvgConstants.ATTR_FILL)) : Color.BLACK;

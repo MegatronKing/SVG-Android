@@ -1,6 +1,8 @@
 package com.github.megatronking.svg.generator.svg.parser.element;
 
+import com.github.megatronking.svg.generator.svg.model.Defs;
 import com.github.megatronking.svg.generator.svg.model.Svg;
+import com.github.megatronking.svg.generator.svg.model.SvgConstants;
 import com.github.megatronking.svg.generator.svg.parser.SvgGroupNodeAbstractElementParser;
 import com.github.megatronking.svg.generator.svg.parser.SvgParserImpl;
 
@@ -23,9 +25,20 @@ public class SvgElementParser extends SvgGroupNodeAbstractElementParser<Svg> {
     @Override
     public void parse(Element element, Svg svg) throws DocumentException {
         super.parse(element, svg);
+
         // Apply styles from the root node of svg tree, until all leaf nodes was traversed.
-        svg.applyStyles(null);
+        svg.applyStyles(null, null);
         // Transform from the root node of svg tree, until all leaf nodes was traversed.
         svg.transform(1.0f, 0, 0, 1.0f, 0, 0);
+    }
+
+    @Override
+    protected void parseChild(Element childElement, Svg groupNode) throws DocumentException {
+        super.parseChild(childElement, groupNode);
+        if (SvgConstants.TAG_DEFS.equals(childElement.getName())) {
+            Defs defs = new Defs();
+            groupNode.children.add(defs);
+            SvgParserImpl.DEFS_ELEMENT_PARSER.parse(childElement, defs);
+        }
     }
 }

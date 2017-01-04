@@ -1,15 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'svg'
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.3.4'
-    }
-}
-
 svg {
     // 配置vector目录，可以配置多个(如果直接使用svg格式图片，可以不配置此项)
     vectorDirs = ["src/main/res_vector/drawable"]
