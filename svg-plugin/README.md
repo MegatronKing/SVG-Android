@@ -86,3 +86,9 @@ svg2vector：
 
 ### V1.3.4
 - 紧急修复1.3.3版本自动配置packageName的bug
+
+### V1.3.5
+- 修复嵌套或者复杂矩阵变换导致图片不显示的bug
+- 修复存在width、height属性的svg文件生成vector资源文件图片尺寸失真的bug
+- 支持预定义标签defs中使用style标签
+- 支持style标签部分css样式属性
