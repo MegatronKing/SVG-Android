@@ -18,14 +18,14 @@ public class ic_look_more extends SVGRenderer {
     public ic_look_more(Context context) {
         super(context);
         mAlpha = 1.0f;
-        mWidth = dip2px(6.74f);
-        mHeight = dip2px(12.0f);
+        mWidth = dip2px(48.0f);
+        mHeight = dip2px(48.0f);
     }
 
     @Override
     public void render(Canvas canvas, int w, int h, ColorFilter filter) {
-        final float scaleX = w / 6.74f;
-        final float scaleY = h / 12.0f;
+        final float scaleX = w / 100.0f;
+        final float scaleY = h / 100.0f;
         
         mPath.reset();
         mRenderPath.reset();
@@ -33,28 +33,16 @@ public class ic_look_more extends SVGRenderer {
         mFinalPathMatrix.setValues(new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f});
         mFinalPathMatrix.postScale(scaleX, scaleY);
         
-        mPath.moveTo(4.95f, 6.0f);
-        mPath.lineTo(0.22f, 10.73f);
-        mPath.cubicTo(0.108573206f, 10.840728f, 0.035111126f, 10.984013f, 0.010244389f, 11.13912f);
-        mPath.cubicTo(-0.014622348f, 11.294228f, 0.010366528f, 11.453296f, 0.0815949f, 11.5933075f);
-        mPath.cubicTo(0.15282327f, 11.733318f, 0.26668122f, 11.847177f, 0.40669245f, 11.918405f);
-        mPath.cubicTo(0.5467037f, 11.989633f, 0.7057723f, 12.014622f, 0.8608796f, 11.989756f);
-        mPath.cubicTo(1.0159869f, 11.964889f, 1.159272f, 11.891426f, 1.27f, 11.78f);
-        mPath.lineTo(6.53f, 6.53f);
-        mPath.rLineTo(0.0f, 0f);
-        mPath.cubicTo(6.598306f, 6.4599323f, 6.652041f, 6.3770065f, 6.6880865f, 6.286034f);
-        mPath.cubicTo(6.724132f, 6.195062f, 6.741778f, 6.097837f, 6.74f, 6.0f);
-        mPath.cubicTo(6.739825f, 5.801231f, 6.6606383f, 5.6104636f, 6.52f, 5.4700003f);
-        mPath.rLineTo(0.0f, 0f);
-        mPath.lineTo(1.27f, 0.22f);
-        mPath.cubicTo(1.1592722f, 0.10857212f, 1.0159869f, 0.035109065f, 0.8608791f, 0.010241685f);
-        mPath.cubicTo(0.7057713f, -0.0146256955f, 0.546702f, 0.010362912f, 0.40669015f, 0.081591405f);
-        mPath.cubicTo(0.2666783f, 0.15281989f, 0.15281989f, 0.2666783f, 0.081591405f, 0.40669015f);
-        mPath.cubicTo(0.010362912f, 0.546702f, -0.0146256955f, 0.7057713f, 0.010241685f, 0.8608791f);
-        mPath.cubicTo(0.035109065f, 1.0159869f, 0.10857212f, 1.1592722f, 0.22f, 1.27f);
-        mPath.lineTo(4.95f, 6.0f);
-        mPath.close();
-        mPath.moveTo(4.95f, 6.0f);
+        mPath.moveTo(50.0f, 50.0f);
+        mPath.rMoveTo(-40.0f, 0.0f);
+        mPath.cubicTo(10.0f, 39.39541f, 14.217151f, 29.214308f, 21.715729f, 21.715729f);
+        mPath.cubicTo(29.214308f, 14.217151f, 39.39541f, 10.0f, 50.0f, 10.0f);
+        mPath.cubicTo(60.60459f, 10.0f, 70.78569f, 14.217151f, 78.28427f, 21.715729f);
+        mPath.cubicTo(85.78285f, 29.214308f, 90.0f, 39.39541f, 90.0f, 50.0f);
+        mPath.cubicTo(90.0f, 60.60459f, 85.78285f, 70.78569f, 78.28427f, 78.28427f);
+        mPath.cubicTo(70.78569f, 85.78285f, 60.60459f, 90.0f, 50.0f, 90.0f);
+        mPath.cubicTo(39.39541f, 90.0f, 29.214308f, 85.78285f, 21.715729f, 78.28427f);
+        mPath.cubicTo(14.217151f, 70.78569f, 10.0f, 60.60459f, 10.0f, 50.0f);
         
         mRenderPath.addPath(mPath, mFinalPathMatrix);
         if (mFillPaint == null) {
@@ -62,7 +50,7 @@ public class ic_look_more extends SVGRenderer {
             mFillPaint.setStyle(Paint.Style.FILL);
             mFillPaint.setAntiAlias(true);
         }
-        mFillPaint.setColor(applyAlpha(-8745044, 1.0f));
+        mFillPaint.setColor(applyAlpha(-16777216, 1.0f));
         mFillPaint.setColorFilter(filter);
         canvas.drawPath(mRenderPath, mFillPaint);
 

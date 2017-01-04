@@ -17,9 +17,6 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url uri("../maven")
-        }
     }
 }
 

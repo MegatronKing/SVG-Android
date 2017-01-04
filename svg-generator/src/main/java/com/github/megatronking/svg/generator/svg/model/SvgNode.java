@@ -40,6 +40,7 @@ public abstract class SvgNode {
             styleMaps = new HashMap<>();
         }
         // Query for defined styles.
+        applyDefineStylesByClass(getClass().getSimpleName().toLowerCase(), defineStyles);
         applyDefineStylesByClass("." + clazz, defineStyles);
         applyDefineStylesByClass(getClass().getSimpleName().toLowerCase() + "." + clazz, defineStyles);
 
