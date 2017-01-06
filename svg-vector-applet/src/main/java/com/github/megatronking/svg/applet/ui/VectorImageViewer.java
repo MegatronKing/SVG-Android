@@ -87,6 +87,10 @@ class VectorImageViewer extends JComponent {
     }
 
     private void setDefaultZoom() {
+        if (mImage == null) {
+            setZoom(DEFAULT_ZOOM);
+            return;
+        }
         int frameWidth = getWidth() - 2 * PADDING, frameHeight = getHeight() - 2 * PADDING;
         float z = DEFAULT_ZOOM;
         if (frameWidth > 0 && frameHeight > 0) {
@@ -108,8 +112,8 @@ class VectorImageViewer extends JComponent {
     }
 
     private void updateSize() {
-        int width = mImage.getWidth();
-        int height = mImage.getHeight();
+        int width = mImage == null ? 0 : mImage.getWidth();
+        int height = mImage == null ? 0 : mImage.getHeight();
         if (mSize.height == 0 || (getHeight() - mSize.height) == 0) {
             mSize.setSize(width * mZoom + PADDING * 2, height * mZoom + PADDING * 2);
         } else {

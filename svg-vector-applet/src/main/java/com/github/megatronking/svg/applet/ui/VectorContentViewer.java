@@ -1,6 +1,7 @@
 package com.github.megatronking.svg.applet.ui;
 
-import java.awt.FlowLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 
 import javax.swing.JComponent;
 import javax.swing.JTextArea;
@@ -15,10 +16,11 @@ class VectorContentViewer extends JComponent implements DocumentListener {
 
     VectorContentViewer(String stringData, OnTextWatcher textWatcher) {
         this.mTextWatcher = textWatcher;
-        this.setLayout(new FlowLayout());
+        setLayout(new GridLayout(1, 1));
         mTextArea = new JTextArea();
         mTextArea.setText(stringData);
         mTextArea.getDocument().addDocumentListener(this);
+        mTextArea.setMinimumSize(new Dimension(200, 200));
         add(mTextArea);
     }
 
