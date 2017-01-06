@@ -7,6 +7,8 @@
       <module fileurl="file://$PROJECT_DIR$/svg-plugin/svg-plugin.iml" filepath="$PROJECT_DIR$/svg-plugin/svg-plugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/svg-sample/svg-sample.iml" filepath="$PROJECT_DIR$/svg-sample/svg-sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/svg-support/svg-support.iml" filepath="$PROJECT_DIR$/svg-support/svg-support.iml" />
+      <module fileurl="file://$PROJECT_DIR$/svg-vector-applet/svg-vector-applet.iml" filepath="$PROJECT_DIR$/svg-vector-applet/svg-vector-applet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/svg-vector-cli/svg-vector-cli.iml" filepath="$PROJECT_DIR$/svg-vector-cli/svg-vector-cli.iml" />
     </modules>
   </component>
 </project>

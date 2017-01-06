@@ -1,0 +1,31 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+dependencies {
+    compile project(':svg-generator')
+    compile 'commons-cli:commons-cli:1.2'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+group=GROUP
+archivesBaseName=ARTIFACTID
+version=VERSION
+
+jar {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    manifest {
+        attributes 'Main-Class': 'com.github.megatronking.svg.cli.Main'
+        attributes 'Manifest-Version': version
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../maven'))
+        }
+    }
+}
+
+//apply from: '../bintray_java.gradle'
+//apply from: '../nexus_java.gradle'

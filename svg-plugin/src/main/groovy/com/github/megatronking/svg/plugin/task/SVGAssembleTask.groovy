@@ -42,7 +42,12 @@ public class SVGAssembleTask extends SVGBaseTask {
             def vectorModel = new VectorModel()
             def vectorFile = file(vector)
             vectorModel.name = vectorFile.name.substring(0, vectorFile.name.lastIndexOf(".xml"))
-            vectorModel.vector = reader.read(vector)
+            try {
+                vectorModel.vector = reader.read(vector)
+            } catch (Exception e) {
+                logger.error("Occur an error: " + vector + e.getMessage());
+                return true
+            }
             vectorModels.add(vectorModel)
         }
 

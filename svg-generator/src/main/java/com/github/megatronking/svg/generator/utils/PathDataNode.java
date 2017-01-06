@@ -373,6 +373,17 @@ public class PathDataNode {
         result.mEndPosition = currentIndex;
     }
 
+    public static boolean hasRelMoveAfterClose(PathDataNode[] nodes) {
+        char preType = ' ';
+        for (PathDataNode n : nodes) {
+            if ((preType == 'z' || preType == 'Z') && n.type == 'm') {
+                return true;
+            }
+            preType = n.type;
+        }
+        return false;
+    }
+
     private static class ExtractFloatResult {
         // We need to return the position of the next separator and whether the
         // next float starts with a '-' or a '.'.

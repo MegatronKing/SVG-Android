@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$/svg-plugin" />
             <option value="$PROJECT_DIR$/svg-sample" />
             <option value="$PROJECT_DIR$/svg-support" />
+            <option value="$PROJECT_DIR$/svg-vector-applet" />
+            <option value="$PROJECT_DIR$/svg-vector-cli" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
