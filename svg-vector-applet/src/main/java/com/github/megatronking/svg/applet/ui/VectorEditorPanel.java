@@ -69,7 +69,7 @@ class VectorEditorPanel extends JPanel implements VectorContentViewer.OnTextWatc
         scroller.getViewport().setOpaque(false);
         splitter.setLeftComponent(scroller);
 
-        mImageViewer = new VectorImageViewer(this, mData, mTexture);
+        mImageViewer = new VectorImageViewer(mData, mTexture);
         splitter.setRightComponent(mImageViewer);
 
         panel.add(splitter, BorderLayout.CENTER);

@@ -13,7 +13,11 @@ import com.github.megatronking.svg.generator.utils.FileUtils;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.zip.GZIPInputStream;
 
 import javax.swing.ActionMap;
 import javax.swing.JFileChooser;
@@ -179,9 +183,28 @@ public class MainFrame extends JFrame {
 
         @Override
         protected String doInBackground() throws Exception {
-            StringOutputStream sos = new StringOutputStream();
-            errorMsg = Svg2Vector.parseSvgToXml(file, sos, 0, 0);
-            return sos.getString();
+            String name = file.getName();
+            if (name.endsWith(".svg")) {
+                StringOutputStream sos = new StringOutputStream();
+                errorMsg = Svg2Vector.parseSvgToXml(file, sos, 0, 0);
+                return sos.getString();
+            } else if (name.endsWith(".svgz")) {
+                StringOutputStream sos = new StringOutputStream();
+                errorMsg = Svg2Vector.parseSvgToXml(new GZIPInputStream(new FileInputStream(file)), sos, 0, 0);
+                return sos.getString();
+            } else if (name.endsWith(".xml")) {
+                BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+                StringBuilder buffer = new StringBuilder();
+                String line;
+                while ((line = in.readLine()) != null){
+                    buffer.append(line).append("\n");
+                }
+                return buffer.toString();
+            } else {
+                errorMsg = "Unsupport file!";
+                return "";
+            }
+
         }
 
         @Override

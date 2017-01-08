@@ -40,8 +40,6 @@ class VectorImageViewer extends JComponent {
 
     private final Dimension mSize;
 
-    private JTextArea mErrorTextArea;
-
     VectorImageViewer(Container container, String data, TexturePaint texture) {
         this.mTexture = texture;
         this.mContainer = container;

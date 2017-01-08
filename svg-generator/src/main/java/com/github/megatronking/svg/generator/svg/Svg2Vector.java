@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
@@ -53,7 +54,7 @@ public class Svg2Vector {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(outputVector));
             writer.write(bufferedWriter);
         } catch (IOException | DocumentException e) {
-            return "EXCEPTION in parsing " + inputSVG.getName() + ":\n" + e.getMessage();
+            return "Exception in parsing " + inputSVG.getName() + ":\n" + e.getMessage();
         }
         return null;
     }
@@ -80,8 +81,33 @@ public class Svg2Vector {
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream));
             writer.write(bufferedWriter);
         } catch (IOException | DocumentException e) {
-            return "EXCEPTION in parsing " + inputSVG.getName() + ":\n" + e.getMessage();
+            return "Exception in parsing " + inputSVG.getName() + ":\n" + e.getMessage();
         }
         return null;
     }
+
+    public static String parseSvgToXml(InputStream inputStream, OutputStream outputStream, int width, int height) {
+        // Check input params.
+        if (inputStream == null || outputStream == null) {
+            return "Invalid input params!";
+        }
+
+        SvgSAXReader reader = new SvgSAXReader();
+        try {
+            Svg svg = reader.read(inputStream);
+            if (width > 0) {
+                svg.w = width;
+            }
+            if (height > 0) {
+                svg.h = height;
+            }
+            Svg2VectorTemplateWriter writer = new Svg2VectorTemplateWriter(svg);
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream));
+            writer.write(bufferedWriter);
+        } catch (IOException | DocumentException e) {
+            return "Exception when parsing :\n" + e.getMessage();
+        }
+        return null;
+    }
+
 }

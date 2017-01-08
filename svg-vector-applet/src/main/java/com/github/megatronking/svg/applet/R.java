@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
  * Created by Administrator on 2016/1/22.
  */
 public class R {
+
     private static final String BUNDLE_NAME = "values.string";
 
     private static final ResourceBundle RESOURCE_BUNDLE;
@@ -17,7 +18,7 @@ public class R {
         RESOURCE_BUNDLE = ResourceBundle.getBundle(BUNDLE_NAME, Locale.getDefault());
     }
 
-    public static String getString(String key) {
+    private static String getString(String key) {
         String str;
         if (key == null)
             return "";
@@ -61,25 +62,6 @@ public class R {
         public static final String file = getString("menuitem_file");
 
         public static final String about_text = getString("about_text");
-
-        public static final String title = getString("title");
-
-        public static final String v_patch = getString("v_patch");
-        public static final String v_padding = getString("v_padding");
-        public static final String h_patch = getString("h_patch");
-        public static final String h_padding = getString("h_padding");
-        public static final String px = getString("px");
-        public static final String top_tip = getString("top_tip");
-        public static final String zoom = getString("zoom");
-        public static final String patch_zoom = getString("patch_zoom");
-        public static final String show_lock = getString("show_lock");
-        public static final String show_patch = getString("show_patch");
-
-        public static final String show_bad_patches = getString("show_bad_patches");
-        public static final String show_content = getString("show_content");
-
-
-
 
     }
 }
