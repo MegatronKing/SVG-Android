@@ -1,1 +1,0 @@
-java -jar svg2vector-cli.jar -d %cd% -o %cd%
