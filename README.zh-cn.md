@@ -139,6 +139,10 @@ Drawable drawable = new SVGDrawable(new ic_android_red(context));
 imageView.setImageDrawable(drawable);
 ```
 
+## 工具
+- [SVG2Vector批量工具] (https://github.com/MegatronKing/SVG-Android/tree/master/svg-vector-cli)
+- [SVG2Vector编辑工具] (https://github.com/MegatronKing/SVG-Android/tree/master/svg-vector-applet)
+
 ## 图片库
 
 SVG-Android提供了一套material-design风格的图片库，是基于google谷歌官方的svg文件生成。在svg-iconlibs目录下面，除了
@@ -153,10 +157,6 @@ SVG-Android提供了一套material-design风格的图片库，是基于google谷
 - [接入步骤](http://blog.csdn.net/megatronkings/article/details/52826456)
 - [图片处理](http://blog.csdn.net/megatronkings/article/details/52878466)
 - [动画使用](http://blog.csdn.net/megatronkings/article/details/53286958)
-
-## 工具
-- [SVG2Vector批量工具] (https://github.com/MegatronKing/SVG-Android/tree/master/svg-vector-cli)
-- [SVG2Vector编辑工具] (https://github.com/MegatronKing/SVG-Android/tree/master/svg-vector-applet)
 
 ## 交流
 ![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/chat.jpg)
