@@ -1,15 +1,9 @@
 package com.github.megatronking.svg.applet.ui;
 
-import com.github.megatronking.svg.applet.graphics.GraphicsUtilities;
 import com.github.megatronking.svg.applet.support.VectorFileFilter;
 
 import java.awt.BorderLayout;
-import java.awt.TexturePaint;
-import java.awt.geom.Rectangle2D;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
@@ -20,8 +14,6 @@ class VectorEditorPanel extends JPanel implements VectorContentViewer.OnTextWatc
 
     private String mData;
     private String mName;
-
-    private TexturePaint mTexture;
 
     private VectorImageViewer mImageViewer;
 
@@ -36,21 +28,7 @@ class VectorEditorPanel extends JPanel implements VectorContentViewer.OnTextWatc
         BorderLayout borderLayout = new BorderLayout();
         setLayout(borderLayout);
 
-        loadSupport();
         buildVectorViewer();
-    }
-
-    private void loadSupport() {
-        try {
-            URL resource = getClass().getResource("/images/checker.png");
-            BufferedImage checker = GraphicsUtilities.loadCompatibleImage(resource);
-            if (checker == null) {
-                return;
-            }
-            mTexture = new TexturePaint(checker, new Rectangle2D.Double(0, 0, checker.getWidth(), checker.getHeight()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private void buildVectorViewer() {
@@ -69,7 +47,7 @@ class VectorEditorPanel extends JPanel implements VectorContentViewer.OnTextWatc
         scroller.getViewport().setOpaque(false);
         splitter.setLeftComponent(scroller);
 
-        mImageViewer = new VectorImageViewer(mData, mTexture);
+        mImageViewer = new VectorImageViewer(mData);
         splitter.setRightComponent(mImageViewer);
 
         panel.add(splitter, BorderLayout.CENTER);
@@ -105,7 +83,7 @@ class VectorEditorPanel extends JPanel implements VectorContentViewer.OnTextWatc
     public void onChange(String value) {
         mData = value;
         mImageViewer.refreshImage(value);
-        mMainFrame.updateSaveMenu(mImageViewer.getImage() != null);
+        mMainFrame.updateSaveMenu(mImageViewer.isImageValid());
     }
 
     void dispose() {
