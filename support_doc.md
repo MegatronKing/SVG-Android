@@ -77,4 +77,100 @@ SVG-Android supports part of the elements and attributes in the follow.
 </svg>
 ```
 
-## style
+## css style
+```
+<svg width="100%" height="100%" viewBox="0 0 100 100"
+     xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .a {
+      fill: orange;
+      stroke: black;
+      stroke-width: 10px;
+    }
+  </style>
+
+  <circle cx="50" cy="50" r="40" class="a"/>
+</svg>
+```
+```
+<svg width="100%" height="100%" viewBox="0 0 100 100"
+     xmlns="http://www.w3.org/2000/svg">
+  <style>
+    circle {
+      fill: orange;
+      stroke: black;
+      stroke-width: 10px;
+    }
+  </style>
+
+  <circle cx="50" cy="50" r="40"/>
+</svg>
+```
+```
+<svg width="100%" height="100%" viewBox="0 0 100 100"
+     xmlns="http://www.w3.org/2000/svg">
+  <style>
+    circle.a {
+      fill: orange;
+      stroke: black;
+      stroke-width: 10px;
+    }
+  </style>
+
+  <circle cx="50" cy="50" r="40" class="a"/>
+</svg>
+```
+
+## css style in defs
+```
+<svg width="100%" height="100%" viewBox="0 0 100 100"
+     xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+       .a {
+         fill: orange;
+         stroke: black;
+         stroke-width: 10px;
+       }
+     </style>
+  </defs>
+
+  <circle cx="50" cy="50" r="40" class="a"/>
+</svg>
+```
+
+#SVG Elements
+
+- width
+- height
+- viewBox
+- viewbox
+- viewPort
+- viewport
+- id
+- class
+- transform
+- style
+- display
+- stroke
+- stroke-width
+- stroke-opacity
+- stroke-linejoin
+- stroke-linecap
+- stroke-miterlimit
+- fill-opacity
+- fill-rule
+- x
+- y
+- cx
+- cy
+- r
+- rx
+- ry
+- x1
+- y1
+- x2
+- y2
+- points
+- fill
+- d
