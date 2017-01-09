@@ -139,7 +139,7 @@ SVG-Android supports part of the elements and attributes in the follow.
 </svg>
 ```
 
-#SVG Elements
+#SVG Attributes
 
 - width
 - height
