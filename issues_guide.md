@@ -16,3 +16,23 @@
 而release正式包配置则需要添加shape资源目录（注意，release不能添加vector资源目录，否则apk包中会多出很多冗余无用的
 资源文件导致体积增大）。但从svg-plugin:1.3.3版本开始，不再需要手动配置sourceSets，插件会默认将vector资源目录和shape资源目录
 添加到sourceSets中，不过如果你不希望插件自动添加，可以配置autoSourceSet=false来禁用此功能。
+手动配置sourceSets的代码如下：
+```
+sourceSets {
+     // res_vector对应配置的vectorDir，另外如果vectorDirs数组中配置了多个，这里也要加上
+     // res_shape对应配置的shapeDir
+     debug {
+         java.srcDirs = ['src/main/java']
+         res.srcDirs = ['src/main/res', 'src/main/res_vector']
+     }
+     release {
+         java.srcDirs = ['src/main/java']
+         res.srcDirs = ['src/main/res', "src/main/res_shape"]
+        }
+    }
+```
+
+### Q5：svg图片使用浏览器打开显示内容和生成vector预览内容不一样
+本框架只支持部分svg规范，具体支持详见：https://github.com/MegatronKing/SVG-Android/blob/master/support_doc.md
+由于Vector资源文件的限制，像Text、image等标签都不支持，同样的，还有一些属性，比如direction、font-size等也不支持。当然，如果对支持的
+规范不确定，可以在下面的issues中录入，我会及时查看：https://github.com/MegatronKing/SVG-Android/issues/6
