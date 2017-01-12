@@ -127,7 +127,7 @@ public class Color {
     private static int convertRGBToInteger(String svgValue) {
         String result;
         String functionValue = svgValue.trim();
-        functionValue = svgValue.substring(1, functionValue.length() - 1);
+        functionValue = svgValue.substring(4, functionValue.length() - 1);
         // After we cut the "(", ")", we can deal with the numbers.
         String[] numbers = functionValue.split(",");
         if (numbers.length != 3) {
@@ -150,7 +150,7 @@ public class Color {
             builder.append(String.format("%02X", color[i]));
         }
         result = builder.toString();
-        return Integer.parseInt(result);
+        return Integer.parseUnsignedInt(result, 16);
     }
 
     private static int clamp(int val, int min, int max) {

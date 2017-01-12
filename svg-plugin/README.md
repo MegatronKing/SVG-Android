@@ -92,3 +92,11 @@ svg2vector：
 - 修复存在width、height属性的svg文件生成vector资源文件图片尺寸失真的bug
 - 支持预定义标签defs中使用style标签
 - 支持style标签部分css样式属性
+
+### V1.3.6
+- 新增对use、symbol标签的支持
+- 新增解析部分style标签css样式属性
+- 修复使用rgb(r,g,b) 这种方式定义颜色时解析出错的bug
+- 修复一系列style标签相关bug
+- 修复矩阵变换相关bug
+

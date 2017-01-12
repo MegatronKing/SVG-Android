@@ -139,6 +139,33 @@ SVG-Android supports part of the elements and attributes in the follow.
 </svg>
 ```
 
+## use
+```
+<svg width="500" height="110" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <g id="shape3">
+      <rect x="0" y="0" width="50" height="50" />
+  </g>
+
+  <use xlink:href="#shape3" x="100" y="50" style="fill: #00ff00;"/>
+
+</svg>
+```
+
+## symbol
+```
+<svg width="500" height="110" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <symbol id="shape3">
+      <rect x="0" y="0" width="50" height="50" />
+  </symbol>
+
+  <use xlink:href="#shape3" x="100" y="50" style="fill: #00ff00;"/>
+
+</svg>
+```
+
+
 #SVG Attributes
 
 - width
@@ -174,3 +201,4 @@ SVG-Android supports part of the elements and attributes in the follow.
 - points
 - fill
 - d
+- href

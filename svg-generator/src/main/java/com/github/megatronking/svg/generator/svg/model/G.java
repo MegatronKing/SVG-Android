@@ -23,14 +23,4 @@ public class G extends SvgGroupNode {
         }
     }
 
-    @Override
-    public boolean isValid() {
-        boolean isValid = false;
-        for (SvgNode svgNode : children) {
-            if (svgNode.isValid()) {
-                isValid = true;
-            }
-        }
-        return isValid;
-    }
 }

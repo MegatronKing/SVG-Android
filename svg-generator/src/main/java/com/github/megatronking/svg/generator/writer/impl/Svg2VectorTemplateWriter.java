@@ -1,7 +1,7 @@
 package com.github.megatronking.svg.generator.writer.impl;
 
-import com.github.megatronking.svg.generator.svg.model.G;
 import com.github.megatronking.svg.generator.svg.model.Svg;
+import com.github.megatronking.svg.generator.svg.model.SvgGroupNode;
 import com.github.megatronking.svg.generator.svg.model.SvgNode;
 import com.github.megatronking.svg.generator.utils.FloatUtils;
 import com.github.megatronking.svg.generator.writer.IBufferWriter;
@@ -46,8 +46,8 @@ public class Svg2VectorTemplateWriter implements IBufferWriter {
         if (!svgNode.isValid()) {
             return;
         }
-        if (svgNode instanceof G) {
-            for (SvgNode group : ((G)svgNode).children) {
+        if (svgNode instanceof SvgGroupNode) {
+            for (SvgNode group : ((SvgGroupNode)svgNode).children) {
                 writeSvgNodes(bw, group, indentCount);
             }
         } else {

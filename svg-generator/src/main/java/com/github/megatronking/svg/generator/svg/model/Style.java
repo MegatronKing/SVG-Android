@@ -21,6 +21,11 @@ public class Style extends SvgNode {
         // nothing to do
     }
 
+    @Override
+    public void applyStyles(Map<String, String> inheritStyles, Map<String, Map<String, String>> defineStyles) {
+        // Nothing to do
+    }
+
     public Map<String, Map<String, String>> toStyle() {
         Map<String, Map<String, String>> styleMapsWithClass = new HashMap<>();
         StyleUtils.fill2Map(cssStyle, styleMapsWithClass);

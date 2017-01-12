@@ -17,7 +17,7 @@ import java.util.Map;
  * @since 2016/11/22 17:11
  */
 
-public abstract class SvgNode {
+public abstract class SvgNode implements Cloneable {
 
     public String id;
     public String clazz;
@@ -39,10 +39,23 @@ public abstract class SvgNode {
         if (styleMaps == null) {
             styleMaps = new HashMap<>();
         }
+        for (String key : styleMaps.keySet()) {
+            String value = styleMaps.get(key).trim();
+            if ("inherit".equals(value)) {
+                styleMaps.remove(key);
+            }
+        }
         // Query for defined styles.
-        applyDefineStylesByClass(getClass().getSimpleName().toLowerCase(), defineStyles);
-        applyDefineStylesByClass("." + clazz, defineStyles);
-        applyDefineStylesByClass(getClass().getSimpleName().toLowerCase() + "." + clazz, defineStyles);
+        String nodeName = getClass().getSimpleName().toLowerCase();
+        applyDefineStylesByRef(nodeName, defineStyles);
+        if (clazz != null) {
+            applyDefineStylesByRef("." + clazz, defineStyles);
+            applyDefineStylesByRef(nodeName + "." + clazz, defineStyles);
+        }
+        if (id != null) {
+            applyDefineStylesByRef("#" + id, defineStyles);
+            applyDefineStylesByRef(nodeName + "#" + id, defineStyles);
+        }
 
         // Apply the styles of parent group node to it.
         if (inheritStyles != null && !inheritStyles.isEmpty()) {
@@ -54,13 +67,13 @@ public abstract class SvgNode {
         }
     }
 
-    private void applyDefineStylesByClass(String className, Map<String, Map<String, String>> defineStyles) {
-        if (defineStyles != null && !defineStyles.isEmpty() && defineStyles.containsKey(className)) {
-            Map<String, String> defineStylesByClassName = defineStyles.get(className);
-            if (defineStylesByClassName != null && !defineStylesByClassName.isEmpty()) {
-                for (String styleName : defineStylesByClassName.keySet()) {
+    private void applyDefineStylesByRef(String refName, Map<String, Map<String, String>> defineStyles) {
+        if (defineStyles != null && !defineStyles.isEmpty() && defineStyles.containsKey(refName)) {
+            Map<String, String> defineStylesByRefNames = defineStyles.get(refName);
+            if (defineStylesByRefNames != null && !defineStylesByRefNames.isEmpty()) {
+                for (String styleName : defineStylesByRefNames.keySet()) {
                     if (!styleMaps.containsKey(styleName)) {
-                        styleMaps.put(styleName, defineStylesByClassName.get(styleName));
+                        styleMaps.put(styleName, defineStylesByRefNames.get(styleName));
                     }
                 }
             }
@@ -73,9 +86,15 @@ public abstract class SvgNode {
             return;
         }
         matrix = TransformUtils.preConcat(matrix, new float[]{a, b, c, d, e ,f});
+        if (pathData == null) {
+            return;
+        }
         // It is not a good choice to transform the node one by one, this will cause distortion
         // in some condition such as transform the line, but the group cannot support matrix.
         PathDataNode[] node = PathDataNode.createNodesFromPathData(pathData);
+        if (node == null) {
+            return;
+        }
         if (!(matrix[0] == 1.0f && matrix[1] == 0.0f && matrix[2] == 0.0f && matrix[3] == 1.0f && matrix[4] == 0.0f && matrix[5] == 0.0f)) {
             PathDataNode.transform(matrix[0], matrix[1], matrix[2], matrix[3], matrix[4], matrix[5], node);
         }
@@ -89,7 +108,7 @@ public abstract class SvgNode {
     private boolean somethingToDraw() {
         // No style, we use the default color.
         if (styleMaps == null) {
-            return true;
+            styleMaps = new HashMap<>();
         }
         // Opacity is zero, ignore this node.
         if ("0".equals(styleMaps.get("opacity"))) {
@@ -106,6 +125,9 @@ public abstract class SvgNode {
         boolean emptyFill = fillColor == Color.TRANSPARENT || fillOpacity == 0;
         int strokeColor = Color.convert(styleMaps.get(SvgConstants.ATTR_STROKE));
         float strokeWidth = Dimen.convert(styleMaps.get(SvgConstants.ATTR_STROKE_WIDTH));
+        if (strokeColor != Color.TRANSPARENT && strokeWidth == 0) {
+            strokeWidth = 1.0f;
+        }
         float strokeOpacity = styleMaps.containsKey(SvgConstants.ATTR_STROKE_OPACITY) ? SCU.parseFloat(styleMaps.get(SvgConstants.ATTR_STROKE_OPACITY), 1.0f)
                 : 1.0f;
         boolean emptyStroke = strokeColor == Color.TRANSPARENT || strokeWidth <= 0.0f || strokeOpacity == 0;
@@ -180,5 +202,14 @@ public abstract class SvgNode {
         }
         sb.append(indent).append("    android:pathData=\"").append(pathData).append("\"/>\n");
         return sb.toString();
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        SvgNode newNode = (SvgNode) super.clone();
+        if (newNode != null && styleMaps != null) {
+            newNode.styleMaps = new HashMap<>(styleMaps);
+        }
+        return newNode;
     }
 }

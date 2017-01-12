@@ -1,6 +1,7 @@
 package com.github.megatronking.svg.generator.svg.parser;
 
 import com.github.megatronking.svg.generator.svg.model.Circle;
+import com.github.megatronking.svg.generator.svg.model.Defs;
 import com.github.megatronking.svg.generator.svg.model.Ellipse;
 import com.github.megatronking.svg.generator.svg.model.G;
 import com.github.megatronking.svg.generator.svg.model.Line;
@@ -11,6 +12,8 @@ import com.github.megatronking.svg.generator.svg.model.Rect;
 import com.github.megatronking.svg.generator.svg.model.Style;
 import com.github.megatronking.svg.generator.svg.model.SvgConstants;
 import com.github.megatronking.svg.generator.svg.model.SvgGroupNode;
+import com.github.megatronking.svg.generator.svg.model.Symbol;
+import com.github.megatronking.svg.generator.svg.model.Use;
 import com.github.megatronking.svg.generator.xml.ChildrenElementParser;
 import com.github.megatronking.svg.generator.xml.IAttributeParser;
 
@@ -73,6 +76,11 @@ public abstract class SvgGroupNodeAbstractElementParser<T extends SvgGroupNode> 
             groupNode.children.add(path);
             SvgParserImpl.PATH_ATTRIBUTE_PARSER.parse(childElement, path);
         }
+        if (SvgConstants.TAG_USE.equals(childElement.getName())) {
+            Use use = new Use();
+            groupNode.children.add(use);
+            SvgParserImpl.USE_ATTRIBUTE_PARSER.parse(childElement, use);
+        }
         if (SvgConstants.TAG_STYLE.equals(childElement.getName())) {
             String styleText = childElement.getText();
             if (styleText != null && styleText.length() > 0) {
@@ -80,6 +88,16 @@ public abstract class SvgGroupNodeAbstractElementParser<T extends SvgGroupNode> 
                 style.cssStyle = styleText;
                 groupNode.children.add(style);
             }
+        }
+        if (SvgConstants.TAG_DEFS.equals(childElement.getName())) {
+            Defs defs = new Defs();
+            groupNode.children.add(defs);
+            SvgParserImpl.DEFS_ELEMENT_PARSER.parse(childElement, defs);
+        }
+        if (SvgConstants.TAG_SYMBOL.equals(childElement.getName())) {
+            Symbol symbol = new Symbol();
+            groupNode.children.add(symbol);
+            SvgParserImpl.SYMBOL_ELEMENT_PARSER.parse(childElement, symbol);
         }
     }
 }

@@ -27,26 +27,35 @@ public abstract class SvgGroupNode extends SvgNode {
         if (defineStyles == null) {
             defineStyles = new HashMap<>();
         }
-        for (SvgNode svgNode : children) {
-            if (svgNode instanceof Style) {
-                applyStyleFromNode((Style) svgNode, defineStyles);
-            } else if (svgNode instanceof Defs) {
-                for (SvgNode svgNodeInDefs : ((Defs) svgNode).children) {
-                    if (svgNodeInDefs instanceof Style) {
-                        applyStyleFromNode((Style) svgNodeInDefs, defineStyles);
-                    }
-                }
-            }
-        }
         // Apply all styles to its children.
         for (SvgNode svgNode : children) {
             svgNode.applyStyles(styleMaps, defineStyles);
         }
     }
 
-    private void applyStyleFromNode(Style style, Map<String, Map<String, String>> defineStyles) {
-        Map<String, Map<String, String>> defineStylesTemp = style.toStyle();
-        defineStyles.putAll(defineStylesTemp);
+    @Override
+    public boolean isValid() {
+        boolean isValid = false;
+        for (SvgNode svgNode : children) {
+            if (svgNode.isValid()) {
+                isValid = true;
+            }
+        }
+        return isValid;
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        SvgGroupNode newNode = (SvgGroupNode) super.clone();
+        if (newNode != null) {
+            newNode.children = new ArrayList<>();
+            for (SvgNode child: children) {
+                SvgNode cloneChild = (SvgNode) child.clone();
+                if (cloneChild != null) {
+                    newNode.children.add(cloneChild);
+                }
+            }
+        }
+        return newNode;
+    }
 }

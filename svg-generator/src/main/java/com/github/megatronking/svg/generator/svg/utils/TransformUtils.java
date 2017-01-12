@@ -14,8 +14,11 @@ public class TransformUtils {
     private static final String VALUE_REGEX = "\\([([1-9/-]/d*/./d*|0/./d*[1-9/-]/d*|0?/.0+|0|,)\\s]+\\)";
 
     public static float[] preConcat(float[] matrix1, float[] matrix2) {
-        if (matrix1 == null || matrix2 == null) {
-            return new float[] {1, 0, 0, 1, 0, 0, 0};
+        if (matrix1 == null) {
+            matrix1 = new float[] {1, 0, 0, 1, 0, 0};
+        }
+        if (matrix2 == null) {
+            matrix2 = new float[] {1, 0, 0, 1, 0, 0};
         }
         Matrix matrixTemp1 = new Matrix();
         matrixTemp1.setValues(new float[] {matrix1[0], matrix1[2], matrix1[4], matrix1[1], matrix1[3], matrix1[5], 0, 0, 1});

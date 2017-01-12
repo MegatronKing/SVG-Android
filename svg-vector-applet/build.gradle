@@ -1,5 +1,5 @@
 apply plugin: 'java'
-//apply plugin: 'maven'
+apply plugin: 'maven'
 
 dependencies {
     compile project(':svg-generator')
@@ -18,13 +18,13 @@ jar {
     }
 }
 
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            repository(url: uri('../maven'))
-//        }
-//    }
-//}
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../maven'))
+        }
+    }
+}
 
 //apply from: '../bintray_java.gradle'
 //apply from: '../nexus_java.gradle'

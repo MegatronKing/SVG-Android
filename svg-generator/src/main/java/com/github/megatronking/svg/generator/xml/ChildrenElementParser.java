@@ -32,6 +32,7 @@ public abstract class ChildrenElementParser<T> implements IElementParser<T> {
      *
      * @param childElement a child element.
      * @param t a child element object.
+     * @throws DocumentException an exception when parsing xml.
      */
     protected abstract void parseChild(Element childElement, T t) throws DocumentException;
 

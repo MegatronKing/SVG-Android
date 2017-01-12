@@ -21,6 +21,8 @@ public class SvgConstants {
     public static final String TAG_PATH = "path";
     public static final String TAG_DEFS = "defs";
     public static final String TAG_STYLE = "style";
+    public static final String TAG_USE = "use";
+    public static final String TAG_SYMBOL = "symbol";
 
     // svg attributes
     public static final String ATTR_WIDTH = "width";
@@ -66,4 +68,6 @@ public class SvgConstants {
     public static final String ATTR_FILL = "fill";
     // path attributes
     public static final String ATTR_D = "d";
+    // use attributes
+    public static final String ATTR_HREF = "href";
 }

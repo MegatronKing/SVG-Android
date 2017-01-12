@@ -1,5 +1,12 @@
 package com.github.megatronking.svg.generator.svg.model;
 
+import com.github.megatronking.svg.generator.utils.TextUtils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Represent the SVG file in an internal data structure as a tree.
  *
@@ -35,5 +42,90 @@ public class Svg extends SvgGroupNode {
     public boolean isValid() {
         // The root node is always valid.
         return true;
+    }
+
+    public void parseEnd() {
+        // Handle define styles
+        Map<String, Map<String, String>> defineStyles = new HashMap<>();
+        for (Style style : findAllStylesFromSvg()) {
+            defineStyles.putAll(style.toStyle());
+        }
+        // Handle use tags
+        replaceUseTagWithHrefLink(children);
+
+        // Apply styles from the root node of svg tree, until all leaf nodes was traversed.
+        applyStyles(null, defineStyles);
+        // Transform from the root node of svg tree, until all leaf nodes was traversed.
+        transform(1.0f, 0, 0, 1.0f, 0, 0);
+    }
+
+    private List<Style> findAllStylesFromSvg() {
+        List<Style> allStyles = new ArrayList<>();
+        recursiveFindStyles(children, allStyles);
+        return allStyles;
+    }
+
+    private void recursiveFindStyles(List<SvgNode> nodes, List<Style> styles) {
+        if (nodes == null || nodes.isEmpty() || styles == null) {
+            return;
+        }
+        for (SvgNode svgNode : nodes) {
+            if (svgNode instanceof Style) {
+                styles.add((Style) svgNode);
+            } else if (svgNode instanceof SvgGroupNode) {
+                recursiveFindStyles(((SvgGroupNode)svgNode).children, styles);
+            }
+        }
+    }
+
+    private void replaceUseTagWithHrefLink(List<SvgNode> nodes) {
+        if (nodes == null) {
+            return;
+        }
+        for (SvgNode svgNode : nodes) {
+            if (svgNode instanceof Use) {
+                if (!TextUtils.isEmpty(((Use) svgNode).href) && ((Use) svgNode).href.startsWith("#")) {
+                    List<SvgNode> hrefNodes = findNodesById(((Use) svgNode).href.substring(1));
+                    if (hrefNodes != null && !hrefNodes.isEmpty()) {
+                        SvgNode clone = cloneNode(hrefNodes.get(0));
+                        if (clone != null) {
+                            if (clone instanceof Symbol) {
+                                ((Symbol) clone).isInUse = true;
+                            }
+                            ((Use) svgNode).children.add(clone);
+                        }
+                    }
+                }
+            } else if (svgNode instanceof SvgGroupNode) {
+                replaceUseTagWithHrefLink(((SvgGroupNode)svgNode).children);
+            }
+        }
+    }
+
+    private List<SvgNode> findNodesById(String id) {
+        List<SvgNode> resultNodes = new ArrayList<>();
+        recursiveFindNodesById(id, children, resultNodes);
+        return resultNodes;
+    }
+
+    private void recursiveFindNodesById(String clazz, List<SvgNode> nodes, List<SvgNode> resultNodes) {
+        if (nodes == null || nodes.isEmpty() || resultNodes == null) {
+            return;
+        }
+        for (SvgNode svgNode : nodes) {
+            if (!TextUtils.isEmpty(svgNode.id) && svgNode.id.equals(clazz)) {
+                resultNodes.add(svgNode);
+            } else if (svgNode instanceof SvgGroupNode) {
+                recursiveFindNodesById(clazz, ((SvgGroupNode)svgNode).children, resultNodes);
+            }
+        }
+    }
+
+    private SvgNode cloneNode(SvgNode node) {
+        try {
+            return (SvgNode) node.clone();
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
     }
 }

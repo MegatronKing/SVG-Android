@@ -22,6 +22,8 @@ public class Matrix {
     /**
      * (deep) copy the src matrix into this matrix. If src is null, reset this
      * matrix to the identity matrix.
+     *
+     * @param src The source matrix
      */
     public void set(Matrix src) {
         if (src == null) {
@@ -49,8 +51,10 @@ public class Matrix {
     /**
      * Preconcats the matrix with the specified matrix.
      * M' = M * other
+     *
+     * @param other The right matrix
      */
-    public boolean preConcat(Matrix other) {
+    public void preConcat(Matrix other) {
         float[] otherValue = new float[9];
         other.getValues(otherValue);
         float[] newValue = new float[9];
@@ -73,42 +77,49 @@ public class Matrix {
         newValue[MPERSP_2] = MATRIX[MPERSP_0] * otherValue[MTRANS_X] + MATRIX[MPERSP_1] * otherValue[MTRANS_Y]
                 + MATRIX[MPERSP_2] * otherValue[MPERSP_2];
         setValues(newValue);
-        return true;
     }
 
     /**
      * Postconcats the matrix with the specified translation.
      * M' = T(dx, dy) * M
+     *
+     * @param dx translate x
+     * @param dy translate y
      */
-    public boolean postTranslate(float dx, float dy) {
+    public void postTranslate(float dx, float dy) {
         Matrix matrix = new Matrix();
         matrix.setValues(new float[] {1, 0, dx, 0, 1, dy, 0, 0, 1});
         Matrix current = new Matrix();
         current.setValues(MATRIX);
         matrix.preConcat(current);
         set(matrix);
-        return true;
     }
 
     /**
      * Postconcats the matrix with the specified scale.
      * M' = S(sx, sy) * M
+     *
+     * @param sx scale x
+     * @param sy scale y
      */
-    public boolean postScale(float sx, float sy) {
+    public void postScale(float sx, float sy) {
         Matrix matrix = new Matrix();
         matrix.setValues(new float[] {sx, 0, 0, 0, sy, 0, 0, 0, 1});
         Matrix current = new Matrix();
         current.setValues(MATRIX);
         matrix.preConcat(current);
         set(matrix);
-        return true;
     }
 
     /**
      * Postconcats the matrix with the specified rotation.
      * M' = R(degrees, px, py) * M
+     *
+     * @param degrees rotate degree
+     * @param px pivot x
+     * @param py pivot y
      */
-    public boolean postRotate(float degrees, float px, float py) {
+    public void postRotate(float degrees, float px, float py) {
         double radians = Math.toRadians(degrees);
         float sin = (float) Math.sin(radians);
         float cos = (float) Math.cos(radians);
@@ -118,31 +129,27 @@ public class Matrix {
         current.setValues(MATRIX);
         matrix.preConcat(current);
         set(matrix);
-        return true;
     }
 
-    public boolean setTranslate(float dx, float dy) {
+    public void setTranslate(float dx, float dy) {
         Matrix matrix = new Matrix();
         matrix.setValues(new float[] {1, 0, dx, 0, 1, dy, 0, 0, 1});
         matrix.getValues(MATRIX);
-        return true;
     }
 
-    public boolean setRotate(float degrees, float px, float py) {
+    public void setRotate(float degrees, float px, float py) {
         Matrix matrix = new Matrix();
         double radians = Math.toRadians(degrees);
         float sin = (float) Math.sin(radians);
         float cos = (float) Math.cos(radians);
         matrix.setValues(new float[] {cos, -sin, - px * cos + py * sin + px, sin, cos, - px * sin - py * cos + py, 0, 0, 1});
         matrix.getValues(MATRIX);
-        return true;
     }
 
-    public boolean setScale(float sx, float sy) {
+    public void setScale(float sx, float sy) {
         Matrix matrix = new Matrix();
         matrix.setValues(new float[] {sx, 0, 0, 0, sy, 0, 0, 0, 1});
         matrix.getValues(MATRIX);
-        return true;
     }
 
     /**
@@ -150,6 +157,8 @@ public class Matrix {
      * vectors back into the array.
      *
      * Note: this method does not apply the translation associated with the matrix.
+     *
+     * @param vecs a coupe of coordinates
      */
     public void mapVectors(float[] vecs) {
         if (vecs == null || vecs.length % 2 != 0) {
@@ -167,6 +176,10 @@ public class Matrix {
      * vectors back into the array.
      *
      * Note: this method does not apply the translation associated with the matrix.
+     *
+     * @param x coordinate x
+     * @param y coordinate y
+     * @return a coordinate arrays
      */
     public float[] mapVector(float x, float y) {
         float[] result = new float[] {x, y};
@@ -175,7 +188,9 @@ public class Matrix {
         return result;
     }
 
-    /** Copy 9 values from the matrix into the array.
+    /**
+     * Copy 9 values from the matrix into the array.
+     * @param values A source nine length arrays
      */
     public void getValues(float[] values) {
         if (values.length < 9) {
@@ -192,11 +207,14 @@ public class Matrix {
         values[MPERSP_2] = MATRIX[MPERSP_2];
     }
 
-    /** Copy 9 values from the array into the matrix.
-     Depending on the implementation of Matrix, these may be
-     transformed into 16.16 integers in the Matrix, such that
-     a subsequent call to getValues() will not yield exactly
-     the same values.
+    /**
+     * Copy 9 values from the array into the matrix.
+     * Depending on the implementation of Matrix, these may be
+     * transformed into 16.16 integers in the Matrix, such that
+     * a subsequent call to getValues() will not yield exactly
+     * the same values.
+     *
+     * @param values nine length float arrays
      */
     public void setValues(float[] values) {
         if (values.length < 9) {

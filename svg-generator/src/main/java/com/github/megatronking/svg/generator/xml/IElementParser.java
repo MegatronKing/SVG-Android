@@ -19,6 +19,7 @@ public interface IElementParser<T> {
      *
      * @param element the dom element.
      * @param t the object.
+     * @throws DocumentException an exception when parsing xml.
      */
     void parse(Element element, T t) throws DocumentException;
 
