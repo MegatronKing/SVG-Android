@@ -28,11 +28,11 @@ sourceSets {
      release {
          java.srcDirs = ['src/main/java']
          res.srcDirs = ['src/main/res', "src/main/res_shape"]
-        }
-    }
+     }
+}
 ```
 
 ### Q5：svg图片使用浏览器打开显示内容和生成vector预览内容不一样
-本框架只支持部分svg规范，具体支持详见：https://github.com/MegatronKing/SVG-Android/blob/master/support_doc.md
-由于Vector资源文件的限制，像Text、image等标签都不支持，同样的，还有一些属性，比如direction、font-size等也不支持。当然，如果对支持的
-规范不确定，可以在下面的issues中录入，我会及时查看：https://github.com/MegatronKing/SVG-Android/issues/6
+本框架只支持部分svg规范，具体支持详见：https://github.com/MegatronKing/SVG-Android/blob/master/support_doc.md <br>
+由于Vector资源文件的限制，像Text、image等标签都不支持，同样的，还有一些属性，比如direction、font-size等也不支持。<br>
+当然，如果对支持的规范不确定，可以在下面的issues中录入，我会及时查看：https://github.com/MegatronKing/SVG-Android/issues/6
