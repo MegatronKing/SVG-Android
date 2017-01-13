@@ -97,7 +97,7 @@ svg2vector：
 ### V1.3.6
 - 新增对use、symbol标签的支持
 - 新增解析部分style标签css样式属性
-- 修复使用rgb(r,g,b) 这种方式定义颜色时解析出错的bug
+- 修复使用rgb(r,g,b)方式定义颜色时解析出错的bug
 - 修复一系列style标签相关bug
 - 修复矩阵变换相关bug
 - 优化部分代码

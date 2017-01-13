@@ -1,6 +1,6 @@
 ## 简介
 
-[![Jcenter Status](https://img.shields.io/badge/download-1.3.5-brightgreen.svg)](http://jcenter.bintray.com/com/github/megatronking)
+[![Jcenter Status](https://img.shields.io/badge/download-1.3.6-brightgreen.svg)](http://jcenter.bintray.com/com/github/megatronking)
 [![license](http://img.shields.io/badge/license-apache_2.0-red.svg?style=flat)](https://github.com/MegatronKing/SVG-Android/raw/master/LICENSE)
 
 *switch language: [English](README.md)*
