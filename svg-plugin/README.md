@@ -54,6 +54,7 @@ svg2vector：
 - svgCleanShape   清除生成的空shape资源文件
 - svgCleanJava    清除生成的SVGRenderer Java代码
 - svgLoadAppColor 加载色值定义，对应配置参数appColors
+- svg2vector      执行svg转换vector
 
 ----
 
@@ -99,4 +100,4 @@ svg2vector：
 - 修复使用rgb(r,g,b) 这种方式定义颜色时解析出错的bug
 - 修复一系列style标签相关bug
 - 修复矩阵变换相关bug
-
+- 优化部分代码
