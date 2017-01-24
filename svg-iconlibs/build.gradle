@@ -19,7 +19,8 @@ task queryIcons << {
                 }
             }).each { svgFile ->
                 writer.print("\"")
-                writer.print(svgFile.absolutePath.replace(projectDir.absolutePath, "").replaceAll("\\\\", "/"))
+                def path = svgFile.absolutePath.replace(projectDir.absolutePath, "").replaceAll("\\\\", "/");
+                writer.print(path.substring(1))
                 writer.print("\"")
                 writer.print(",")
                 writer.println()
