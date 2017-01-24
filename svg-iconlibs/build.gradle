@@ -1,0 +1,35 @@
+task queryIcons << {
+
+    File outputFile = file("icons.js")
+    def writer =  outputFile.newPrintWriter();
+
+    writer.println("var icons = [")
+
+    projectDir.listFiles().each { iconModuleDir ->
+        iconModuleDir.listFiles(new FilenameFilter() {
+            @Override
+            boolean accept(File dir, String name) {
+                return "svg".equals(name)
+            }
+        }).each { svgDir ->
+            svgDir.listFiles(new FilenameFilter() {
+                @Override
+                boolean accept(File dir, String name) {
+                    return name.endsWith(".svg")
+                }
+            }).each { svgFile ->
+                writer.print("\"")
+                writer.print(svgFile.absolutePath.replace(projectDir.absolutePath, "").replaceAll("\\\\", "/"))
+                writer.print("\"")
+                writer.print(",")
+                writer.println()
+            }
+        }
+    }
+
+    writer.println("]")
+
+    writer.flush()
+    writer.close()
+
+}
