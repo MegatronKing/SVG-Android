@@ -1,15 +1,21 @@
 package com.github.megatronking.svg.generator.writer.impl;
 
 
-import com.github.megatronking.svg.generator.vector.model.Vector;
 import com.github.megatronking.svg.generator.render.VectorRenderer;
 import com.github.megatronking.svg.generator.utils.Dimen;
+import com.github.megatronking.svg.generator.vector.model.Vector;
 import com.github.megatronking.svg.generator.writer.JavaClassWriter;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SVGRendererTemplateWriter extends JavaClassWriter {
+
+    private static final int METHOD_RENDER_MAX_LINE = 1000;
+
+    private List<SplitMethod> mRenderSplitMethods = new ArrayList<>();
 
     private VectorRenderer mRenderer;
     private Vector mVector;
@@ -85,10 +91,59 @@ public class SVGRendererTemplateWriter extends JavaClassWriter {
         bw.newLine();
         bw.write(HEAD_SPACE + "public void render(Canvas canvas, int w, int h, ColorFilter filter) {");
         bw.newLine();
-        bw.write(mRenderer.renderResult());
+        writeRendererContent(bw);
         bw.newLine();
         bw.write(HEAD_SPACE + "}");
         bw.newLine();
+        for (SplitMethod splitMethod : mRenderSplitMethods) {
+            bw.newLine();
+            bw.write(HEAD_SPACE + "private void renderSplitMethod" + splitMethod.index +
+                    "(Canvas canvas, ColorFilter filter, float scaleX, float scaleY) {");
+            bw.newLine();
+            bw.write(splitMethod.methodContent);
+            bw.newLine();
+            bw.write(HEAD_SPACE + "}");
+            bw.newLine();
+        }
+    }
+
+    private void writeRendererContent(BufferedWriter bw) throws IOException {
+        String content = mRenderer.renderResult();
+        int methodLineCount = calculateStringLineCount(content);
+        // not support split method when contains 'getSegment'
+        if (methodLineCount <= METHOD_RENDER_MAX_LINE || content.contains("getSegment")) {
+            bw.write(content);
+        } else {
+            bw.write(substringByLineCount(content, 0, METHOD_RENDER_MAX_LINE));
+            bw.newLine();
+            for (int i = 1; i * METHOD_RENDER_MAX_LINE < methodLineCount; i++) {
+                bw.write(HEAD_SPACE + HEAD_SPACE + "renderSplitMethod" + i + "(canvas, filter, scaleX, scaleY);");
+                bw.newLine();
+                int endLine = Math.min((i + 1) * METHOD_RENDER_MAX_LINE, methodLineCount);
+                mRenderSplitMethods.add(new SplitMethod(i, substringByLineCount(content, i * METHOD_RENDER_MAX_LINE, endLine)));
+            }
+        }
+    }
+
+    private int calculateStringLineCount(String s) {
+        int lineCount = 0;
+        for (int i = 0; i < s.length(); i ++) {
+            if ('\n' == s.charAt(i)) {
+                lineCount++;
+            }
+        }
+        return lineCount;
+    }
+
+    private String substringByLineCount(String s, int startLine, int endLine) {
+        String[] lines = s.split("\n");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < lines.length; i++) {
+            if (i >= startLine && i < endLine) {
+                sb.append(lines[i]).append("\n");
+            }
+        }
+        return sb.toString();
     }
 
     private String getDimenSize(String size) {
@@ -99,5 +154,17 @@ public class SVGRendererTemplateWriter extends JavaClassWriter {
         } else {
             return "0f";
         }
+    }
+
+    private static class SplitMethod {
+
+        private SplitMethod(int index, String methodContent) {
+            this.index = index;
+            this.methodContent = methodContent;
+        }
+
+        private int index;
+        private String methodContent;
+
     }
 }
