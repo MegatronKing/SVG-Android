@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vector Icons</title>
+    <script src="icons.js"></script>
+</head>
+<body>
+<div id="gallery"></div>
+
+<script>
+        var iconMaps = new Object();
+        icons.forEach(function (iconPath) {
+            if (iconPath.trim().length != 0) {
+                var splitArray = iconPath.split("/");
+                var iconGroup = splitArray[0];
+                var iconName = splitArray[2]
+                var iconData = new Object();
+                iconData.group = iconGroup;
+                iconData.name = iconName;
+                iconData.path = iconPath;
+                if(!iconMaps[iconGroup]) {
+                    iconMaps[iconGroup] = new Array();
+                }
+                iconMaps[iconGroup].push(iconData);
+            }
+        });
+
+        Object.getOwnPropertyNames(iconMaps).forEach(function (group) {
+            var galleryDiv = document.getElementById("gallery");
+
+            var label = document.createElement("h1");
+            label.innerText = group;
+            galleryDiv.appendChild(label);
+
+            iconMaps[group].forEach(function (iconData) {
+                var image = document.createElement("img");
+                image.src = iconData.path;
+                image.onclick = function () {
+                    window.location.href = image.src;
+                };
+                galleryDiv.appendChild(image);
+            });
+
+        });
+
+    </script>
+<style>
+        h1 {
+            background-color: gray;
+        }
+        img {
+            width: 64px;
+            height: 64px;
+        }
+    </style>
+</body>
+</html>
