@@ -108,7 +108,38 @@ dependencies {
 ```
 gradlew svgAssemble
 ```
-这个命令可以将svg文件生成vector资源文件，再将vector资源文件生成java图片渲染类
+这个命令可以将svg文件生成vector资源文件，再将vector资源文件生成java图片渲染类，如下：
+
+```java
+
+public class ic_android_red extends SVGRenderer {
+    ...
+
+    @Override
+    public void render(Canvas canvas, int w, int h, ColorFilter filter) {
+        ...
+
+        mPath.rCubicTo(0.0f, 0.55f, 0.45f, 1.0f, 1.0f, 1.0f);
+        mPath.rLineTo(1.0f, 0f);
+        mPath.rLineTo(0f, 3.5f);
+        mPath.rCubicTo(0.0f, 0.83f, 0.67f, 1.5f, 1.5f, 1.5f);
+        mPath.rCubicTo(0.8299999f, 0.0f, 1.5f, -0.67f, 1.5f, -1.5f);
+        ...
+        mPath.moveTo(10.0f, 5.0f);
+        mPath.moveTo(15.0f, 5.0f);
+        mPath.rLineTo(-1.0f, 0f);
+        mPath.lineTo(14.0f, 4.0f);
+        mPath.rLineTo(1.0f, 0f);
+        mPath.rLineTo(0f, 1.0f);
+        mPath.close();
+        mPath.moveTo(15.0f, 5.0f);
+        ...
+        canvas.drawPath(mRenderPath, mFillPaint);
+    }
+
+}
+```
+通过上面自动生成的Java渲染类，就可以高效地将SVG图片直接绘制在View上。
 
 ```
 gradlew svg2vector
