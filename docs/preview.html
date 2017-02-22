@@ -5,14 +5,13 @@
     <title>Vector Preview</title>
 </head>
 <body>
-<img id="image" src=""/>
+<img id="image">
 
 </body>
 <script>
-    var prefix = "https://github.com/MegatronKing/SVG-Android/raw/master/svg-iconlibs/";
-    var image = queryURLParam("image");
+    var image = decodeURI(queryURLParam("image"));
     var img = document.querySelector("img");
-    img.src = prefix + queryURLParam("image");
+    img.src = "" + image;
 
     function queryURLParam(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");

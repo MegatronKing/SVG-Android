@@ -9,9 +9,11 @@
 <div id="gallery"></div>
 
 <script>
+    var prefix = "https://github.com/MegatronKing/SVG-Android/raw/master/svg-iconlibs/";
     var iconMaps = new Object();
     icons.forEach(function (iconPath) {
         if (iconPath.trim().length != 0) {
+            iconPath.replace(prefix, "");
             var splitArray = iconPath.split("/");
             var iconGroup = splitArray[0];
             var iconName = splitArray[2]
@@ -37,7 +39,7 @@
             var image = document.createElement("img");
             image.src = iconData.path;
             image.onclick = function () {
-                window.location.href = "preview.html?image=" + iconData.name;
+                window.location.href = "preview.html?image=" + encodeURI(iconData.path);
             };
             galleryDiv.appendChild(image);
         });
