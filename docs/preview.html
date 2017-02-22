@@ -5,9 +5,9 @@
     <title>Vector Preview</title>
 </head>
 <body>
-<h1 id="svg_source">See SVG Source</h1>
-<h1 id="vector_source">See Vector Source</h1>
-<h1 id="java_source">See Java Source</h1>
+<a id="svg_source">See SVG Source</a><br>
+<a id="vector_source">See Vector Source</a><br>
+<a id="java_source">See Java Source</a>
 <img id="image" src="">
 
 </body>
@@ -29,16 +29,16 @@
     var profix = "https://raw.githubusercontent.com/MegatronKing/SVG-Android/master/docs/";
 
     var svg = document.getElementById("svg_source");
-    svg.onclick = function () {
-        window.location.href = profix + image;
-    }
+    svg.href = profix + image;
+
     var vector = document.getElementById("vector_source");
-    vector.onclick = function () {
-        window.location.href = profix + image.replace("svg", "vector");
-    }
+    vector.href = profix + replaceExtension(image.replace("svg", "vector"), "xml");
+
     var java = document.getElementById("java_source");
-    java.onclick = function () {
-        window.location.href = profix + image.replace("svg", "java");
+    java.href = profix + replaceExtension(image.replace("svg", "java"), "java");
+
+    function replaceExtension(s, extension) {
+        return s.split(".")[0] + "." + extension;
     }
 
 </script>
