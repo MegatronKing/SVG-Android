@@ -5,25 +5,50 @@
     <title>Vector Preview</title>
 </head>
 <body>
-<img id="image">
+<h1 id="svg_source">See SVG Source</h1>
+<h1 id="vector_source">See Vector Source</h1>
+<h1 id="java_source">See Java Source</h1>
+<img id="image" src="">
 
 </body>
 <script>
     var image = decodeURI(queryURLParam("image"));
     var img = document.querySelector("img");
     img.src = "" + image;
+    img.onclick = function () {
+        img.width = img.width * 1.5;
+        img.height = img.height * 1.5;
+    }
 
     function queryURLParam(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
         var r = window.location.search.substr(1).match(reg);
         return r != null ? r[2] : "";
     }
+
+    var profix = "https://raw.githubusercontent.com/MegatronKing/SVG-Android/master/docs/";
+
+    var svg = document.getElementById("svg_source");
+    svg.onclick = function () {
+        window.location.href = profix + image;
+    }
+    var vector = document.getElementById("vector_source");
+    vector.onclick = function () {
+        window.location.href = profix + image.replace("svg", "vector");
+    }
+    var java = document.getElementById("java_source");
+    java.onclick = function () {
+        window.location.href = profix + image.replace("svg", "java");
+    }
+
 </script>
 <style>
     img {
         position:absolute;
         left:50%;
         top:50%;
+        width: 256px;
+        height: 256px;
         transform:translate(-50% -50%);
     }
 </style>
