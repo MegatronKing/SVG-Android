@@ -12,7 +12,6 @@
     var iconMaps = new Object();
     icons.forEach(function (iconPath) {
         if (iconPath.trim().length != 0) {
-            iconPath.replace("https://github.com/MegatronKing/SVG-Android/raw/master/svg-iconlibs/", "");
             var splitArray = iconPath.split("/");
             var iconGroup = splitArray[0];
             var iconName = splitArray[2]
@@ -20,7 +19,7 @@
             iconData.group = iconGroup;
             iconData.name = iconName;
             iconData.path = iconPath;
-            if(!iconMaps[iconGroup]) {
+            if (!iconMaps[iconGroup]) {
                 iconMaps[iconGroup] = new Array();
             }
             iconMaps[iconGroup].push(iconData);
@@ -38,7 +37,7 @@
             var image = document.createElement("img");
             image.src = iconData.path;
             image.onclick = function () {
-                window.location.href = image.src;
+                window.location.href = "preview.html?image=" + iconData.name;
             };
             galleryDiv.appendChild(image);
         });
@@ -50,6 +49,7 @@
     h1 {
         background-color: gray;
     }
+
     img {
         width: 64px;
         height: 64px;

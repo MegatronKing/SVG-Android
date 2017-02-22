@@ -1,36 +1,77 @@
 task createGallery << {
 
+    // create file icon.js
     File outputFile = new File(rootDir, "docs/icons.js")
     def writer =  outputFile.newPrintWriter();
-
     writer.println("var icons = [")
-
     projectDir.listFiles().each { iconModuleDir ->
         iconModuleDir.listFiles(new FilenameFilter() {
             @Override
             boolean accept(File dir, String name) {
-                return "png".equals(name)
+                return "svg".equals(name)
             }
         }).each { svgDir ->
             svgDir.listFiles(new FilenameFilter() {
                 @Override
                 boolean accept(File dir, String name) {
-                    return name.endsWith(".png")
+                    return name.endsWith(".svg")
                 }
             }).each { svgFile ->
                 writer.print("\"")
-                writer.print("https://github.com/MegatronKing/SVG-Android/raw/master/svg-iconlibs/")
-                writer.print(svgFile.absolutePath.replace(projectDir.absolutePath, "").replaceAll("\\\\", "/").substring(1))
+                def path = relativePath(svgFile).replaceAll("\\\\", "/");
+                writer.print(path)
                 writer.print("\"")
                 writer.print(",")
                 writer.println()
             }
         }
     }
-
     writer.println("]")
-
     writer.flush()
     writer.close()
 
+
+    // delete files
+    new File(rootDir, "docs").listFiles().each { childDir->
+        childDir.deleteDir()
+    }
+
+    projectDir.listFiles().each { iconModuleDir ->
+        // copy svg files
+        iconModuleDir.listFiles(new FilenameFilter() {
+            @Override
+            boolean accept(File dir, String name) {
+                return "svg".equals(name)
+            }
+        }).each { svgDir ->
+            copy {
+                from svgDir
+                into new File(rootDir, "docs/${relativePath(svgDir)}")
+            }
+        }
+        // copy vector files
+        new File(iconModuleDir, "src/main/res_vector/drawable").listFiles(new FilenameFilter() {
+            @Override
+            boolean accept(File dir, String name) {
+                return name.endsWith("xml")
+            }
+        }).each { vectorFile ->
+            copy {
+                from vectorFile
+                into new File(rootDir, "docs/${iconModuleDir.name}/vector")
+            }
+        }
+        // copy java files
+        new File(iconModuleDir, "src/main/java/com/github/megatronking/svg/iconlibs").listFiles(new FilenameFilter() {
+            @Override
+            boolean accept(File dir, String name) {
+                return name.endsWith("java")
+            }
+        }).each { javaFile ->
+            copy {
+                from javaFile
+                into new File(rootDir, "docs/${iconModuleDir.name}/java")
+            }
+        }
+    }
 }
