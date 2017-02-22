@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vector Preview</title>
+</head>
+<body>
+<img id="image" src=""/>
+
+</body>
+<script>
+    var prefix = "https://github.com/MegatronKing/SVG-Android/raw/master/svg-iconlibs/";
+    var image = queryURLParam("image");
+    var img = document.querySelector("img");
+    img.src = prefix + queryURLParam("image");
+
+    function queryURLParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        return r != null ? r[2] : "";
+    }
+</script>
+<style>
+    img {
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50% -50%);
+    }
+</style>
+</html>
