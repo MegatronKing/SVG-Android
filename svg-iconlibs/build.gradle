@@ -1,6 +1,6 @@
-task queryIcons << {
+task createGallery << {
 
-    File outputFile = file("icons.js")
+    File outputFile = new File(rootDir, "docs/icons.js")
     def writer =  outputFile.newPrintWriter();
 
     writer.println("var icons = [")
@@ -9,18 +9,18 @@ task queryIcons << {
         iconModuleDir.listFiles(new FilenameFilter() {
             @Override
             boolean accept(File dir, String name) {
-                return "svg".equals(name)
+                return "png".equals(name)
             }
         }).each { svgDir ->
             svgDir.listFiles(new FilenameFilter() {
                 @Override
                 boolean accept(File dir, String name) {
-                    return name.endsWith(".svg")
+                    return name.endsWith(".png")
                 }
             }).each { svgFile ->
                 writer.print("\"")
-                def path = svgFile.absolutePath.replace(projectDir.absolutePath, "").replaceAll("\\\\", "/");
-                writer.print(path.substring(1))
+                writer.print("https://github.com/MegatronKing/SVG-Android/raw/master/svg-iconlibs/")
+                writer.print(svgFile.absolutePath.replace(projectDir.absolutePath, "").replaceAll("\\\\", "/").substring(1))
                 writer.print("\"")
                 writer.print(",")
                 writer.println()
