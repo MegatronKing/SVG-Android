@@ -15,7 +15,4 @@ https://github.com/google/material-design-icons
 
 # Icon preview
 
-![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/iconlibs01.png)
-![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/iconlibs02.png)
-![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/iconlibs03.png)
-![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/iconlibs04.png)
+https://megatronking.github.io/SVG-Android/

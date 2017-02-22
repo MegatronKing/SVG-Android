@@ -180,6 +180,9 @@ SVG-Android提供了一套material-design风格的图片库，是基于google谷
 可以直接使用的vector资源文件外，还有已经生成好的java图片类文件。如果你的项目缺少UI设计师，那么可以直接通过iconlibs找到大量常用的
 图片。
 
+点击查看：
+https://megatronking.github.io/SVG-Android/
+
 
 ## 文档
 - [常见问题](issues_guide.md)
