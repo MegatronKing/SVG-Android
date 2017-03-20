@@ -1,3 +1,17 @@
+/*
+ * Copyright (C) 2017, Megatron King
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package com.github.megatronking.svg.support;
 
 import android.content.res.ColorStateList;
@@ -288,6 +302,9 @@ public class SVGDrawable extends Drawable {
             return;
         }
 
+        final int saveCount = canvas.save();
+        canvas.translate(mTmpBounds.left, mTmpBounds.top);
+
         // Handle RTL mirroring.
         final boolean needMirroring = needMirroring();
         if (needMirroring) {
@@ -300,8 +317,6 @@ public class SVGDrawable extends Drawable {
         // we offset to (0, 0);
         mTmpBounds.offsetTo(0, 0);
 
-        final int saveCount = canvas.save();
-        canvas.translate(mTmpBounds.left, mTmpBounds.top);
         // Use the renderer to draw.
         mState.mRenderer.draw(canvas, scaledWidth, scaledHeight, colorFilter, mTmpBounds);
 
