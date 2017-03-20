@@ -94,6 +94,7 @@ svg {
 }
 
 ```
+这里注意svgDir指向的目录，为存放svg文件的目录，区分好是rootDir（项目根目录）还是projectDir（模块根目录，比如app目录下面），否则后面执行task无法生成文件。
 
 ### 步骤2：在build.gradle中引入svg-support依赖
 ```gradle
