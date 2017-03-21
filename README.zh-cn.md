@@ -40,7 +40,7 @@ https://github.com/MegatronKing/SVG-Android/raw/master/SVG-Sample.apk
 - 支持各种动画效果，包括帧动画和属性动画，甚至支持@animator/xxx方式引用动画。
 
 
-  \\              |  速度  |   内存  | 兼容性 | scaleType支持 | 清晰度 | 多色彩 | 降低包大小
+    \\            |  速度  |   内存  | 兼容性 | scaleType支持 | 清晰度 | 多色彩 | 降低包大小
   ----------------|--------|--------|--------|--------------|-------|--------|-----------
    SVG-Android    | √      | √      | √      | √            | √     | √      | √
    Vector         | ×      | √      | x      | √            | √     | √      | ×
