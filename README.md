@@ -39,7 +39,7 @@ SVG-Android is a support library for showing svg images in android 4.0+ .
 
 
   |\\            | speed  | memory | compatible | scaleType | expression | multi-colors | shrink |
-  |--------------|--------|--------|------------|-----------|------------|--------------|--------|
+  |:--------------:|:--------:|:--------:|:------------:|:-----------:|:------------:|:--------------:|:--------:|
   | SVG-Android  | √      | √      | √          | √         | √          | √            | √      |
   | Vector       | ×      | √      | x          | √         | √          | √            | ×      |
   | Png          | √      | ×      | √          | √         | ×          | √            | ×      |
