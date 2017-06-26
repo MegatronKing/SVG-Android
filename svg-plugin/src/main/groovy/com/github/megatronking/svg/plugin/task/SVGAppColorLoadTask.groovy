@@ -24,7 +24,7 @@ public class SVGAppColorLoadTask extends SVGBaseTask {
         super.run();
         if (configuration != null && configuration.appColors != null && !configuration.appColors.isEmpty()) {
             configuration.appColors.keySet().each  { key ->
-                Color.appColorMaps.put(key, configuration.appColors[key])
+                Color.appColorMaps.put(key, (int)(configuration.appColors[key]))
             }
         }
     }
