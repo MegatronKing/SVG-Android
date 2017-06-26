@@ -22,7 +22,7 @@ public class SVGAppColorLoadTask extends SVGBaseTask {
     @TaskAction
     public void run() {
         super.run();
-        if (configuration != null && configuration.appColors != null && !onfiguration.appColors.isEmpty()) {
+        if (configuration != null && configuration.appColors != null && !configuration.appColors.isEmpty()) {
             configuration.appColors.keySet().each  { key ->
                 Color.appColorMaps.put(key, configuration.appColors[key])
             }
