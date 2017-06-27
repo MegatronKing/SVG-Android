@@ -104,3 +104,6 @@ svg2vector：
 
 ### V1.3.7
 - 修复较大矢量图生成的render类方法超出编译器限制的bug
+
+### V1.3.8
+- 修复使用appColors属性编译错误的bug
