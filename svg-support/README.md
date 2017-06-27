@@ -29,3 +29,6 @@ SVG渲染支持库和组件库，提供对SVG功能的支持，包括tint、alph
 - 新增支持autoMirror属性
 - 删除不必要的依赖配置，主要是support-v4包
 - 升级targetSdkVersion到24
+
+### V1.3.2
+- 修复SVGDrawable关于canvas的一个bug
