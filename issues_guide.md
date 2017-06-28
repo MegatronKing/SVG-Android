@@ -36,3 +36,13 @@ sourceSets {
 本框架只支持部分svg规范，具体支持详见：https://github.com/MegatronKing/SVG-Android/blob/master/support_doc.md <br>
 由于Vector资源文件的限制，像Text、image等标签都不支持，同样的，还有一些属性，比如direction、font-size等也不支持。<br>
 当然，如果对支持的规范不确定，可以在下面的issues中录入，我会及时查看：https://github.com/MegatronKing/SVG-Android/issues/6
+
+### Q6：在vector文件中使用@color/xxx报错：references to other resources are not supported by build-time PNG generation
+在build.gradle中加上以下vector兼容
+```
+android {  
+   defaultConfig {  
+     vectorDrawables.useSupportLibrary = true  
+  }  
+} 
+```
