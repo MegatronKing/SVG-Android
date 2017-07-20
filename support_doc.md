@@ -1,6 +1,6 @@
 SVG-Android supports part of the elements and attributes in the follow.
 
-#SVG Elements
+# SVG Elements
 
 ## g
 ```
@@ -166,7 +166,7 @@ SVG-Android supports part of the elements and attributes in the follow.
 ```
 
 
-#SVG Attributes
+# SVG Attributes
 
 - width
 - height
