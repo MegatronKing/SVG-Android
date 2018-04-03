@@ -57,14 +57,10 @@ public class SvgAttributeParser extends SvgNodeAbstractAttributeParser<Svg> {
         } else {
             svg.viewBox = new float[4];
         }
-        if (svg.w != 0) {
-            svg.viewBox[2] = svg.w;
-        } else {
+        if (svg.w == 0) {
             svg.w = svg.viewBox[2];
         }
-        if (svg.h != 0) {
-            svg.viewBox[3] = svg.h;
-        } else {
+        if (svg.h == 0) {
             svg.h = svg.viewBox[3];
         }
     }
