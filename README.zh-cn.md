@@ -1,7 +1,7 @@
 
 ## 简介
 
-[![Jcenter Status](https://img.shields.io/badge/download-1.3.8-brightgreen.svg)](http://jcenter.bintray.com/com/github/megatronking)
+[![Jcenter Status](https://img.shields.io/badge/download-1.3.9-brightgreen.svg)](http://jcenter.bintray.com/com/github/megatronking)
 [![license](http://img.shields.io/badge/license-apache_2.0-red.svg?style=flat)](https://github.com/MegatronKing/SVG-Android/raw/master/LICENSE)
 
 *switch language: [English](README.md)*
@@ -64,7 +64,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.github.megatronking:svg-plugin:1.3.8'
+        classpath 'com.github.megatronking:svg-plugin:1.3.9'
     }
 }
 
