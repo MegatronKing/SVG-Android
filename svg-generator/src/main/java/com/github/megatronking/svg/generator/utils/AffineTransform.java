@@ -43,9 +43,6 @@ package com.github.megatronking.svg.generator.utils;
  *      [ y'] = [  m10  m11  m12  ] [ y ] = [ m10x + m11y + m12 ]
  *      [ 1 ]   [   0    0    1   ] [ 1 ]   [         1         ]
  * </pre>
- * <p>
- * <a name="quadrantapproximation"><h4>Handling 90-Degree Rotations</h4></a>
- * <p>
  * In some variations of the <code>rotate</code> methods in the
  * <code>AffineTransform</code> class, a double-precision argument
  * specifies the angle of rotation in radians.
@@ -886,7 +883,7 @@ public class AffineTransform implements Cloneable, java.io.Serializable {
     /**
      * Transforms the specified <code>ptSrc</code> and stores the result
      * in <code>ptDst</code>.
-     * If <code>ptDst</code> is <code>null</code>, a new {@link Point2D}
+     * If <code>ptDst</code> is <code>null</code>, a new {@link Point}
      * object is allocated and then the result of the transformation is
      * stored in this object.
      * In either case, <code>ptDst</code>, which contains the
