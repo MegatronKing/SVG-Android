@@ -222,7 +222,7 @@ public class Matrix {
 
     /**
      * Copy 9 values from the array into the matrix.
-     * Depending on the implementation of Matrix, these may be
+     * Depending on the compile of Matrix, these may be
      * transformed into 16.16 integers in the Matrix, such that
      * a subsequent call to getValues() will not yield exactly
      * the same values.
