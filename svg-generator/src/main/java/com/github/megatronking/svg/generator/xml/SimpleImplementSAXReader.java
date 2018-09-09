@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * This a implementation of {@link ObjectXmlSAXReader}, the sub class just need to implement one method.
+ * This a compile of {@link ObjectXmlSAXReader}, the sub class just need to implement one method.
  *
  * @author Megatron King
  * @since 2016/11/22 17:29

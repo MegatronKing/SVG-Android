@@ -67,10 +67,10 @@ package com.github.megatronking.svg.generator.utils;
  * Double precision floating point values can get very close to
  * non-zero multiples of <code>PI/2</code> but never close enough
  * for the sine or cosine to be exactly 0.0, 1.0 or -1.0.
- * The implementations of <code>Math.sin()</code> and
+ * The compiles of <code>Math.sin()</code> and
  * <code>Math.cos()</code> correspondingly never return 0.0
  * for any case other than <code>Math.sin(0.0)</code>.
- * These same implementations do, however, return exactly 1.0 and
+ * These same compiles do, however, return exactly 1.0 and
  * -1.0 for some range of numbers around each multiple of 90
  * degrees since the correct answer is so close to 1.0 or -1.0 that
  * the double precision significand cannot represent the difference
@@ -87,7 +87,7 @@ package com.github.megatronking.svg.generator.utils;
  * If these transforms are not classified as quadrant rotations then
  * subsequent code which attempts to optimize further operations based
  * upon the type of the transform will be relegated to its most general
- * implementation.
+ * compile.
  * <p>
  * Because quadrant rotations are fairly common,
  * this class should handle these cases reasonably quickly, both in

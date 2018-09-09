@@ -6,6 +6,7 @@
         <attr name="svgWidth" format="dimension"/>
         <attr name="svgHeight" format="dimension"/>
         <attr name="svgRotation" format="float"/>
+        <attr name="svgScale" format="dimension"/>
     </declare-styleable>
     <declare-styleable name="SVGCompoundView">
         <attr name="leftSvgColor" format="color"/>

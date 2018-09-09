@@ -100,7 +100,7 @@ svg {
 ```gradle
 
 dependencies {
-    compile 'com.github.megatronking:svg-support:1.3.2'
+    implementation 'com.github.megatronking:svg-support:1.3.2'
 }
 
 ```

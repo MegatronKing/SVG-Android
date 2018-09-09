@@ -2,9 +2,9 @@ apply plugin: 'java'
 //apply plugin: 'maven'
 
 dependencies {
-    compile project(':svg-generator')
-    compile 'commons-cli:commons-cli:1.2'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':svg-generator')
+    implementation 'commons-cli:commons-cli:1.2'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 group=GROUP

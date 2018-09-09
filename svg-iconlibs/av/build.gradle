@@ -2,12 +2,11 @@ apply plugin: 'com.android.library'
 apply from: '../iconlibs.gradle'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    compileSdkVersion 27
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 15
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
@@ -30,6 +29,6 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':svg-support')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':svg-support')
 }

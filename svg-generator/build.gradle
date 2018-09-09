@@ -4,7 +4,7 @@ apply plugin: 'java'
 dependencies {
     compile 'dom4j:dom4j:1.6.1'
     compile 'jaxen:jaxen:1.1.6'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 group=GROUP
