@@ -192,6 +192,3 @@ https://megatronking.github.io/SVG-Android/
 - [接入步骤](http://blog.csdn.net/megatronkings/article/details/52826456)
 - [图片处理](http://blog.csdn.net/megatronkings/article/details/52878466)
 - [动画使用](http://blog.csdn.net/megatronkings/article/details/53286958)
-
-## 交流
-![](https://github.com/MegatronKing/SVG-Android/blob/master/screenshots/chat.jpg)
