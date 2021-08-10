@@ -10,7 +10,7 @@ support svg images for android 4.0+ <br>
 The library provides a generator to convert vector or svg images to java classes.
 We can use those java classes to render images directly when drawn, it would be 
 much faster than vectors, and it avoids compatibility issues. On the other hand,
-the support library has some powerful functions such as tinting, ajusting size, 
+the support library has some powerful functions such as tinting, adjusting size, 
 changing alpha both in java codes or xml files.
 
 ### Blog：http://blog.csdn.net/megatronkings
